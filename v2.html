@@ -6,37 +6,39 @@
 <title>Ментальная устойчивость — для тех, кто на передовой</title>
 <meta name="description" content="Ментальная устойчивость — психологическая гигиена для AI-энтузиастов и предпринимателей. Екатерина Чернецова.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-primary: #f5f0e8;
-  --bg-secondary: #ece5d8;
-  --bg-card: #faf7f2;
-  --bg-card-hover: #ffffff;
-  --accent: #c45d3e;
-  --accent-glow: #c45d3e20;
-  --accent-soft: #c45d3e12;
-  --text-primary: #2a2520;
-  --text-secondary: #6b6158;
-  --text-muted: #9e9488;
-  --danger: #b83a2a;
-  --danger-soft: #b83a2a10;
-  --success: #3a7d44;
-  --success-soft: #3a7d4412;
-  --purple: #7c5cbf;
-  --purple-soft: #7c5cbf10;
-  --blue: #3b6fb5;
-  --blue-soft: #3b6fb510;
-  --border: #2a252010;
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161f;
+  --bg-card-hover: #1c1c28;
+  --accent: #f59e0b;
+  --accent-glow: #f59e0b40;
+  --accent-soft: #fbbf2440;
+  --text-primary: #f0ede6;
+  --text-secondary: #9a978f;
+  --text-muted: #5a584f;
+  --danger: #ef4444;
+  --danger-soft: #ef444430;
+  --success: #22c55e;
+  --success-soft: #22c55e30;
+  --purple: #a78bfa;
+  --purple-soft: #a78bfa25;
+  --blue: #60a5fa;
+  --blue-soft: #60a5fa20;
+  --fire-1: #f59e0b;
+  --fire-2: #f97316;
+  --fire-3: #ef4444;
+  --border: #ffffff0a;
   --radius: 16px;
   --radius-sm: 10px;
-  --font-display: 'Newsreader', Georgia, serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Onest', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -47,57 +49,62 @@ body {
   line-height: 1.7;
 }
 
-/* noise removed for clean warm aesthetic */
-
-/* ========= SCROLLBAR ========= */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-secondary); }
-::-webkit-scrollbar-thumb { background: #c4b8a8; border-radius: 3px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-/* ========= UTILITY ========= */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.section { padding: 100px 0; position: relative; }
+.section { padding: 120px 0; position: relative; }
 .text-accent { color: var(--accent); }
 .text-muted { color: var(--text-secondary); }
 .text-danger { color: var(--danger); }
 
 /* ========= ANIMATIONS ========= */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
-  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px var(--accent-glow); }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes blink-cursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px var(--accent-glow); } 50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px var(--accent-glow); } }
+@keyframes slide-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blink-cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes glitch { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
+@keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  5% { opacity: 0.8; }
+  10% { opacity: 1; }
+  15% { opacity: 0.6; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  85% { opacity: 0.7; }
+  90% { opacity: 1; }
+}
+
+@keyframes ember-rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120px) translateX(20px) scale(0); opacity: 0; }
+}
+
+@keyframes ember-rise-2 {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-100px) translateX(-15px) scale(0); opacity: 0; }
+}
+
+@keyframes code-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes fire-dance {
+  0%, 100% { d: path("M 20 80 Q 25 40, 30 20 Q 35 0, 40 20 Q 45 40, 50 80"); }
+  25% { d: path("M 20 80 Q 28 35, 32 15 Q 36 -5, 42 15 Q 48 35, 50 80"); }
+  50% { d: path("M 20 80 Q 22 45, 28 25 Q 34 5, 38 25 Q 44 45, 50 80"); }
+  75% { d: path("M 20 80 Q 26 38, 34 18 Q 38 -2, 44 18 Q 46 38, 50 80"); }
+}
+
+@keyframes screen-glow {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.15)); }
+  50% { filter: drop-shadow(0 0 40px rgba(34, 197, 94, 0.25)); }
+}
 
 .anim-reveal {
   opacity: 0;
@@ -109,102 +116,38 @@ body {
   transform: translateY(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .anim-reveal { opacity: 1; transform: none; }
+}
+
 /* ========= NAV ========= */
 nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   padding: 16px 0;
   backdrop-filter: blur(20px);
-  background: #f5f0e8e6;
+  background: #0a0a0f99;
   border-bottom: 1px solid var(--border);
   transition: all 0.3s ease;
 }
-
-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  text-decoration: none;
-}
-
+nav .container { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em; color: var(--text-primary); text-decoration: none; }
 .nav-logo span { color: var(--accent); }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.2s;
-  position: relative;
-}
-
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; position: relative; }
 .nav-links a:hover { color: var(--text-primary); }
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s;
-}
-
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
 .nav-links a:hover::after { width: 100%; }
+.lang-switch { display: flex; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+.lang-btn { padding: 6px 14px; font-size: 0.8rem; font-family: var(--font-mono); font-weight: 600; background: transparent; border: none; color: var(--text-muted); cursor: pointer; transition: all 0.2s; }
+.lang-btn.active { background: var(--accent); color: var(--bg-primary); }
+.mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
 
-.lang-switch {
-  display: flex;
-  background: var(--bg-card);
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.lang-btn {
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.lang-btn.active {
-  background: var(--accent);
-  color: #fff;
-}
-
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* ========= HERO ========= */
+/* ========= HERO — TWO COLUMN WITH ILLUSTRATION ========= */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -213,932 +156,341 @@ nav .container {
   overflow: hidden;
   padding-top: 80px;
 }
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+  opacity: 0.5;
+}
+.hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px); opacity: 0.15; pointer-events: none; }
+.hero-glow-1 { background: var(--accent); top: -200px; right: -100px; }
+.hero-glow-2 { background: var(--danger); bottom: -200px; left: -100px; opacity: 0.08; }
+.hero .container { position: relative; z-index: 2; }
+.hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-content { max-width: 600px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--danger-soft); border: 1px solid var(--danger); border-radius: 100px;
+  padding: 8px 20px; font-size: 0.85rem; font-weight: 600; color: var(--danger);
+  margin-bottom: 32px; animation: slide-up 0.6s ease-out;
+}
+.hero-badge .dot { width: 8px; height: 8px; background: var(--danger); border-radius: 50%; animation: pulse-glow 1.5s infinite; }
+.hero-pre { font-family: var(--font-mono); font-size: 1rem; color: var(--accent); margin-bottom: 16px; animation: slide-up 0.7s ease-out; }
+.hero-pre .cursor { animation: blink-cursor 1s infinite; }
+h1.hero-title { font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; animation: slide-up 0.8s ease-out; }
+h1.hero-title .line-accent { background: linear-gradient(135deg, var(--accent), #fcd34d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+h1.hero-title .line-glitch { display: inline-block; position: relative; }
+h1.hero-title .line-glitch:hover { animation: glitch 0.3s; }
+.hero-subtitle { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--text-secondary); max-width: 540px; line-height: 1.8; margin-bottom: 40px; animation: slide-up 0.9s ease-out; }
+.hero-cta-row { display: flex; gap: 16px; flex-wrap: wrap; animation: slide-up 1s ease-out; }
 
-.hero-bg-grid { display: none; }
+/* Hero illustration */
+.hero-illustration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slide-up 1.2s ease-out;
+}
 
-.hero-glow {
+.terminal-svg {
+  width: 100%;
+  max-width: 480px;
+  animation: screen-glow 4s ease-in-out infinite;
+}
+
+.terminal-svg .code-lines {
+  animation: code-scroll 12s linear infinite;
+}
+
+/* Ember particles */
+.ember-container {
   position: absolute;
-  width: 600px; height: 600px;
-  border-radius: 50%;
-  filter: blur(150px);
-  opacity: 0.3;
+  bottom: 60%;
+  left: 50%;
+  width: 200px;
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
-.hero-glow-1 {
-  background: #e8d5c4;
-  top: -200px; right: -100px;
-}
-
-.hero-glow-2 {
-  background: #d4b8a0;
-  bottom: -200px; left: -100px;
-  opacity: 0.2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-content {
-  max-width: 900px;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--accent-soft);
-  border: 1px solid #c45d3e30;
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-bottom: 32px;
-  animation: slide-up 0.6s ease-out;
-}
-
-.hero-badge .dot {
-  width: 8px; height: 8px;
-  background: var(--accent);
+.ember {
+  position: absolute;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
+  background: var(--fire-1);
 }
 
-.hero-pre {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--accent);
-  margin-bottom: 16px;
-  animation: slide-up 0.7s ease-out;
-}
+.ember:nth-child(1) { left: 20%; animation: ember-rise 2.5s ease-out infinite; animation-delay: 0s; background: var(--fire-1); }
+.ember:nth-child(2) { left: 40%; animation: ember-rise-2 3s ease-out infinite; animation-delay: 0.5s; background: var(--fire-2); width: 3px; height: 3px; }
+.ember:nth-child(3) { left: 60%; animation: ember-rise 2.8s ease-out infinite; animation-delay: 1s; background: var(--fire-3); width: 5px; height: 5px; }
+.ember:nth-child(4) { left: 80%; animation: ember-rise-2 2.2s ease-out infinite; animation-delay: 1.5s; background: var(--fire-1); width: 3px; height: 3px; }
+.ember:nth-child(5) { left: 30%; animation: ember-rise 3.2s ease-out infinite; animation-delay: 0.8s; background: var(--fire-2); }
+.ember:nth-child(6) { left: 70%; animation: ember-rise-2 2.6s ease-out infinite; animation-delay: 1.2s; background: var(--fire-3); width: 3px; height: 3px; }
 
-.hero-pre .cursor {
-  animation: blink-cursor 1s infinite;
-}
-
-h1.hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.2rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-  margin-bottom: 32px;
-  animation: slide-up 0.8s ease-out;
-}
-
-h1.hero-title .line-accent {
-  background: linear-gradient(135deg, var(--accent), #d4826a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-h1.hero-title .line-glitch {
-  display: inline-block;
-  position: relative;
-}
-
-h1.hero-title .line-glitch:hover {
-  animation: glitch 0.3s;
-}
-
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  color: var(--text-secondary);
-  max-width: 680px;
-  line-height: 1.8;
-  margin-bottom: 48px;
-  animation: slide-up 0.9s ease-out;
-}
-
-.hero-cta-row {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  animation: slide-up 1s ease-out;
-}
-
+/* ========= BUTTONS ========= */
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 18px 36px;
-  border-radius: 14px;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent); color: var(--bg-primary);
+  font-family: var(--font-body); font-weight: 700; font-size: 1rem;
+  padding: 18px 36px; border-radius: 14px; text-decoration: none;
+  border: none; cursor: pointer; transition: all 0.3s;
+  position: relative; overflow: hidden;
 }
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px #c45d3e25;
-}
-
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--bg-card);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 18px 36px;
-  border-radius: 14px;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  cursor: pointer;
-  transition: all 0.3s;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--bg-card); color: var(--text-primary);
+  font-family: var(--font-body); font-weight: 600; font-size: 1rem;
+  padding: 18px 36px; border-radius: 14px; text-decoration: none;
+  border: 1px solid var(--border); cursor: pointer; transition: all 0.3s;
 }
+.btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-muted); transform: translateY(-2px); }
 
-.btn-secondary:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--text-muted);
-  transform: translateY(-2px);
-}
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--border); animation: slide-up 1.1s ease-out; }
+.hero-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+.hero-stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-.hero-stats {
-  display: flex;
-  gap: 48px;
-  margin-top: 64px;
-  padding-top: 48px;
-  border-top: 1px solid var(--border);
-  animation: slide-up 1.1s ease-out;
-}
-
-.hero-stat-num {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.hero-stat-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-/* ========= CRISIS COUNTER / ALERT ========= */
-.crisis-bar {
+/* ========= SECTION DIVIDER — CODE FUSE ========= */
+.code-fuse {
+  padding: 24px 0;
+  overflow: hidden;
+  position: relative;
   background: var(--bg-secondary);
-  padding: 20px 0;
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--text-secondary);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
+.code-fuse-track {
+  display: flex;
+  gap: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  animation: scroll-fuse 30s linear infinite;
+}
+
+@keyframes scroll-fuse {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.code-fuse-track .burning {
+  color: var(--fire-2);
+  text-shadow: 0 0 8px var(--fire-2);
+  animation: flicker 3s ease-in-out infinite;
+}
+
+/* ========= CRISIS BAR ========= */
+.crisis-bar {
+  background: linear-gradient(90deg, var(--danger-soft), var(--bg-secondary), var(--danger-soft));
+  background-size: 200% 100%;
+  animation: gradient-shift 8s linear infinite;
+  padding: 16px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--danger);
+  border-top: 1px solid #ef444420;
+  border-bottom: 1px solid #ef444420;
+}
 .crisis-bar span { color: var(--text-secondary); }
 
-/* ========= PROBLEM SECTION ========= */
-.problem-section {
-  background: var(--bg-secondary);
-}
+/* ========= SECTION STYLES ========= */
+.problem-section { background: var(--bg-secondary); }
+.section-label { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 20px; line-height: 1.2; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin-bottom: 64px; line-height: 1.8; }
 
-.section-label {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  margin-bottom: 24px;
-  line-height: 1.25;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin-bottom: 64px;
-  line-height: 1.8;
-}
-
-.symptom-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 20px;
-}
-
+/* ========= SYMPTOM CARDS ========= */
+.symptom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
 .symptom-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 32px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); position: relative; overflow: hidden;
 }
-
-.symptom-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
-  background: var(--bg-card-hover);
-}
-
-.symptom-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
+.symptom-card:hover { border-color: var(--accent); transform: translateY(-4px); background: var(--bg-card-hover); }
+.symptom-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity 0.3s; }
 .symptom-card:hover::before { opacity: 1; }
-
-.symptom-icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.symptom-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.symptom-desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
-
-.symptom-tag {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
+.symptom-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.symptom-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+.symptom-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+.symptom-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; border-radius: 6px; font-size: 0.75rem; font-family: var(--font-mono); font-weight: 600; }
 .tag-red { background: var(--danger-soft); color: var(--danger); }
 .tag-yellow { background: var(--accent-soft); color: var(--accent); }
 .tag-purple { background: var(--purple-soft); color: var(--purple); }
 
-/* ========= SCIENCE SECTION ========= */
-.science-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.science-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px 32px;
+/* ========= ILLUSTRATION DIVIDERS ========= */
+.illust-divider {
+  padding: 80px 0;
   text-align: center;
-  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
 
-.science-card:hover {
-  border-color: var(--purple);
-  background: var(--bg-card-hover);
+.illust-divider svg {
+  max-width: 600px;
+  width: 80%;
+  margin: 0 auto;
+  display: block;
 }
 
-.science-num {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 8px;
+.illust-divider .illust-caption {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 24px;
+  letter-spacing: 0.1em;
 }
 
+/* ========= SCIENCE ========= */
+.science-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.science-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px 32px; text-align: center; transition: all 0.3s; }
+.science-card:hover { border-color: var(--purple); background: var(--bg-card-hover); }
+.science-num { font-family: var(--font-display); font-size: 3rem; font-weight: 900; margin-bottom: 8px; }
 .science-card:nth-child(1) .science-num { color: var(--danger); }
 .science-card:nth-child(2) .science-num { color: var(--accent); }
 .science-card:nth-child(3) .science-num { color: var(--purple); }
 .science-card:nth-child(4) .science-num { color: var(--blue); }
+.science-label { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
 
-.science-label {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
+/* ========= METAPHOR ========= */
+.metaphor-section { background: var(--bg-secondary); text-align: center; }
+.metaphor-quote { font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2.4rem); font-weight: 600; max-width: 900px; margin: 0 auto 24px; line-height: 1.4; letter-spacing: -0.02em; }
+.metaphor-author { color: var(--text-muted); font-size: 0.95rem; }
 
-/* ========= ABOUT SECTION ========= */
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.about-photo-area {
-  position: relative;
-}
-
-.about-photo-placeholder {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background: linear-gradient(145deg, var(--bg-card), var(--bg-card-hover));
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.about-photo-placeholder .photo-icon {
-  font-size: 4rem;
-  opacity: 0.3;
-}
-
-.about-credentials {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  background: var(--bg-card);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-}
-
-.about-text h3 {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-
-.about-text p {
-  color: var(--text-secondary);
-  margin-bottom: 20px;
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-.about-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 32px;
-}
-
-.about-tag {
-  padding: 8px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
+/* ========= ABOUT ========= */
+.about-layout { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+.about-photo-area { position: relative; }
+.about-credentials { position: absolute; bottom: -20px; right: -20px; background: var(--bg-card); border: 1px solid var(--accent); border-radius: var(--radius-sm); padding: 16px 20px; font-family: var(--font-mono); font-size: 0.8rem; }
+.about-text h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; }
+.about-text p { color: var(--text-secondary); margin-bottom: 20px; font-size: 1.05rem; line-height: 1.8; }
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+.about-tag { padding: 8px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-size: 0.85rem; color: var(--text-secondary); font-weight: 500; }
 
 /* ========= APPROACH ========= */
-.approach-comparison {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 32px;
-  align-items: stretch;
-}
-
-.approach-col {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px;
-}
-
+.approach-comparison { display: grid; grid-template-columns: 1fr auto 1fr; gap: 32px; align-items: stretch; }
+.approach-col { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; }
 .approach-col.bad { border-color: #ef444440; }
 .approach-col.good { border-color: #22c55e40; }
-
-.approach-col h3 {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.approach-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.approach-list li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.approach-list li .icon {
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.approach-vs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--text-muted);
-}
+.approach-col h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+.approach-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.approach-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+.approach-list li .icon { flex-shrink: 0; margin-top: 2px; }
+.approach-vs { display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text-muted); }
 
 /* ========= PRODUCTS ========= */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
-}
-
-.product-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-}
-
-.product-card.featured {
-  border-color: var(--accent);
-  background: linear-gradient(170deg, var(--bg-card), #f0e8dc);
-}
-
-.product-badge {
-  position: absolute;
-  top: 20px; right: 20px;
-  background: var(--accent);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 100px;
-  text-transform: uppercase;
-}
-
-.product-icon {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.product-name {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.product-desc {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 24px;
-}
-
-.product-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 28px;
-}
-
-.product-features li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
-
-.product-features li::before {
-  content: '✦';
-  color: var(--accent);
-  font-size: 0.7rem;
-}
-
-.product-price {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 20px;
-}
+.products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+.product-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; position: relative; overflow: hidden; transition: all 0.4s; }
+.product-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+.product-card.featured { border-color: var(--accent); background: linear-gradient(170deg, var(--bg-card), #1a1810); }
+.product-badge { position: absolute; top: 20px; right: 20px; background: var(--accent); color: var(--bg-primary); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; }
+.product-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.product-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
+.product-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; margin-bottom: 24px; }
+.product-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+.product-features li { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--text-secondary); }
+.product-features li::before { content: '\2726'; color: var(--accent); font-size: 0.7rem; }
+.product-price { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 20px; }
 
 /* ========= TRACKER TEASER ========= */
-.tracker-section {
-  background: linear-gradient(170deg, var(--bg-secondary), var(--bg-card));
-  position: relative;
-  overflow: hidden;
-}
-
-.tracker-section::before {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle at 30% 40%, var(--purple-soft) 0%, transparent 40%),
-              radial-gradient(circle at 70% 60%, var(--blue-soft) 0%, transparent 40%);
-  pointer-events: none;
-}
-
-.tracker-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-}
-
-.tracker-mockup {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  position: relative;
-}
-
-.tracker-mockup-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.mock-dot {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-}
-
+.tracker-section { background: linear-gradient(170deg, var(--bg-secondary), var(--bg-primary)); position: relative; overflow: hidden; }
+.tracker-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 40%, var(--purple-soft) 0%, transparent 40%), radial-gradient(circle at 70% 60%, var(--blue-soft) 0%, transparent 40%); pointer-events: none; }
+.tracker-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+.tracker-mockup { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; position: relative; }
+.tracker-mockup-header { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
+.mock-dot { width: 10px; height: 10px; border-radius: 50%; }
 .mock-dot.red { background: #ef4444; }
 .mock-dot.yellow { background: #f59e0b; }
 .mock-dot.green { background: #22c55e; }
-
-.tracker-bar-group {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.tracker-bar-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8rem;
-  margin-bottom: 4px;
-}
-
+.tracker-bar-group { display: flex; flex-direction: column; gap: 16px; }
+.tracker-bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 4px; }
 .tracker-bar-label span:first-child { color: var(--text-secondary); }
-.tracker-bar-label span:last-child {
-  font-family: var(--font-mono);
-  font-weight: 600;
-}
-
+.tracker-bar-label span:last-child { font-family: var(--font-mono); font-weight: 600; }
 .tracker-bar-label .val-danger { color: var(--danger); }
 .tracker-bar-label .val-warn { color: var(--accent); }
 .tracker-bar-label .val-ok { color: var(--success); }
-
-.tracker-bar-track {
-  height: 8px;
-  background: var(--bg-secondary);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.tracker-bar-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
+.tracker-bar-track { height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; }
+.tracker-bar-fill { height: 100%; border-radius: 4px; transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); }
 .fill-danger { background: linear-gradient(90deg, var(--danger), #f87171); }
 .fill-warn { background: linear-gradient(90deg, var(--accent), #fcd34d); }
 .fill-ok { background: linear-gradient(90deg, var(--success), #4ade80); }
-
-.tracker-alert {
-  margin-top: 24px;
-  background: var(--danger-soft);
-  border: 1px solid #ef444440;
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.85rem;
-  color: var(--danger);
-  font-weight: 600;
-}
-
-.dev-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--purple-soft);
-  border: 1px solid var(--purple);
-  border-radius: 100px;
-  padding: 6px 16px;
-  font-size: 0.8rem;
-  font-family: var(--font-mono);
-  color: var(--purple);
-  margin-bottom: 20px;
-}
-
-/* ========= METAPHOR SECTION ========= */
-.metaphor-section {
-  background: var(--bg-secondary);
-  text-align: center;
-  padding: 80px 0;
-}
-
-.metaphor-quote {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-  font-weight: 600;
-  max-width: 900px;
-  margin: 0 auto 24px;
-  line-height: 1.4;
-  letter-spacing: -0.02em;
-}
-
-.metaphor-author {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
+.tracker-alert { margin-top: 24px; background: var(--danger-soft); border: 1px solid #ef444440; border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--danger); font-weight: 600; }
+.dev-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--purple-soft); border: 1px solid var(--purple); border-radius: 100px; padding: 6px 16px; font-size: 0.8rem; font-family: var(--font-mono); color: var(--purple); margin-bottom: 20px; }
 
 /* ========= WEBINAR ========= */
-.webinar-section {
-  background: linear-gradient(170deg, var(--bg-secondary), #e8dfd0);
-}
-
-.webinar-box {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  border-radius: 24px;
-  padding: 64px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.webinar-box::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 60%);
-  pointer-events: none;
-}
-
+.webinar-section { background: linear-gradient(170deg, #0f0f17, #14100a); }
+.webinar-box { background: var(--bg-card); border: 2px solid var(--accent); border-radius: 24px; padding: 64px; text-align: center; position: relative; overflow: hidden; }
+.webinar-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, var(--accent-soft) 0%, transparent 60%); pointer-events: none; }
 .webinar-box > * { position: relative; z-index: 2; }
-
-.webinar-topics {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin: 40px 0;
-  text-align: left;
-}
-
-.webinar-topic {
-  background: var(--bg-primary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 20px;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.webinar-topic strong {
-  display: block;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-  font-size: 0.95rem;
-}
+.webinar-topics { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 40px 0; text-align: left; }
+.webinar-topic { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+.webinar-topic strong { display: block; color: var(--text-primary); margin-bottom: 6px; font-size: 0.95rem; }
 
 /* ========= FAQ ========= */
-.faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.faq-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  transition: border-color 0.3s;
-}
-
+.faq-list { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; transition: border-color 0.3s; }
 .faq-item.open { border-color: var(--accent); }
-
-.faq-question {
-  padding: 24px 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.2s;
-  user-select: none;
-}
-
+.faq-question { padding: 24px 28px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 1rem; transition: color 0.2s; user-select: none; }
 .faq-question:hover { color: var(--accent); }
-
-.faq-arrow {
-  transition: transform 0.3s;
-  font-size: 1.2rem;
-  color: var(--text-muted);
-}
-
+.faq-arrow { transition: transform 0.3s; font-size: 1.2rem; color: var(--text-muted); }
 .faq-item.open .faq-arrow { transform: rotate(180deg); color: var(--accent); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+.faq-answer-inner { padding: 0 28px 24px; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out;
-}
-
-.faq-answer-inner {
-  padding: 0 28px 24px;
+/* ========= CTA — CAMPFIRE ========= */
+.cta-section { text-align: center; background: var(--bg-primary); }
+.cta-campfire { margin: 48px auto; max-width: 300px; }
+.cta-campfire svg { width: 100%; }
+.cta-human-text {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 1.15rem;
   color: var(--text-secondary);
-  font-size: 0.95rem;
   line-height: 1.8;
-}
-
-/* ========= CTA FINAL ========= */
-.cta-section {
-  text-align: center;
-  background: var(--bg-primary);
-}
-
-.cta-terminal {
-  display: inline-block;
+  padding: 32px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 48px 64px;
-  text-align: left;
-  max-width: 600px;
-  width: 100%;
+  border-left: 3px solid var(--accent);
 }
-
-.cta-terminal-header {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.cta-terminal-line {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-  color: var(--text-secondary);
-}
-
-.cta-terminal-line .prompt { color: var(--accent); }
-.cta-terminal-line .cmd { color: var(--text-primary); }
-.cta-terminal-line .output { color: var(--success); }
-.cta-terminal-line .error { color: var(--danger); }
 
 /* ========= FOOTER ========= */
-footer {
-  padding: 48px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-footer a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
+footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+footer a { color: var(--text-secondary); text-decoration: none; }
 footer a:hover { color: var(--accent); }
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
+.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
 
 /* ========= MOBILE ========= */
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .mobile-menu-btn { display: block; }
-
-  .hero-stats {
-    flex-wrap: wrap;
-    gap: 24px;
-  }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .about-photo-area {
-    max-width: 300px;
-  }
-
-  .approach-comparison {
-    grid-template-columns: 1fr;
-  }
-
-  .approach-vs {
-    padding: 16px 0;
-  }
-
-  .tracker-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .webinar-box {
-    padding: 32px 20px;
-  }
-
-  .cta-terminal {
-    padding: 32px 24px;
-  }
-
-  .symptom-grid {
-    grid-template-columns: 1fr;
-  }
+  .hero-layout { grid-template-columns: 1fr; gap: 40px; }
+  .hero-illustration { order: -1; }
+  .terminal-svg { max-width: 320px; }
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  .about-photo-area { max-width: 300px; }
+  .approach-comparison { grid-template-columns: 1fr; }
+  .approach-vs { padding: 16px 0; }
+  .tracker-layout { grid-template-columns: 1fr; gap: 40px; }
+  .webinar-box { padding: 32px 20px; }
+  .symptom-grid { grid-template-columns: 1fr; }
 }
 
 /* ========= LANGUAGE SWITCH ========= */
 [data-lang="en"] { display: none; }
 body.lang-en [data-lang="en"] { display: block; }
 body.lang-en [data-lang="ru"] { display: none; }
-
 body.lang-en [data-lang-inline="en"] { display: inline; }
 body.lang-en [data-lang-inline="ru"] { display: none; }
 [data-lang-inline="en"] { display: none; }
 [data-lang-inline="ru"] { display: inline; }
-
 body.lang-en [data-lang-flex="en"] { display: flex; }
 body.lang-en [data-lang-flex="ru"] { display: none; }
 [data-lang-flex="en"] { display: none; }
 [data-lang-flex="ru"] { display: flex; }
-
-/* ========= REDUCED MOTION ========= */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-glow { display: none; }
-  .anim-reveal { opacity: 1; transform: none; }
-}
 </style>
 </head>
 <body>
@@ -1150,127 +502,204 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
       <span data-lang-inline="ru">МЕНТАЛЬНАЯ УСТОЙЧИВОСТЬ</span><span data-lang-inline="en">MENTAL RESILIENCE</span><span>.</span>
     </a>
     <ul class="nav-links">
-      <li>
-        <a href="#problem">
-          <span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span>
-        </a>
-      </li>
-      <li>
-        <a href="#approach">
-          <span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span>
-        </a>
-      </li>
-      <li>
-        <a href="#services">
-          <span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span>
-        </a>
-      </li>
-      <li>
-        <a href="#tracker">
-          <span data-lang-inline="ru">Трекер</span><span data-lang-inline="en">Tracker</span>
-        </a>
-      </li>
-      <li>
-        <a href="#webinar">
-          <span data-lang-inline="ru">Вебинар</span><span data-lang-inline="en">Webinar</span>
-        </a>
-      </li>
-      <li>
-        <a href="analytics.html">
-          <span data-lang-inline="ru">Аналитика</span><span data-lang-inline="en">Analytics</span>
-        </a>
-      </li>
-      <li>
-        <div class="lang-switch">
-          <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-          <button class="lang-btn" onclick="setLang('en')">EN</button>
-        </div>
-      </li>
+      <li><a href="#problem"><span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span></a></li>
+      <li><a href="#approach"><span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span></a></li>
+      <li><a href="#services"><span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span></a></li>
+      <li><a href="#tracker"><span data-lang-inline="ru">Трекер</span><span data-lang-inline="en">Tracker</span></a></li>
+      <li><a href="#webinar"><span data-lang-inline="ru">Вебинар</span><span data-lang-inline="en">Webinar</span></a></li>
+      <li><a href="analytics.html"><span data-lang-inline="ru">Аналитика</span><span data-lang-inline="en">Analytics</span></a></li>
+      <li><div class="lang-switch"><button class="lang-btn active" onclick="setLang('ru')">RU</button><button class="lang-btn" onclick="setLang('en')">EN</button></div></li>
     </ul>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- ===== HERO WITH BURNING TERMINAL ILLUSTRATION ===== -->
 <section class="hero" id="hero">
   <div class="hero-bg-grid"></div>
   <div class="hero-glow hero-glow-1"></div>
   <div class="hero-glow hero-glow-2"></div>
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="dot"></span>
-        <span data-lang-inline="ru">Пока гуси не отлетели</span>
-        <span data-lang-inline="en">Before your roof blows off</span>
-      </div>
-
-      <div data-lang="ru">
-        <h1 class="hero-title">
-          Братиш, <span class="line-glitch">притормози.</span><br>
-          <span class="line-accent">Крыша уже подтекает.</span>
-        </h1>
-        <p class="hero-subtitle">
-          Ты строишь будущее на AI, автоматизируешь всё подряд, не спишь третьи сутки
-          и чувствуешь себя <em>гением</em> — но твоя нервная система уже на пределе.
-          Я помогаю амбициозным людям не сломаться на пути к большим целям.
-        </p>
-      </div>
-
-      <div data-lang="en">
-        <h1 class="hero-title">
-          Hey genius, <span class="line-glitch">slow down.</span><br>
-          <span class="line-accent">You're burning out.</span>
-        </h1>
-        <p class="hero-subtitle">
-          You're building the future with AI, automating everything, haven't slept in 3 days
-          and feel like a <em>visionary</em> — but your nervous system is already at its limit.
-          I help ambitious people not break down on the way to their goals.
-        </p>
-      </div>
-
-      <div class="hero-cta-row">
-        <a href="https://t.me/juhbubi" class="btn-primary">
-          <span data-lang-inline="ru">Написать Екатерине</span>
-          <span data-lang-inline="en">Message Ekaterina</span>
-        </a>
-        <a href="#webinar" class="btn-secondary">
-          <span data-lang-inline="ru">Бесплатный вебинар →</span>
-          <span data-lang-inline="en">Free webinar →</span>
-        </a>
-      </div>
-
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">12+</div>
-          <div class="hero-stat-label" data-lang-inline="ru">лет практики</div>
-          <div class="hero-stat-label" data-lang-inline="en">years of practice</div>
+    <div class="hero-layout">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span data-lang-inline="ru">Пока гуси не отлетели</span>
+          <span data-lang-inline="en">Before your roof blows off</span>
         </div>
-        <div>
-          <div class="hero-stat-num">500+</div>
-          <div class="hero-stat-label" data-lang-inline="ru">клиентов</div>
-          <div class="hero-stat-label" data-lang-inline="en">clients</div>
+
+        <div data-lang="ru">
+          <div class="hero-pre">$ system_check --mental_health<span class="cursor">&#9611;</span></div>
+          <h1 class="hero-title">
+            Братиш, <span class="line-glitch">притормози.</span><br>
+            <span class="line-accent">Крыша уже подтекает.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Ты строишь будущее на AI, автоматизируешь всё подряд, не спишь третьи сутки
+            и чувствуешь себя <em>гением</em> — но твоя нервная система уже пишет
+            <strong style="color:var(--danger);">exit code 1</strong>.
+            Я помогаю амбициозным людям не сломаться на пути к большим целям.
+          </p>
         </div>
-        <div>
-          <div class="hero-stat-num">Family Systems</div>
-          <div class="hero-stat-label" data-lang-inline="ru">подход</div>
-          <div class="hero-stat-label" data-lang-inline="en">approach</div>
+
+        <div data-lang="en">
+          <div class="hero-pre">$ system_check --mental_health<span class="cursor">&#9611;</span></div>
+          <h1 class="hero-title">
+            Hey genius, <span class="line-glitch">slow down.</span><br>
+            <span class="line-accent">Your OS is crashing.</span>
+          </h1>
+          <p class="hero-subtitle">
+            You're building the future with AI, automating everything, haven't slept in 3 days
+            and feel like a <em>visionary</em> — but your nervous system is already returning
+            <strong style="color:var(--danger);">exit code 1</strong>.
+            I help ambitious people not break down on the way to their goals.
+          </p>
         </div>
+
+        <div class="hero-cta-row">
+          <a href="https://t.me/juhbubi" class="btn-primary">
+            <span data-lang-inline="ru">&#128233; Написать Екатерине</span>
+            <span data-lang-inline="en">&#128233; Message Ekaterina</span>
+          </a>
+          <a href="#webinar" class="btn-secondary">
+            <span data-lang-inline="ru">&#129504; Бесплатный вебинар</span>
+            <span data-lang-inline="en">&#129504; Free webinar</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- BURNING TERMINAL ILLUSTRATION -->
+      <div class="hero-illustration">
+        <div class="ember-container">
+          <div class="ember"></div><div class="ember"></div><div class="ember"></div>
+          <div class="ember"></div><div class="ember"></div><div class="ember"></div>
+        </div>
+        <svg class="terminal-svg" viewBox="0 0 480 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Terminal frame -->
+          <rect x="2" y="2" width="476" height="376" rx="16" fill="#0d0d14" stroke="#2a2a35" stroke-width="2"/>
+          <!-- Title bar -->
+          <rect x="2" y="2" width="476" height="40" rx="16" fill="#16161f"/>
+          <rect x="2" y="28" width="476" height="14" fill="#16161f"/>
+          <!-- Window dots -->
+          <circle cx="24" cy="22" r="6" fill="#ef4444"/>
+          <circle cx="44" cy="22" r="6" fill="#f59e0b"/>
+          <circle cx="64" cy="22" r="6" fill="#22c55e"/>
+          <!-- Title -->
+          <text x="240" y="26" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#5a584f">burnout_check.py — bash</text>
+          <!-- Terminal content with code -->
+          <clipPath id="termClip"><rect x="8" y="46" width="464" height="326" rx="4"/></clipPath>
+          <g clip-path="url(#termClip)">
+            <g class="code-lines">
+              <!-- Block 1 -->
+              <text x="20" y="68" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">$ python3 burnout_check.py</text>
+              <text x="20" y="90" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"># scanning neural pathways...</text>
+              <text x="20" y="112" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="112" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> sleep</text>
+              <text x="130" y="112" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"> # you forgot about this one</text>
+              <text x="20" y="134" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="134" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> human_connection</text>
+              <text x="20" y="156" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="156" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> self_awareness</text>
+              <text x="20" y="190" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: cortisol_level = CRITICAL</text>
+              <text x="20" y="212" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: sleep_debt = 72h</text>
+              <text x="20" y="234" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: dopamine_receptors = DEPLETED</text>
+              <text x="20" y="256" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">WARNING: social_bonds = DISCONNECTED</text>
+              <text x="20" y="290" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"># system recommendation:</text>
+              <text x="20" y="312" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">>>> STOP. BREATHE. YOU ARE NOT A MACHINE.</text>
+              <text x="20" y="334" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">>>> ctrl+c your burnout loop</text>
+              <text x="20" y="356" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">>>> t.me/juhbubi</text>
+              <!-- Block 2 (repeat for scroll) -->
+              <text x="20" y="398" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">$ python3 burnout_check.py</text>
+              <text x="20" y="420" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"># scanning neural pathways...</text>
+              <text x="20" y="442" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="442" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> sleep</text>
+              <text x="130" y="442" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"> # you forgot about this one</text>
+              <text x="20" y="464" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="464" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> human_connection</text>
+              <text x="20" y="486" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">import</text>
+              <text x="75" y="486" font-family="JetBrains Mono, monospace" font-size="12" fill="#f0ede6"> self_awareness</text>
+              <text x="20" y="520" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: cortisol_level = CRITICAL</text>
+              <text x="20" y="542" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: sleep_debt = 72h</text>
+              <text x="20" y="564" font-family="JetBrains Mono, monospace" font-size="12" fill="#ef4444">WARNING: dopamine_receptors = DEPLETED</text>
+              <text x="20" y="586" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">WARNING: social_bonds = DISCONNECTED</text>
+              <text x="20" y="620" font-family="JetBrains Mono, monospace" font-size="12" fill="#5a584f"># system recommendation:</text>
+              <text x="20" y="642" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">>>> STOP. BREATHE. YOU ARE NOT A MACHINE.</text>
+              <text x="20" y="664" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e">>>> ctrl+c your burnout loop</text>
+              <text x="20" y="686" font-family="JetBrains Mono, monospace" font-size="12" fill="#f59e0b">>>> t.me/juhbubi</text>
+            </g>
+          </g>
+          <!-- Fire glow at top of terminal -->
+          <defs>
+            <radialGradient id="fireGlow" cx="50%" cy="0%" r="60%">
+              <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/>
+              <stop offset="50%" stop-color="#ef4444" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect x="40" y="-20" width="400" height="80" fill="url(#fireGlow)" style="animation: flicker 3s ease-in-out infinite;"/>
+          <!-- Cracks in terminal frame -->
+          <path d="M 380 2 L 395 18 L 388 25 L 400 38" stroke="#ef444460" stroke-width="1.5" fill="none"/>
+          <path d="M 2 280 L 18 268 L 12 258 L 25 248" stroke="#ef444440" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">12+</div>
+        <div class="hero-stat-label" data-lang-inline="ru">лет практики</div>
+        <div class="hero-stat-label" data-lang-inline="en">years of practice</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label" data-lang-inline="ru">клиентов</div>
+        <div class="hero-stat-label" data-lang-inline="en">clients</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Family Systems</div>
+        <div class="hero-stat-label" data-lang-inline="ru">подход</div>
+        <div class="hero-stat-label" data-lang-inline="en">approach</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CRISIS BAR ===== -->
-<div class="crisis-bar">
-  <span data-lang-inline="ru">По данным исследований, 67% tech-специалистов испытывают симптомы выгорания — и только 12% обращаются за помощью <em>до</em> кризиса</span>
-  <span data-lang-inline="en">Research shows 67% of tech professionals experience burnout symptoms — and only 12% seek help <em>before</em> crisis</span>
+<!-- ===== CODE FUSE DIVIDER ===== -->
+<div class="code-fuse">
+  <div class="code-fuse-track">
+    <span>while(true) { work(); sleep(0); }</span>
+    <span class="burning">// TODO: fix burnout</span>
+    <span>git commit -m "one more fix"</span>
+    <span class="burning">segfault in nervous_system.c</span>
+    <span>npm run build && npm run build && npm run build</span>
+    <span class="burning">Error: human_needs not found</span>
+    <span>sudo rm -rf /rest/</span>
+    <span class="burning">fatal: cannot rebase — you are not a machine</span>
+    <span>ssh brain@localhost -p 443</span>
+    <span class="burning">Connection refused: try sleeping</span>
+    <span>docker run --restart=always human:overworked</span>
+    <span class="burning">OOM killed: dopamine_service</span>
+    <!-- Duplicate for seamless loop -->
+    <span>while(true) { work(); sleep(0); }</span>
+    <span class="burning">// TODO: fix burnout</span>
+    <span>git commit -m "one more fix"</span>
+    <span class="burning">segfault in nervous_system.c</span>
+    <span>npm run build && npm run build && npm run build</span>
+    <span class="burning">Error: human_needs not found</span>
+    <span>sudo rm -rf /rest/</span>
+    <span class="burning">fatal: cannot rebase — you are not a machine</span>
+    <span>ssh brain@localhost -p 443</span>
+    <span class="burning">Connection refused: try sleeping</span>
+    <span>docker run --restart=always human:overworked</span>
+    <span class="burning">OOM killed: dopamine_service</span>
+  </div>
 </div>
 
 <!-- ===== PROBLEM ===== -->
 <section class="section problem-section" id="problem">
   <div class="container">
     <div data-lang="ru">
-      <div class="section-label anim-reveal">ДИАГНОСТИКА</div>
+      <div class="section-label anim-reveal">// диагностика</div>
       <h2 class="section-title anim-reveal">Знакомо? Тогда читай.</h2>
       <p class="section-subtitle anim-reveal">
         Ты не слабый. Ты просто эксплуатируешь свой мозг в режиме,
@@ -1278,7 +707,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
       </p>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal">DIAGNOSTICS</div>
+      <div class="section-label anim-reveal">// diagnostics</div>
       <h2 class="section-title anim-reveal">Sound familiar? Keep reading.</h2>
       <p class="section-subtitle anim-reveal">
         You're not weak. You're just running your brain in a mode
@@ -1287,9 +716,8 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
     </div>
 
     <div class="symptom-grid">
-      <!-- Card 1 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">🎰</span>
+        <span class="symptom-icon">&#127920;</span>
         <div data-lang="ru">
           <div class="symptom-title">Дофаминовая ловушка</div>
           <div class="symptom-desc">Каждый промпт — как ставка в казино. Мозг подсаживается на микро-вознаграждения от AI. Ты не можешь остановиться, потому что «ещё один запрос — и будет идеально».</div>
@@ -1302,9 +730,8 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
         <span class="symptom-tag tag-red" data-lang-inline="en">dopamine depleted</span>
       </div>
 
-      <!-- Card 2 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">🌀</span>
+        <span class="symptom-icon">&#127744;</span>
         <div data-lang="ru">
           <div class="symptom-title">FOMO на стероидах</div>
           <div class="symptom-desc">Каждый день — новая модель, новый инструмент, новая возможность. Ты боишься пропустить «тот самый» момент. Тревожность зашкаливает, а ты думаешь, что это драйв.</div>
@@ -1313,13 +740,12 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           <div class="symptom-title">FOMO on steroids</div>
           <div class="symptom-desc">Every day — a new model, new tool, new opportunity. You're terrified of missing "the one." Anxiety is through the roof, but you think it's just drive.</div>
         </div>
-        <span class="symptom-tag tag-yellow" data-lang-inline="ru">тревожность ↑</span>
-        <span class="symptom-tag tag-yellow" data-lang-inline="en">anxiety ↑</span>
+        <span class="symptom-tag tag-yellow" data-lang-inline="ru">тревожность &#8593;</span>
+        <span class="symptom-tag tag-yellow" data-lang-inline="en">anxiety &#8593;</span>
       </div>
 
-      <!-- Card 3 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">👻</span>
+        <span class="symptom-icon">&#128123;</span>
         <div data-lang="ru">
           <div class="symptom-title">Потеря контакта с собой</div>
           <div class="symptom-desc">Ты не помнишь, когда последний раз чувствовал что-то кроме «надо сделать». Твои желания подменены целями. Ты автопилот, а не человек.</div>
@@ -1332,9 +758,8 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
         <span class="symptom-tag tag-purple" data-lang-inline="en">depersonalization</span>
       </div>
 
-      <!-- Card 4 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">⚡</span>
+        <span class="symptom-icon">&#9889;</span>
         <div data-lang="ru">
           <div class="symptom-title">Нервная система на пределе</div>
           <div class="symptom-desc">Бессонница, раздражительность, забываешь слова, не чувствуешь вкус еды. Это не «усталость» — это твоя ЦНС посылает SOS.</div>
@@ -1347,9 +772,8 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
         <span class="symptom-tag tag-red" data-lang-inline="en">CNS overload</span>
       </div>
 
-      <!-- Card 5 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">🏚️</span>
+        <span class="symptom-icon">&#127962;</span>
         <div data-lang="ru">
           <div class="symptom-title">Социальные связи рушатся</div>
           <div class="symptom-desc">«Мне некогда». Партнёр, дети, друзья — все где-то далеко. Ты общаешься с ChatGPT больше, чем с живыми людьми. И это не шутка.</div>
@@ -1362,59 +786,88 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
         <span class="symptom-tag tag-yellow" data-lang-inline="en">isolation</span>
       </div>
 
-      <!-- Card 6 -->
       <div class="symptom-card anim-reveal">
-        <span class="symptom-icon">🧪</span>
+        <span class="symptom-icon">&#129514;</span>
         <div data-lang="ru">
           <div class="symptom-title">Синдром безумного учёного</div>
-          <div class="symptom-desc">Ты чувствуешь, что на грани великого открытия. Но грань между гением и «палатой №6» тоньше, чем кажется. История знает примеры.</div>
+          <div class="symptom-desc">Ты чувствуешь, что на грани великого открытия. Но грань между гением и «палатой &#8470;6» тоньше, чем кажется. История знает примеры.</div>
         </div>
         <div data-lang="en">
           <div class="symptom-title">Mad scientist syndrome</div>
           <div class="symptom-desc">You feel you're on the verge of a great discovery. But the line between genius and burnout ward is thinner than you think. History knows the cases.</div>
         </div>
-        <span class="symptom-tag tag-red" data-lang-inline="ru">⚠️ критично</span>
-        <span class="symptom-tag tag-red" data-lang-inline="en">⚠️ critical</span>
+        <span class="symptom-tag tag-red" data-lang-inline="ru">&#9888; критично</span>
+        <span class="symptom-tag tag-red" data-lang-inline="en">&#9888; critical</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===== ILLUSTRATION: BRAIN CIRCUIT/ORGANIC ===== -->
+<div class="illust-divider">
+  <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left side: circuit/digital brain -->
+    <g opacity="0.6">
+      <!-- Circuit lines -->
+      <line x1="50" y1="100" x2="120" y2="60" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="120" y1="60" x2="180" y2="80" stroke="#22c55e" stroke-width="1.5"/>
+      <line x1="180" y1="80" x2="200" y2="40" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 4"/>
+      <line x1="80" y1="140" x2="150" y2="120" stroke="#60a5fa" stroke-width="1"/>
+      <line x1="150" y1="120" x2="220" y2="150" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="100" y1="60" x2="160" y2="160" stroke="#a78bfa" stroke-width="0.8" stroke-dasharray="2 4"/>
+      <!-- Nodes -->
+      <circle cx="120" cy="60" r="4" fill="#22c55e"/>
+      <circle cx="180" cy="80" r="3" fill="#22c55e"/>
+      <circle cx="80" cy="140" r="3" fill="#60a5fa"/>
+      <circle cx="150" cy="120" r="4" fill="#60a5fa"/>
+      <circle cx="50" cy="100" r="5" fill="#22c55e" opacity="0.5"/>
+      <!-- Terminal text -->
+      <text x="30" y="30" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a584f">01001000 01010101</text>
+      <text x="60" y="180" font-family="JetBrains Mono, monospace" font-size="9" fill="#5a584f">PROCESS RUNNING...</text>
+    </g>
+    <!-- Center divider: fire/transition -->
+    <line x1="300" y1="20" x2="300" y2="180" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8 4" opacity="0.4"/>
+    <text x="300" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="14" fill="#f59e0b" font-weight="bold">&#9670;</text>
+    <!-- Right side: organic/human -->
+    <g opacity="0.6">
+      <!-- Organic curves -->
+      <path d="M 380 60 Q 420 40, 460 70 Q 500 100, 480 140 Q 460 170, 420 160 Q 380 150, 370 120 Q 360 90, 380 60" stroke="#f59e0b" stroke-width="1.5" fill="none"/>
+      <path d="M 400 80 Q 430 60, 450 90 Q 470 120, 440 140" stroke="#fbbf24" stroke-width="1" fill="none"/>
+      <!-- Warmth dots -->
+      <circle cx="420" cy="80" r="3" fill="#f59e0b" opacity="0.6"/>
+      <circle cx="450" cy="110" r="4" fill="#fbbf24" opacity="0.5"/>
+      <circle cx="410" cy="140" r="3" fill="#f97316" opacity="0.4"/>
+      <circle cx="470" cy="70" r="2" fill="#fbbf24" opacity="0.3"/>
+      <!-- Human text -->
+      <text x="520" y="30" font-family="Onest, sans-serif" font-size="9" fill="#5a584f">breathe</text>
+      <text x="500" y="180" font-family="Onest, sans-serif" font-size="9" fill="#5a584f">feel</text>
+      <text x="540" y="105" font-family="Onest, sans-serif" font-size="9" fill="#9a978f">live</text>
+    </g>
+  </svg>
+  <div class="illust-caption">
+    <span data-lang-inline="ru">МАШИНА &#8594; ЧЕЛОВЕК</span>
+    <span data-lang-inline="en">MACHINE &#8594; HUMAN</span>
+  </div>
+</div>
+
 <!-- ===== SCIENCE STATS ===== -->
 <section class="section">
   <div class="container">
     <div data-lang="ru">
-      <div class="section-label anim-reveal">НЕЙРОНАУКА</div>
+      <div class="section-label anim-reveal">// нейронаука</div>
       <h2 class="section-title anim-reveal">Цифры, которые отрезвляют</h2>
       <p class="section-subtitle anim-reveal">Это не мнения — это данные нейробиологии и психиатрии.</p>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal">NEUROSCIENCE</div>
+      <div class="section-label anim-reveal">// neuroscience</div>
       <h2 class="section-title anim-reveal">Numbers that sober you up</h2>
       <p class="section-subtitle anim-reveal">These aren't opinions — they're neuroscience and psychiatry data.</p>
     </div>
-
     <div class="science-grid">
-      <div class="science-card anim-reveal">
-        <div class="science-num">73%</div>
-        <div data-lang="ru"><div class="science-label">tech-фаундеров сообщают о ментальных проблемах (исследование UCSF)</div></div>
-        <div data-lang="en"><div class="science-label">of tech founders report mental health issues (UCSF study)</div></div>
-      </div>
-      <div class="science-card anim-reveal">
-        <div class="science-num">4ч</div>
-        <div data-lang="ru"><div class="science-label">максимум глубокой когнитивной работы в день — дальше мозг деградирует</div></div>
-        <div data-lang="en"><div class="science-label">max deep cognitive work per day — beyond that, your brain degrades</div></div>
-      </div>
-      <div class="science-card anim-reveal">
-        <div class="science-num">×3</div>
-        <div data-lang="ru"><div class="science-label">во столько раз выше риск психотического эпизода при хроническом недосыпе</div></div>
-        <div data-lang="en"><div class="science-label">higher risk of psychotic episode with chronic sleep deprivation</div></div>
-      </div>
-      <div class="science-card anim-reveal">
-        <div class="science-num">89%</div>
-        <div data-lang="ru"><div class="science-label">случаев выгорания можно предотвратить, если заметить паттерны вовремя</div></div>
-        <div data-lang="en"><div class="science-label">of burnout cases are preventable if patterns are caught early</div></div>
-      </div>
+      <div class="science-card anim-reveal"><div class="science-num">73%</div><div data-lang="ru"><div class="science-label">tech-фаундеров сообщают о ментальных проблемах (исследование UCSF)</div></div><div data-lang="en"><div class="science-label">of tech founders report mental health issues (UCSF study)</div></div></div>
+      <div class="science-card anim-reveal"><div class="science-num">4ч</div><div data-lang="ru"><div class="science-label">максимум глубокой когнитивной работы в день — дальше мозг деградирует</div></div><div data-lang="en"><div class="science-label">max deep cognitive work per day — beyond that, your brain degrades</div></div></div>
+      <div class="science-card anim-reveal"><div class="science-num">&#215;3</div><div data-lang="ru"><div class="science-label">во столько раз выше риск психотического эпизода при хроническом недосыпе</div></div><div data-lang="en"><div class="science-label">higher risk of psychotic episode with chronic sleep deprivation</div></div></div>
+      <div class="science-card anim-reveal"><div class="science-num">89%</div><div data-lang="ru"><div class="science-label">случаев выгорания можно предотвратить, если заметить паттерны вовремя</div></div><div data-lang="en"><div class="science-label">of burnout cases are preventable if patterns are caught early</div></div></div>
     </div>
   </div>
 </section>
@@ -1423,16 +876,16 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <section class="section metaphor-section">
   <div class="container">
     <div data-lang="ru" class="anim-reveal">
-      <div class="section-label">ФИЛОСОФИЯ</div>
+      <div class="section-label">// философия</div>
       <div class="metaphor-quote">
-        «Спортсмены мирового уровня тренируются не больше — они <span class="text-accent">восстанавливаются</span> лучше. Высокий когнитивный нагрузка требует новой культуры обращения с телом и психикой.»
+        &laquo;Спортсмены мирового уровня тренируются не больше — они <span class="text-accent">восстанавливаются</span> лучше. Высокий когнитивный нагрузка требует новой культуры обращения с телом и психикой.&raquo;
       </div>
       <div class="metaphor-author">— Принцип, на котором строится вся моя работа</div>
     </div>
     <div data-lang="en" class="anim-reveal">
-      <div class="section-label">PHILOSOPHY</div>
+      <div class="section-label">// philosophy</div>
       <div class="metaphor-quote">
-        "World-class athletes don't train more — they <span class="text-accent">recover</span> better. High cognitive load demands a new culture of caring for your body and mind."
+        &ldquo;World-class athletes don't train more — they <span class="text-accent">recover</span> better. High cognitive load demands a new culture of caring for your body and mind.&rdquo;
       </div>
       <div class="metaphor-author">— The principle behind everything I do</div>
     </div>
@@ -1443,65 +896,41 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <section class="section" id="about">
   <div class="container">
     <div data-lang="ru">
-      <div class="section-label anim-reveal">О СЕБЕ</div>
+      <div class="section-label anim-reveal">// кто я</div>
       <h2 class="section-title anim-reveal">Екатерина Чернецова</h2>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal">ABOUT ME</div>
+      <div class="section-label anim-reveal">// about me</div>
       <h2 class="section-title anim-reveal">Ekaterina Chernetsova</h2>
     </div>
-
     <div class="about-layout anim-reveal">
       <div class="about-photo-area">
-        <img src="katya.jpg" alt="Екатерина Чернецова" style="width:100%;border-radius:24px;">
+        <img src="katya.jpg" alt="Екатерина Чернецова" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:var(--radius);border:1px solid var(--border);">
+        <div class="about-credentials">
+          <span style="color:var(--accent)">&#10022;</span>
+          <span data-lang-inline="ru">Психолог &middot; Family Systems</span>
+          <span data-lang-inline="en">Psychologist &middot; Family Systems</span>
+        </div>
       </div>
-
       <div class="about-text">
         <div data-lang="ru">
           <h3>Не коуч. Не мотиватор.<br>Специалист по <span class="text-accent">ментальной устойчивости</span>.</h3>
-          <p>
-            Я не тот человек, который скажет тебе «просто верь в себя и делай».
-            Таких уже достаточно — и многие их клиенты потом приходят ко мне.
-            Сгоревшие. Разочарованные. Потерявшие контакт с собой.
-          </p>
-          <p>
-            Мой подход основан на Family Systems и глубинной работе с внутренними частями личности.
-            Я помогаю установить настоящий контакт с собой — не через аффирмации,
-            а через понимание того, как ты устроен на самом глубоком уровне.
-          </p>
-          <p>
-            Формат — не терапия «от проблемы», а <strong>профилактика и гигиена</strong>.
-            Как спортзал для тела — только для психики. Регулярно, системно, с трекингом прогресса.
-          </p>
+          <p>Я не тот человек, который скажет тебе &laquo;просто верь в себя и делай&raquo;. Таких уже достаточно — и многие их клиенты потом приходят ко мне. Сгоревшие. Разочарованные. Потерявшие контакт с собой.</p>
+          <p>Мой подход основан на Family Systems и глубинной работе с внутренними частями личности. Я помогаю установить настоящий контакт с собой — не через аффирмации, а через понимание того, как ты устроен на самом глубоком уровне.</p>
+          <p>Формат — не терапия &laquo;от проблемы&raquo;, а <strong>профилактика и гигиена</strong>. Как спортзал для тела — только для психики. Регулярно, системно, с трекингом прогресса.</p>
         </div>
         <div data-lang="en">
           <h3>Not a coach. Not a motivator.<br>A <span class="text-accent">mental resilience</span> specialist.</h3>
-          <p>
-            I'm not the person who'll tell you to "just believe in yourself and hustle."
-            There are enough of those — and many of their clients end up coming to me.
-            Burned out. Disillusioned. Disconnected from themselves.
-          </p>
-          <p>
-            My approach is based on Family Systems and deep work with internal parts.
-            I help establish a real connection with yourself — not through affirmations,
-            but through understanding how you work at the deepest level.
-          </p>
-          <p>
-            The format isn't "problem-fixing" therapy — it's <strong>prevention and hygiene</strong>.
-            Like a gym for your body — but for your mind. Regular, systematic, with progress tracking.
-          </p>
+          <p>I'm not the person who'll tell you to "just believe in yourself and hustle." There are enough of those — and many of their clients end up coming to me. Burned out. Disillusioned. Disconnected from themselves.</p>
+          <p>My approach is based on Family Systems and deep work with internal parts. I help establish a real connection with yourself — not through affirmations, but through understanding how you work at the deepest level.</p>
+          <p>The format isn't "problem-fixing" therapy — it's <strong>prevention and hygiene</strong>. Like a gym for your body — but for your mind. Regular, systematic, with progress tracking.</p>
         </div>
-
         <div class="about-tags">
           <span class="about-tag">Family Systems</span>
-          <span class="about-tag" data-lang-inline="ru">Глубинная работа</span>
-          <span class="about-tag" data-lang-inline="en">Deep work</span>
-          <span class="about-tag" data-lang-inline="ru">Профилактика выгорания</span>
-          <span class="about-tag" data-lang-inline="en">Burnout prevention</span>
-          <span class="about-tag" data-lang-inline="ru">Нейронаука</span>
-          <span class="about-tag" data-lang-inline="en">Neuroscience</span>
-          <span class="about-tag" data-lang-inline="ru">Трекинг прогресса</span>
-          <span class="about-tag" data-lang-inline="en">Progress tracking</span>
+          <span class="about-tag" data-lang-inline="ru">Глубинная работа</span><span class="about-tag" data-lang-inline="en">Deep work</span>
+          <span class="about-tag" data-lang-inline="ru">Профилактика выгорания</span><span class="about-tag" data-lang-inline="en">Burnout prevention</span>
+          <span class="about-tag" data-lang-inline="ru">Нейронаука</span><span class="about-tag" data-lang-inline="en">Neuroscience</span>
+          <span class="about-tag" data-lang-inline="ru">Трекинг прогресса</span><span class="about-tag" data-lang-inline="en">Progress tracking</span>
         </div>
       </div>
     </div>
@@ -1512,59 +941,56 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <section class="section problem-section" id="approach">
   <div class="container">
     <div data-lang="ru">
-      <div class="section-label anim-reveal">ПОДХОД</div>
+      <div class="section-label anim-reveal">// подход</div>
       <h2 class="section-title anim-reveal">Почему не очередной коуч</h2>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal">APPROACH</div>
+      <div class="section-label anim-reveal">// approach</div>
       <h2 class="section-title anim-reveal">Why not just another coach</h2>
     </div>
-
     <div class="approach-comparison anim-reveal">
       <div class="approach-col bad">
         <div data-lang="ru">
-          <h3>❌ Типичный коучинг</h3>
+          <h3>&#10060; Типичный коучинг</h3>
           <ul class="approach-list">
-            <li><span class="icon">💨</span> «Ты можешь всё! Действуй!»</li>
-            <li><span class="icon">💨</span> Мотивация без фундамента</li>
-            <li><span class="icon">💨</span> Игнорирование сигналов тела</li>
-            <li><span class="icon">💨</span> Результат: ещё больше энергии → ещё глубже выгорание</li>
-            <li><span class="icon">💨</span> Когда мотивация уходит — крах</li>
+            <li><span class="icon">&#128168;</span> &laquo;Ты можешь всё! Действуй!&raquo;</li>
+            <li><span class="icon">&#128168;</span> Мотивация без фундамента</li>
+            <li><span class="icon">&#128168;</span> Игнорирование сигналов тела</li>
+            <li><span class="icon">&#128168;</span> Результат: ещё больше энергии &#8594; ещё глубже выгорание</li>
+            <li><span class="icon">&#128168;</span> Когда мотивация уходит — крах</li>
           </ul>
         </div>
         <div data-lang="en">
-          <h3>❌ Typical coaching</h3>
+          <h3>&#10060; Typical coaching</h3>
           <ul class="approach-list">
-            <li><span class="icon">💨</span> "You can do anything! Just act!"</li>
-            <li><span class="icon">💨</span> Motivation without foundation</li>
-            <li><span class="icon">💨</span> Ignoring body signals</li>
-            <li><span class="icon">💨</span> Result: more energy → deeper burnout</li>
-            <li><span class="icon">💨</span> When motivation fades — collapse</li>
+            <li><span class="icon">&#128168;</span> "You can do anything! Just act!"</li>
+            <li><span class="icon">&#128168;</span> Motivation without foundation</li>
+            <li><span class="icon">&#128168;</span> Ignoring body signals</li>
+            <li><span class="icon">&#128168;</span> Result: more energy &#8594; deeper burnout</li>
+            <li><span class="icon">&#128168;</span> When motivation fades — collapse</li>
           </ul>
         </div>
       </div>
-
       <div class="approach-vs">VS</div>
-
       <div class="approach-col good">
         <div data-lang="ru">
-          <h3>✦ Мой подход</h3>
+          <h3>&#10022; Мой подход</h3>
           <ul class="approach-list">
-            <li><span class="icon">🌱</span> Глубинный контакт с собой</li>
-            <li><span class="icon">🌱</span> Понимание внутренних частей (IFS)</li>
-            <li><span class="icon">🌱</span> Внимание к нервной системе</li>
-            <li><span class="icon">🌱</span> Результат: устойчивость, а не вспышка</li>
-            <li><span class="icon">🌱</span> Системный трекинг изменений</li>
+            <li><span class="icon">&#127793;</span> Глубинный контакт с собой</li>
+            <li><span class="icon">&#127793;</span> Понимание внутренних частей (IFS)</li>
+            <li><span class="icon">&#127793;</span> Внимание к нервной системе</li>
+            <li><span class="icon">&#127793;</span> Результат: устойчивость, а не вспышка</li>
+            <li><span class="icon">&#127793;</span> Системный трекинг изменений</li>
           </ul>
         </div>
         <div data-lang="en">
-          <h3>✦ My approach</h3>
+          <h3>&#10022; My approach</h3>
           <ul class="approach-list">
-            <li><span class="icon">🌱</span> Deep connection with self</li>
-            <li><span class="icon">🌱</span> Understanding internal parts (IFS)</li>
-            <li><span class="icon">🌱</span> Attention to nervous system</li>
-            <li><span class="icon">🌱</span> Result: resilience, not a flash</li>
-            <li><span class="icon">🌱</span> Systematic change tracking</li>
+            <li><span class="icon">&#127793;</span> Deep connection with self</li>
+            <li><span class="icon">&#127793;</span> Understanding internal parts (IFS)</li>
+            <li><span class="icon">&#127793;</span> Attention to nervous system</li>
+            <li><span class="icon">&#127793;</span> Result: resilience, not a flash</li>
+            <li><span class="icon">&#127793;</span> Systematic change tracking</li>
           </ul>
         </div>
       </div>
@@ -1576,22 +1002,20 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <section class="section" id="services">
   <div class="container">
     <div data-lang="ru">
-      <div class="section-label anim-reveal">УСЛУГИ</div>
+      <div class="section-label anim-reveal">// услуги</div>
       <h2 class="section-title anim-reveal">Форматы работы</h2>
       <p class="section-subtitle anim-reveal">От бесплатного вебинара до персональной программы. Выбирай свой уровень погружения.</p>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal">SERVICES</div>
+      <div class="section-label anim-reveal">// services</div>
       <h2 class="section-title anim-reveal">How we can work together</h2>
       <p class="section-subtitle anim-reveal">From free webinar to personal program. Choose your depth of engagement.</p>
     </div>
-
     <div class="products-grid">
-      <!-- Product 1: Webinar -->
       <div class="product-card anim-reveal">
-        <div class="product-icon">📡</div>
+        <div class="product-icon">&#128225;</div>
         <div data-lang="ru">
-          <div class="product-name">Вебинар «Крыша едет — что делать?»</div>
+          <div class="product-name">Вебинар &laquo;Крыша едет — что делать?&raquo;</div>
           <div class="product-desc">90 минут о том, что на самом деле происходит с твоей психикой, дофамином и нервной системой, когда ты живёшь в режиме AI-энтузиаста.</div>
           <ul class="product-features">
             <li>Нейробиология дофаминовой петли</li>
@@ -1612,22 +1036,14 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">Free</div>
         </div>
-        <a href="#webinar" class="btn-primary" style="width:100%;justify-content:center;">
-          <span data-lang-inline="ru">Записаться</span>
-          <span data-lang-inline="en">Sign up</span>
-        </a>
+        <a href="#webinar" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Записаться</span><span data-lang-inline="en">Sign up</span></a>
       </div>
-
-      <!-- Product 2: Personal Work -->
       <div class="product-card featured anim-reveal">
-        <div class="product-badge">
-          <span data-lang-inline="ru">РЕКОМЕНДУЮ</span>
-          <span data-lang-inline="en">RECOMMENDED</span>
-        </div>
-        <div class="product-icon">🔬</div>
+        <div class="product-badge"><span data-lang-inline="ru">РЕКОМЕНДУЮ</span><span data-lang-inline="en">RECOMMENDED</span></div>
+        <div class="product-icon">&#128300;</div>
         <div data-lang="ru">
           <div class="product-name">Персональная программа</div>
-          <div class="product-desc">Индивидуальная работа в формате психологической гигиены. Не «лечим проблемы», а строим фундамент ментальной устойчивости.</div>
+          <div class="product-desc">Индивидуальная работа в формате психологической гигиены. Не &laquo;лечим проблемы&raquo;, а строим фундамент ментальной устойчивости.</div>
           <ul class="product-features">
             <li>Еженедельные сессии (50 мин)</li>
             <li>Family Systems / IFS подход</li>
@@ -1635,10 +1051,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
             <li>Поддержка между сессиями</li>
             <li>Работа с паттернами поведения</li>
           </ul>
-          <div class="product-price">
-            <span data-lang-inline="ru">от ₽15,000 / мес</span>
-            <span data-lang-inline="en">from $180 / month</span>
-          </div>
+          <div class="product-price"><span data-lang-inline="ru">от &#8381;15,000 / мес</span><span data-lang-inline="en">from $180 / month</span></div>
         </div>
         <div data-lang="en">
           <div class="product-name">Personal Program</div>
@@ -1652,15 +1065,10 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">from $180 / month</div>
         </div>
-        <a href="https://tribute.co" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">
-          <span data-lang-inline="ru">Оплатить через Tribute</span>
-          <span data-lang-inline="en">Pay via Tribute</span>
-        </a>
+        <a href="https://tribute.co" target="_blank" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Оплатить через Tribute</span><span data-lang-inline="en">Pay via Tribute</span></a>
       </div>
-
-      <!-- Product 3: Tracker -->
       <div class="product-card anim-reveal">
-        <div class="product-icon">📊</div>
+        <div class="product-icon">&#128202;</div>
         <div data-lang="ru">
           <div class="product-name">Трекер ментального здоровья</div>
           <div class="product-desc">Авторский инструмент для отслеживания динамики состояния. Еженедельная рефлексия с визуализацией паттернов.</div>
@@ -1670,10 +1078,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
             <li>Раннее обнаружение паттернов</li>
             <li>Интеграция с сессиями</li>
           </ul>
-          <div class="product-price">
-            <span data-lang-inline="ru">Включён в программу</span>
-            <span data-lang-inline="en">Included in program</span>
-          </div>
+          <div class="product-price"><span data-lang-inline="ru">Включён в программу</span><span data-lang-inline="en">Included in program</span></div>
         </div>
         <div data-lang="en">
           <div class="product-name">Mental Health Tracker</div>
@@ -1686,10 +1091,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">Included in program</div>
         </div>
-        <a href="#tracker" class="btn-secondary" style="width:100%;justify-content:center;">
-          <span data-lang-inline="ru">Подробнее</span>
-          <span data-lang-inline="en">Learn more</span>
-        </a>
+        <a href="#tracker" class="btn-secondary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Подробнее</span><span data-lang-inline="en">Learn more</span></a>
       </div>
     </div>
   </div>
@@ -1700,112 +1102,33 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
   <div class="container">
     <div class="tracker-layout">
       <div>
-        <div class="dev-badge">🔮
-          <span data-lang-inline="ru">В разработке</span>
-          <span data-lang-inline="en">In development</span>
-        </div>
+        <div class="dev-badge">&#128302; <span data-lang-inline="ru">В разработке</span><span data-lang-inline="en">In development</span></div>
         <div data-lang="ru">
           <h2 class="section-title anim-reveal">Биометрический трекер</h2>
-          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">
-            Мы разрабатываем инструмент, который анализирует твои поведенческие биомаркеры
-            и в нужный момент говорит:
-          </p>
-          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">
-            ⚠️ «Выключи Claude Code. Немедленно иди спать. Иначе ты выйдешь из строя на несколько месяцев.»
-          </p>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">
-            Трекер считывает паттерны сна, активности, скорости набора текста,
-            частоты переключений между задачами — и предупреждает о приближении к точке невозврата.
-            Потому что никто сознательно не планирует оказаться в больнице.
-            Но тем, кому потребовалась помощь более квалифицированных специалистов —
-            не хватило именно этого вовремя поданного сигнала.
-          </p>
+          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">Мы разрабатываем инструмент, который анализирует твои поведенческие биомаркеры и в нужный момент говорит:</p>
+          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">&#9888; &laquo;Выключи Claude Code. Немедленно иди спать. Иначе ты выйдешь из строя на несколько месяцев.&raquo;</p>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">Трекер считывает паттерны сна, активности, скорости набора текста, частоты переключений между задачами — и предупреждает о приближении к точке невозврата.</p>
         </div>
         <div data-lang="en">
           <h2 class="section-title anim-reveal">Biometric Tracker</h2>
-          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">
-            We're building a tool that analyzes your behavioral biomarkers
-            and at the right moment tells you:
-          </p>
-          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">
-            ⚠️ "Close Claude Code. Go to sleep immediately. Otherwise you'll be out of commission for months."
-          </p>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">
-            The tracker reads sleep patterns, activity, typing speed,
-            task-switching frequency — and warns you when you're approaching the point of no return.
-            Because nobody consciously plans to end up in a hospital.
-            But those who needed help from more qualified specialists —
-            simply lacked this timely signal.
-          </p>
+          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">We're building a tool that analyzes your behavioral biomarkers and at the right moment tells you:</p>
+          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">&#9888; "Close Claude Code. Go to sleep immediately. Otherwise you'll be out of commission for months."</p>
+          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">The tracker reads sleep patterns, activity, typing speed, task-switching frequency — and warns you when you're approaching the point of no return.</p>
         </div>
       </div>
-
       <div class="tracker-mockup anim-reveal">
         <div class="tracker-mockup-header">
-          <div class="mock-dot red"></div>
-          <div class="mock-dot yellow"></div>
-          <div class="mock-dot green"></div>
+          <div class="mock-dot red"></div><div class="mock-dot yellow"></div><div class="mock-dot green"></div>
           <span style="margin-left:12px;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">mental_state_v0.3.py</span>
         </div>
-
         <div class="tracker-bar-group">
-          <div>
-            <div class="tracker-bar-label">
-              <span data-lang-inline="ru">🧠 Когнитивная нагрузка</span>
-              <span data-lang-inline="en">🧠 Cognitive Load</span>
-              <span class="val-danger">94%</span>
-            </div>
-            <div class="tracker-bar-track">
-              <div class="tracker-bar-fill fill-danger" style="width:94%;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="tracker-bar-label">
-              <span data-lang-inline="ru">😴 Качество сна</span>
-              <span data-lang-inline="en">😴 Sleep Quality</span>
-              <span class="val-warn">38%</span>
-            </div>
-            <div class="tracker-bar-track">
-              <div class="tracker-bar-fill fill-warn" style="width:38%;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="tracker-bar-label">
-              <span data-lang-inline="ru">💬 Социальные контакты</span>
-              <span data-lang-inline="en">💬 Social Contact</span>
-              <span class="val-warn">22%</span>
-            </div>
-            <div class="tracker-bar-track">
-              <div class="tracker-bar-fill fill-warn" style="width:22%;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="tracker-bar-label">
-              <span data-lang-inline="ru">⚡ Резерв ЦНС</span>
-              <span data-lang-inline="en">⚡ CNS Reserve</span>
-              <span class="val-danger">12%</span>
-            </div>
-            <div class="tracker-bar-track">
-              <div class="tracker-bar-fill fill-danger" style="width:12%;"></div>
-            </div>
-          </div>
-          <div>
-            <div class="tracker-bar-label">
-              <span data-lang-inline="ru">🎯 Контакт с собой</span>
-              <span data-lang-inline="en">🎯 Self-Connection</span>
-              <span class="val-ok">67%</span>
-            </div>
-            <div class="tracker-bar-track">
-              <div class="tracker-bar-fill fill-ok" style="width:67%;"></div>
-            </div>
-          </div>
+          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#129504; Когнитивная нагрузка</span><span data-lang-inline="en">&#129504; Cognitive Load</span><span class="val-danger">94%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-danger" style="width:94%;"></div></div></div>
+          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#128564; Качество сна</span><span data-lang-inline="en">&#128564; Sleep Quality</span><span class="val-warn">38%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-warn" style="width:38%;"></div></div></div>
+          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#128172; Социальные контакты</span><span data-lang-inline="en">&#128172; Social Contact</span><span class="val-warn">22%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-warn" style="width:22%;"></div></div></div>
+          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#9889; Резерв ЦНС</span><span data-lang-inline="en">&#9889; CNS Reserve</span><span class="val-danger">12%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-danger" style="width:12%;"></div></div></div>
+          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#127919; Контакт с собой</span><span data-lang-inline="en">&#127919; Self-Connection</span><span class="val-ok">67%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-ok" style="width:67%;"></div></div></div>
         </div>
-
-        <div class="tracker-alert">
-          <span>🚨</span>
-          <span data-lang-inline="ru">КРИТИЧНО: Выключи AI-инструменты. Иди спать.</span>
-          <span data-lang-inline="en">CRITICAL: Turn off AI tools. Go to sleep.</span>
-        </div>
+        <div class="tracker-alert"><span>&#128680;</span><span data-lang-inline="ru">КРИТИЧНО: Выключи AI-инструменты. Иди спать.</span><span data-lang-inline="en">CRITICAL: Turn off AI tools. Go to sleep.</span></div>
       </div>
     </div>
   </div>
@@ -1816,86 +1139,32 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
   <div class="container">
     <div class="webinar-box anim-reveal">
       <div data-lang="ru">
-        <div class="section-label" style="text-align:center;">БЕСПЛАТНЫЙ ВЕБИНАР</div>
+        <div class="section-label" style="text-align:center;">// бесплатный вебинар</div>
         <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Крыша едет — что делать?</h2>
-        <p style="color:var(--text-secondary);text-align:center;font-size:1.1rem;margin-bottom:8px;">
-          90 минут, которые могут предотвратить месяцы восстановления
-        </p>
-        <p style="color:var(--text-muted);text-align:center;font-size:0.85rem;font-family:var(--font-mono);margin-bottom:32px;">
-          Или, как говорят в народе — пока гуси не отлетели 🪿
-        </p>
+        <p style="color:var(--text-secondary);text-align:center;font-size:1.1rem;margin-bottom:8px;">90 минут, которые могут предотвратить месяцы восстановления</p>
+        <p style="color:var(--text-muted);text-align:center;font-size:0.85rem;font-family:var(--font-mono);margin-bottom:32px;">Или, как говорят в народе — пока гуси не отлетели &#129666;</p>
       </div>
       <div data-lang="en">
-        <div class="section-label" style="text-align:center;">FREE WEBINAR</div>
+        <div class="section-label" style="text-align:center;">// free webinar</div>
         <h2 class="section-title" style="text-align:center;margin-bottom:8px;">Your Roof is Leaking — Now What?</h2>
-        <p style="color:var(--text-secondary);text-align:center;font-size:1.1rem;margin-bottom:8px;">
-          90 minutes that can prevent months of recovery
-        </p>
-        <p style="color:var(--text-muted);text-align:center;font-size:0.85rem;font-family:var(--font-mono);margin-bottom:32px;">
-          Before your geese fly off for good 🪿
-        </p>
+        <p style="color:var(--text-secondary);text-align:center;font-size:1.1rem;margin-bottom:8px;">90 minutes that can prevent months of recovery</p>
+        <p style="color:var(--text-muted);text-align:center;font-size:0.85rem;font-family:var(--font-mono);margin-bottom:32px;">Before your geese fly off for good &#129666;</p>
       </div>
-
       <div class="webinar-topics">
-        <div class="webinar-topic" data-lang="ru">
-          <strong>🎰 Дофаминовая петля AI</strong>
-          Как промпты становятся зависимостью и что с этим делать по данным нейронауки
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>🎰 AI Dopamine Loop</strong>
-          How prompts become addictive and what neuroscience says about it
-        </div>
-
-        <div class="webinar-topic" data-lang="ru">
-          <strong>⚡ Нервная система в AI-эпоху</strong>
-          Что происходит с ЦНС при постоянной информационной перегрузке
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>⚡ Your nervous system in the AI era</strong>
-          What happens to your CNS under constant information overload
-        </div>
-
-        <div class="webinar-topic" data-lang="ru">
-          <strong>🌀 FOMO и тревожность</strong>
-          Механизмы, триггеры и почему «просто расслабиться» не работает
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>🌀 FOMO and anxiety</strong>
-          Mechanisms, triggers, and why "just relax" doesn't work
-        </div>
-
-        <div class="webinar-topic" data-lang="ru">
-          <strong>🧪 Красные флаги срыва</strong>
-          5 паттернов поведения, которые предшествуют серьёзному кризису
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>🧪 Breakdown red flags</strong>
-          5 behavior patterns that precede a serious crisis
-        </div>
-
-        <div class="webinar-topic" data-lang="ru">
-          <strong>🔬 Экспресс-диагностика</strong>
-          Практика прямо на вебинаре: где ты сейчас на шкале от «норма» до «беги к специалисту»
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>🔬 Express diagnostics</strong>
-          Live practice: where are you on the scale from "fine" to "see a specialist now"
-        </div>
-
-        <div class="webinar-topic" data-lang="ru">
-          <strong>🌱 План психологической гигиены</strong>
-          Конкретные шаги — не мотивашки, а рабочие инструменты из нейронауки
-        </div>
-        <div class="webinar-topic" data-lang="en">
-          <strong>🌱 Mental hygiene action plan</strong>
-          Concrete steps — not motivational fluff, but evidence-based neuroscience tools
-        </div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#127920; Дофаминовая петля AI</strong>Как промпты становятся зависимостью и что с этим делать по данным нейронауки</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#127920; AI Dopamine Loop</strong>How prompts become addictive and what neuroscience says about it</div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#9889; Нервная система в AI-эпоху</strong>Что происходит с ЦНС при постоянной информационной перегрузке</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#9889; Your nervous system in the AI era</strong>What happens to your CNS under constant information overload</div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#127744; FOMO и тревожность</strong>Механизмы, триггеры и почему &laquo;просто расслабиться&raquo; не работает</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#127744; FOMO and anxiety</strong>Mechanisms, triggers, and why "just relax" doesn't work</div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#129514; Красные флаги срыва</strong>5 паттернов поведения, которые предшествуют серьёзному кризису</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#129514; Breakdown red flags</strong>5 behavior patterns that precede a serious crisis</div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#128300; Экспресс-диагностика</strong>Практика прямо на вебинаре: где ты сейчас на шкале от &laquo;норма&raquo; до &laquo;беги к специалисту&raquo;</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#128300; Express diagnostics</strong>Live practice: where are you on the scale from "fine" to "see a specialist now"</div>
+        <div class="webinar-topic" data-lang="ru"><strong>&#127793; План психологической гигиены</strong>Конкретные шаги — не мотивашки, а рабочие инструменты из нейронауки</div>
+        <div class="webinar-topic" data-lang="en"><strong>&#127793; Mental hygiene action plan</strong>Concrete steps — not motivational fluff, but evidence-based neuroscience tools</div>
       </div>
-
-      <a href="#cta" class="btn-primary" style="font-size:1.1rem;padding:22px 48px;">
-        <span data-lang-inline="ru">🧠 Записаться на вебинар — бесплатно</span>
-        <span data-lang-inline="en">🧠 Sign up for the webinar — free</span>
-      </a>
+      <a href="#cta" class="btn-primary" style="font-size:1.1rem;padding:22px 48px;"><span data-lang-inline="ru">&#129504; Записаться на вебинар — бесплатно</span><span data-lang-inline="en">&#129504; Sign up for the webinar — free</span></a>
     </div>
   </div>
 </section>
@@ -1903,169 +1172,70 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <!-- ===== FAQ ===== -->
 <section class="section" id="faq">
   <div class="container">
-    <div data-lang="ru">
-      <div class="section-label anim-reveal" style="text-align:center;">ВОПРОСЫ</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Частые вопросы</h2>
-    </div>
-    <div data-lang="en">
-      <div class="section-label anim-reveal" style="text-align:center;">FAQ</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Frequently Asked Questions</h2>
-    </div>
-
+    <div data-lang="ru"><div class="section-label anim-reveal" style="text-align:center;">// вопросы</div><h2 class="section-title anim-reveal" style="text-align:center;">Частые вопросы</h2></div>
+    <div data-lang="en"><div class="section-label anim-reveal" style="text-align:center;">// FAQ</div><h2 class="section-title anim-reveal" style="text-align:center;">Frequently Asked Questions</h2></div>
     <div class="faq-list" style="margin-top:48px;">
-      <div class="faq-item anim-reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span data-lang-inline="ru">У меня нет проблем, мне просто интересен AI. Это для меня?</span>
-          <span data-lang-inline="en">I don't have problems, I'm just into AI. Is this for me?</span>
-          <span class="faq-arrow">▾</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <span data-lang-inline="ru">
-              Именно для тебя. Профилактика — это не про «лечение больных», а про поддержание формы.
-              Спортсмены не ходят к физиотерапевту только когда сломали ногу.
-              Ментальная гигиена работает так же — лучше начать до того, как гуси отлетят. 🪿
-            </span>
-            <span data-lang-inline="en">
-              Especially for you. Prevention isn't about "treating the sick" — it's about staying in shape.
-              Athletes don't see physiotherapists only when they break a leg.
-              Mental hygiene works the same — better to start before the roof starts leaking. 🪿
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item anim-reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span data-lang-inline="ru">Чем это отличается от обычного коучинга?</span>
-          <span data-lang-inline="en">How is this different from regular coaching?</span>
-          <span class="faq-arrow">▾</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <span data-lang-inline="ru">
-              Коуч скажет: «Делай больше! Ты можешь!» Я скажу: «Подожди. Давай сначала разберёмся,
-              какая часть тебя этого хочет, а какая — уже кричит о помощи».
-              Мой подход основан на Family Systems — это глубинная работа с внутренней структурой личности,
-              а не поверхностная мотивация.
-            </span>
-            <span data-lang-inline="en">
-              A coach says: "Do more! You can do it!" I say: "Wait. Let's first understand
-              which part of you wants this and which is already screaming for help."
-              My approach is based on Family Systems — deep work with your internal structure,
-              not surface-level motivation.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item anim-reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span data-lang-inline="ru">Я предприниматель, у меня мало времени. Сколько нужно?</span>
-          <span data-lang-inline="en">I'm an entrepreneur, I have little time. How much do I need?</span>
-          <span class="faq-arrow">▾</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <span data-lang-inline="ru">
-              50 минут в неделю. Одна сессия. Плюс 10 минут на еженедельный трекер.
-              Это меньше, чем один бесполезный Zoom-созвон. Но эффект — как замена масла в двигателе,
-              который ты эксплуатируешь 24/7. Без этого он просто заклинит.
-            </span>
-            <span data-lang-inline="en">
-              50 minutes a week. One session. Plus 10 minutes for the weekly tracker.
-              That's less than one useless Zoom call. But the effect is like an oil change
-              for an engine you're running 24/7. Without it, it'll seize up.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item anim-reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span data-lang-inline="ru">А если мне нужна «серьёзная» терапия?</span>
-          <span data-lang-inline="en">What if I need "serious" therapy?</span>
-          <span class="faq-arrow">▾</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <span data-lang-inline="ru">
-              Если в ходе работы мы увидим, что нужна более глубокая помощь —
-              я честно об этом скажу и помогу найти правильного специалиста.
-              Моя задача — профилактика и гигиена. Но я достаточно компетентна,
-              чтобы вовремя распознать, когда нужно больше.
-            </span>
-            <span data-lang-inline="en">
-              If during our work we see that deeper help is needed —
-              I'll honestly say so and help find the right specialist.
-              My focus is prevention and hygiene. But I'm qualified enough
-              to recognize when more is needed.
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item anim-reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span data-lang-inline="ru">Что за биометрический трекер?</span>
-          <span data-lang-inline="en">What's the biometric tracker about?</span>
-          <span class="faq-arrow">▾</span>
-        </div>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <span data-lang-inline="ru">
-              Это инструмент в разработке, который будет анализировать паттерны твоего поведения —
-              сон, активность, скорость набора, переключения между задачами — и предупреждать
-              о приближении к критической точке. Как бортовой компьютер, только для мозга.
-              Первые бета-версии будут доступны клиентам программы.
-            </span>
-            <span data-lang-inline="en">
-              It's a tool in development that will analyze your behavior patterns —
-              sleep, activity, typing speed, task switching — and warn you
-              when you're approaching a critical point. Like an onboard computer, but for your brain.
-              First beta versions will be available to program clients.
-            </span>
-          </div>
-        </div>
-      </div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">У меня нет проблем, мне просто интересен AI. Это для меня?</span><span data-lang-inline="en">I don't have problems, I'm just into AI. Is this for me?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Именно для тебя. Профилактика — это не про &laquo;лечение больных&raquo;, а про поддержание формы. Спортсмены не ходят к физиотерапевту только когда сломали ногу. Ментальная гигиена работает так же.</span><span data-lang-inline="en">Especially for you. Prevention isn't about "treating the sick" — it's about staying in shape. Athletes don't see physiotherapists only when they break a leg. Mental hygiene works the same.</span></div></div></div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Чем это отличается от обычного коучинга?</span><span data-lang-inline="en">How is this different from regular coaching?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Коуч скажет: &laquo;Делай больше! Ты можешь!&raquo; Я скажу: &laquo;Подожди. Давай сначала разберёмся, какая часть тебя этого хочет, а какая — уже кричит о помощи&raquo;. Мой подход основан на Family Systems — это глубинная работа с внутренней структурой личности.</span><span data-lang-inline="en">A coach says: "Do more! You can do it!" I say: "Wait. Let's first understand which part of you wants this and which is already screaming for help." My approach is based on Family Systems — deep work with your internal structure.</span></div></div></div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Я предприниматель, у меня мало времени. Сколько нужно?</span><span data-lang-inline="en">I'm an entrepreneur, I have little time. How much do I need?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">50 минут в неделю. Одна сессия. Плюс 10 минут на еженедельный трекер. Это меньше, чем один бесполезный Zoom-созвон. Но эффект — как замена масла в двигателе, который ты эксплуатируешь 24/7.</span><span data-lang-inline="en">50 minutes a week. One session. Plus 10 minutes for the weekly tracker. That's less than one useless Zoom call. But the effect is like an oil change for an engine you're running 24/7.</span></div></div></div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">А если мне нужна &laquo;серьёзная&raquo; терапия?</span><span data-lang-inline="en">What if I need "serious" therapy?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Если в ходе работы мы увидим, что нужна более глубокая помощь — я честно об этом скажу и помогу найти правильного специалиста. Моя задача — профилактика и гигиена.</span><span data-lang-inline="en">If during our work we see that deeper help is needed — I'll honestly say so and help find the right specialist. My focus is prevention and hygiene.</span></div></div></div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Что за биометрический трекер?</span><span data-lang-inline="en">What's the biometric tracker about?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Это инструмент в разработке, который будет анализировать паттерны твоего поведения — сон, активность, скорость набора, переключения между задачами — и предупреждать о приближении к критической точке. Как бортовой компьютер, только для мозга.</span><span data-lang-inline="en">It's a tool in development that will analyze your behavior patterns — sleep, activity, typing speed, task switching — and warn you when you're approaching a critical point. Like an onboard computer, but for your brain.</span></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA TERMINAL ===== -->
+<!-- ===== CTA WITH CAMPFIRE ===== -->
 <section class="section cta-section" id="cta">
   <div class="container" style="display:flex;flex-direction:column;align-items:center;">
     <div data-lang="ru">
-      <div class="section-label anim-reveal" style="text-align:center;">НАЧАТЬ</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Готов позаботиться о себе?</h2>
-      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto;">
-        Или подождёшь, пока организм сам нажмёт аварийное торможение?
-      </p>
+      <div class="section-label anim-reveal" style="text-align:center;">// начать</div>
+      <h2 class="section-title anim-reveal" style="text-align:center;">Выйди из терминала.</h2>
     </div>
     <div data-lang="en">
-      <div class="section-label anim-reveal" style="text-align:center;">START</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Ready to take care of yourself?</h2>
-      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin-left:auto;margin-right:auto;">
-        Or will you wait until your body hits the emergency brake for you?
-      </p>
+      <div class="section-label anim-reveal" style="text-align:center;">// start</div>
+      <h2 class="section-title anim-reveal" style="text-align:center;">Step out of the terminal.</h2>
     </div>
 
-    <div class="anim-reveal" style="text-align:center;max-width:500px;margin:0 auto;">
-      <div data-lang="ru">
-        <p style="font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:40px;">
-          Напишите мне в Telegram. Без обязательств, без воронки продаж.
-          Просто расскажите, что происходит.
-        </p>
-      </div>
-      <div data-lang="en">
-        <p style="font-size:1.15rem;color:var(--text-secondary);line-height:1.8;margin-bottom:40px;">
-          Message me on Telegram. No obligations, no sales funnel.
-          Just tell me what's going on.
-        </p>
-      </div>
-      <a href="https://t.me/juhbubi" class="btn-primary" style="font-size:1.1rem;padding:22px 48px;">
-        <span data-lang-inline="ru">Написать Екатерине</span>
-        <span data-lang-inline="en">Message Ekaterina</span>
+    <!-- Campfire SVG -->
+    <div class="cta-campfire anim-reveal">
+      <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Glow -->
+        <circle cx="100" cy="120" r="80" fill="url(#campGlow)" opacity="0.4"/>
+        <!-- Logs -->
+        <line x1="60" y1="155" x2="140" y2="145" stroke="#5a584f" stroke-width="8" stroke-linecap="round"/>
+        <line x1="65" y1="148" x2="135" y2="158" stroke="#4a4840" stroke-width="7" stroke-linecap="round"/>
+        <!-- Flames -->
+        <path d="M 90 150 Q 85 120, 95 90 Q 100 70, 105 90 Q 115 120, 110 150" fill="#f59e0b" opacity="0.9">
+          <animate attributeName="d" dur="1.5s" repeatCount="indefinite" values="M 90 150 Q 85 120, 95 90 Q 100 70, 105 90 Q 115 120, 110 150;M 90 150 Q 82 115, 92 85 Q 100 60, 108 85 Q 118 115, 110 150;M 90 150 Q 85 120, 95 90 Q 100 70, 105 90 Q 115 120, 110 150"/>
+        </path>
+        <path d="M 95 150 Q 92 125, 98 100 Q 100 85, 102 100 Q 108 125, 105 150" fill="#fbbf24" opacity="0.8">
+          <animate attributeName="d" dur="1.2s" repeatCount="indefinite" values="M 95 150 Q 92 125, 98 100 Q 100 85, 102 100 Q 108 125, 105 150;M 95 150 Q 90 120, 96 95 Q 100 78, 104 95 Q 110 120, 105 150;M 95 150 Q 92 125, 98 100 Q 100 85, 102 100 Q 108 125, 105 150"/>
+        </path>
+        <path d="M 85 150 Q 78 110, 92 80 Q 100 55, 108 80 Q 122 110, 115 150" fill="#f97316" opacity="0.5">
+          <animate attributeName="d" dur="2s" repeatCount="indefinite" values="M 85 150 Q 78 110, 92 80 Q 100 55, 108 80 Q 122 110, 115 150;M 85 150 Q 75 105, 90 72 Q 100 48, 110 72 Q 125 105, 115 150;M 85 150 Q 78 110, 92 80 Q 100 55, 108 80 Q 122 110, 115 150"/>
+        </path>
+        <!-- Sparks -->
+        <circle cx="95" cy="80" r="2" fill="#fbbf24" opacity="0.7"><animate attributeName="cy" from="80" to="30" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" from="0.7" to="0" dur="2s" repeatCount="indefinite"/></circle>
+        <circle cx="108" cy="75" r="1.5" fill="#f59e0b" opacity="0.5"><animate attributeName="cy" from="75" to="20" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" from="0.5" to="0" dur="2.5s" repeatCount="indefinite"/></circle>
+        <defs>
+          <radialGradient id="campGlow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></radialGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="cta-human-text anim-reveal">
+      <div data-lang="ru">Напиши мне в Telegram. Без обязательств, без давления. Просто расскажи, что происходит. Иногда первый шаг — это просто признать: &laquo;Кажется, мне нужна помощь&raquo;.</div>
+      <div data-lang="en">Message me on Telegram. No obligations, no pressure. Just tell me what's going on. Sometimes the first step is simply admitting: "I think I need help."</div>
+    </div>
+
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+      <a href="https://t.me/juhbubi" class="btn-primary" style="font-size:1.05rem;">
+        <span data-lang-inline="ru">&#128233; Написать в Telegram</span>
+        <span data-lang-inline="en">&#128233; Message on Telegram</span>
+      </a>
+      <a href="#webinar" class="btn-secondary">
+        <span data-lang-inline="ru">Сначала на вебинар &#8594;</span>
+        <span data-lang-inline="en">Webinar first &#8594;</span>
       </a>
     </div>
   </div>
@@ -2075,36 +1245,19 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 <footer>
   <div class="container">
     <div class="footer-links">
-      <a href="#problem">
-        <span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span>
-      </a>
-      <a href="#approach">
-        <span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span>
-      </a>
-      <a href="#services">
-        <span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span>
-      </a>
-      <a href="#webinar">
-        <span data-lang-inline="ru">Вебинар</span><span data-lang-inline="en">Webinar</span>
-      </a>
-      <a href="analytics.html">
-        <span data-lang-inline="ru">Аналитика</span><span data-lang-inline="en">Analytics</span>
-      </a>
+      <a href="#problem"><span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span></a>
+      <a href="#approach"><span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span></a>
+      <a href="#services"><span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span></a>
+      <a href="#webinar"><span data-lang-inline="ru">Вебинар</span><span data-lang-inline="en">Webinar</span></a>
+      <a href="analytics.html"><span data-lang-inline="ru">Аналитика</span><span data-lang-inline="en">Analytics</span></a>
       <a href="https://t.me/juhbubi">Telegram</a>
     </div>
-    <p>
-      <span data-lang-inline="ru">© 2026 Ментальная устойчивость. Екатерина Чернецова.</span>
-      <span data-lang-inline="en">© 2026 Mental Resilience. Ekaterina Chernetsova.</span>
-    </p>
-    <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);">
-      <span data-lang-inline="ru">Информация на сайте не является медицинской рекомендацией. При наличии диагнозов обращайтесь к лечащему врачу.</span>
-      <span data-lang-inline="en">Information on this site is not medical advice. If you have a diagnosis, consult your physician.</span>
-    </p>
+    <p><span data-lang-inline="ru">&copy; 2026 Ментальная устойчивость. Екатерина Чернецова.</span><span data-lang-inline="en">&copy; 2026 Mental Resilience. Ekaterina Chernetsova.</span></p>
+    <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);"><span data-lang-inline="ru">Информация на сайте не является медицинской рекомендацией. При наличии диагнозов обращайтесь к лечащему врачу.</span><span data-lang-inline="en">Information on this site is not medical advice. If you have a diagnosis, consult your physician.</span></p>
   </div>
 </footer>
 
 <script>
-/* ===== LANGUAGE SWITCH ===== */
 function setLang(lang) {
   document.body.classList.toggle('lang-en', lang === 'en');
   document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -2112,73 +1265,38 @@ function setLang(lang) {
   });
 }
 
-/* ===== FAQ TOGGLE ===== */
 function toggleFaq(el) {
   const item = el.closest('.faq-item');
   const answer = item.querySelector('.faq-answer');
   const isOpen = item.classList.contains('open');
-
-  // Close all
   document.querySelectorAll('.faq-item').forEach(i => {
     i.classList.remove('open');
     i.querySelector('.faq-answer').style.maxHeight = '0';
   });
-
   if (!isOpen) {
     item.classList.add('open');
     answer.style.maxHeight = answer.scrollHeight + 'px';
   }
 }
 
-/* ===== SCROLL REVEAL ===== */
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
 document.querySelectorAll('.anim-reveal').forEach(el => observer.observe(el));
 
-/* ===== MOBILE MENU ===== */
 function toggleMobileMenu() {
   const nav = document.querySelector('.nav-links');
-  if (nav.style.display === 'flex') {
-    nav.style.display = 'none';
-  } else {
-    nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-    nav.style.position = 'absolute';
-    nav.style.top = '100%';
-    nav.style.left = '0';
-    nav.style.right = '0';
-    nav.style.background = '#f5f0e8';
-    nav.style.padding = '24px';
-    nav.style.borderBottom = '1px solid var(--border)';
-  }
+  if (nav.style.display === 'flex') { nav.style.display = 'none'; }
+  else { nav.style.display='flex'; nav.style.flexDirection='column'; nav.style.position='absolute'; nav.style.top='100%'; nav.style.left='0'; nav.style.right='0'; nav.style.background='var(--bg-primary)'; nav.style.padding='24px'; nav.style.borderBottom='1px solid var(--border)'; }
 }
 
-/* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Close mobile menu if open
-      const nav = document.querySelector('.nav-links');
-      if (window.innerWidth <= 900) nav.style.display = 'none';
-    }
+    if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); const nav = document.querySelector('.nav-links'); if (window.innerWidth <= 900) nav.style.display = 'none'; }
   });
 });
-
-/* ===== TYPING EFFECT for hero pre ===== */
-setTimeout(() => {
-  document.querySelectorAll('.hero-pre').forEach(el => {
-    el.style.opacity = '1';
-  });
-}, 300);
 </script>
 
 </body>
