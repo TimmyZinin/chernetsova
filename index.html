@@ -1029,6 +1029,52 @@ h1.hero-title .line-glitch:hover {
   line-height: 1.8;
 }
 
+/* ========= LEAD FORM ========= */
+.lead-form {
+  max-width: 500px;
+  width: 100%;
+  margin-top: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
 /* ========= CTA FINAL ========= */
 .cta-section {
   text-align: center;
@@ -1668,9 +1714,9 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">from $180 / month</div>
         </div>
-        <a href="https://tribute.co" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">
-          <span data-lang-inline="ru">Оплатить через Tribute</span>
-          <span data-lang-inline="en">Pay via Tribute</span>
+        <a href="#contact-form" class="btn-primary" style="width:100%;justify-content:center;" onclick="document.getElementById('contact-form').scrollIntoView({behavior:'smooth'});return false;">
+          <span data-lang-inline="ru">Записаться на консультацию</span>
+          <span data-lang-inline="en">Book a consultation</span>
         </a>
       </div>
 
@@ -2048,6 +2094,49 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
   </div>
 </section>
 
+<!-- ===== CONTACT FORM ===== -->
+<section class="section" id="contact-form">
+  <div class="container" style="display:flex;flex-direction:column;align-items:center;">
+    <div data-lang="ru">
+      <div class="section-label anim-reveal" style="text-align:center;">// связаться</div>
+      <h2 class="section-title anim-reveal" style="text-align:center;">Оставить заявку</h2>
+      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+        Заполните форму, и мы свяжемся с вами в Telegram в течение 24 часов.
+      </p>
+    </div>
+    <div data-lang="en">
+      <div class="section-label anim-reveal" style="text-align:center;">// contact</div>
+      <h2 class="section-title anim-reveal" style="text-align:center;">Get in touch</h2>
+      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+        Fill out the form and we'll reach out via Telegram within 24 hours.
+      </p>
+    </div>
+
+    <form id="leadForm" class="lead-form anim-reveal" onsubmit="return submitLead(event)">
+      <div class="form-group">
+        <label data-lang-inline="ru" for="lead-name">Имя</label>
+        <label data-lang-inline="en" for="lead-name">Name</label>
+        <input type="text" id="lead-name" name="name" required placeholder="Как к вам обращаться?">
+      </div>
+      <div class="form-group">
+        <label data-lang-inline="ru" for="lead-contact">Telegram / телефон / email</label>
+        <label data-lang-inline="en" for="lead-contact">Telegram / phone / email</label>
+        <input type="text" id="lead-contact" name="contact" required placeholder="@username, +7..., или email">
+      </div>
+      <div class="form-group">
+        <label data-lang-inline="ru" for="lead-message">Что вас беспокоит? (необязательно)</label>
+        <label data-lang-inline="en" for="lead-message">What concerns you? (optional)</label>
+        <textarea id="lead-message" name="message" rows="3" placeholder="Кратко опишите запрос..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="leadSubmitBtn">
+        <span data-lang-inline="ru">Отправить заявку</span>
+        <span data-lang-inline="en">Send request</span>
+      </button>
+      <div id="leadFormStatus" style="margin-top:16px;text-align:center;display:none;"></div>
+    </form>
+  </div>
+</section>
+
 <!-- ===== CTA TERMINAL ===== -->
 <section class="section cta-section" id="cta">
   <div class="container" style="display:flex;flex-direction:column;align-items:center;">
@@ -2215,6 +2304,56 @@ setTimeout(() => {
     el.style.opacity = '1';
   });
 }, 300);
+
+/* ===== LEAD FORM SUBMISSION ===== */
+const LEAD_API = 'https://timzinin.com/mental-api/api/lead';
+
+async function submitLead(e) {
+  e.preventDefault();
+  const btn = document.getElementById('leadSubmitBtn');
+  const status = document.getElementById('leadFormStatus');
+  const form = document.getElementById('leadForm');
+
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  status.style.display = 'none';
+
+  const payload = {
+    name: document.getElementById('lead-name').value.trim(),
+    contact: document.getElementById('lead-contact').value.trim(),
+    message: document.getElementById('lead-message').value.trim(),
+  };
+
+  try {
+    const resp = await fetch(LEAD_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await resp.json();
+    if (data.ok) {
+      status.style.display = 'block';
+      status.style.color = 'var(--success)';
+      status.textContent = document.body.classList.contains('lang-en')
+        ? 'Thank you! We will contact you within 24 hours.'
+        : 'Спасибо! Мы свяжемся с вами в течение 24 часов.';
+      form.reset();
+    } else {
+      throw new Error(data.error || 'Unknown error');
+    }
+  } catch (err) {
+    status.style.display = 'block';
+    status.style.color = 'var(--danger)';
+    status.textContent = document.body.classList.contains('lang-en')
+      ? 'Error sending. Please message us on Telegram directly.'
+      : 'Ошибка отправки. Напишите нам напрямую в Telegram.';
+    console.error('Lead form error:', err);
+  } finally {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+  return false;
+}
 </script>
 
 </body>
