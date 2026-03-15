@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentalStab — Тексты анонса на утверждение</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #e5e5e5; line-height: 1.7; }
+.container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+.subtitle { color: #888; font-size: 14px; margin-bottom: 40px; }
+.card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 32px; margin-bottom: 24px; position: relative; }
+.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.platform-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; color: #fff; }
+.lang-badge { font-size: 11px; padding: 3px 10px; border-radius: 6px; background: #1a1a1a; color: #888; border: 1px solid #333; }
+.card-body { white-space: pre-wrap; font-size: 15px; color: #ccc; }
+.card-body strong { color: #fff; }
+.utm { margin-top: 16px; padding: 12px 16px; background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 8px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; color: #666; word-break: break-all; }
+.utm span { color: #3B82F6; }
+.section-divider { text-align: center; color: #333; font-size: 12px; letter-spacing: 4px; text-transform: uppercase; margin: 48px 0 32px; }
+.approve-row { display: flex; gap: 8px; margin-top: 20px; padding-top: 16px; border-top: 1px solid #1a1a1a; }
+.btn { padding: 8px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; }
+.btn-approve { background: #10B981; color: #fff; }
+.btn-approve:hover { background: #059669; }
+.btn-edit { background: #1a1a1a; color: #888; border: 1px solid #333; }
+.btn-edit:hover { color: #ccc; border-color: #555; }
+.btn-skip { background: transparent; color: #555; }
+.status-badge { position: absolute; top: 16px; right: 16px; font-size: 11px; padding: 4px 10px; border-radius: 6px; }
+.status-pending { background: #1a1a1a; color: #666; }
+.status-approved { background: #0d3320; color: #10B981; }
+.status-rejected { background: #2a1010; color: #EF4444; }
+.hero-img { width: 100%; border-radius: 10px; margin-bottom: 32px; border: 1px solid #222; }
+.summary { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; margin-bottom: 32px; }
+.summary h3 { font-size: 16px; margin-bottom: 12px; color: #fff; }
+.summary p { color: #aaa; font-size: 14px; margin-bottom: 8px; }
+.summary .highlight { color: #F59E0B; font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+th { text-align: left; padding: 8px 10px; color: #555; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #222; }
+td { padding: 8px 10px; border-bottom: 1px solid #1a1a1a; color: #aaa; }
+td code { background: #1a1a1a; padding: 2px 6px; border-radius: 4px; font-size: 11px; color: #3B82F6; }
+.counter { text-align: center; margin-top: 40px; color: #333; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>MentalStab.com — Анонс</h1>
+<p class="subtitle">Тексты для публикации 16 марта 2026 | Каждый пост требует утверждения</p>
+
+<div class="summary">
+  <h3>Что сделано (Спринты 1-3)</h3>
+  <p><span class="highlight">HTTPS</span> — mentalstab.com работает, HTTP редиректит на HTTPS</p>
+  <p><span class="highlight">Форма</span> — E2E тест пройден, лид #4 создан, CORS для mentalstab.com добавлен</p>
+  <p><span class="highlight">Umami</span> — tracking script установлен, website_id создан, данные идут в дашборд</p>
+  <p><span class="highlight">Дашборд</span> — вкладка "Веб-трафик" добавлена в Zinin Corp Analytics</p>
+  <p><span class="highlight">Екатерина</span> — сообщение отправлено (нажать /start в @mental_stability_leads_bot)</p>
+  <p><span class="highlight">UX</span> — favicon, og-meta, навигация почищена, mobile ОК</p>
+</div>
+
+<img src="/tmp/mentalstab_hero.png" class="hero-img" alt="MentalStab Hero">
+
+<div class="section-divider">— посты для утверждения —</div>
+
+<!-- POST 1: Telegram -->
+<div class="card" id="post-telegram">
+  <span class="status-badge status-pending" id="status-telegram">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#0088cc">Telegram</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Запустил проект, который давно хотел сделать.
+
+Современные LLM вышли на такой уровень, что целые отрасли вынуждены переквалифицироваться. Прямо сейчас огромное количество людей не спит ночами, строит новые проекты, тупит в Claude Code и Codex. Вайб-кодинг стал образом жизни.
+
+Но у нашей психики есть ограниченный ресурс. Каждый промпт - это микродоза дофамина. Каждый удачный ответ ИИ подкрепляет цикл. И в какой-то момент ты просто перестаёшь замечать, что кофе больше не бодрит, что ты не помнишь, когда последний раз хотел чего-то просто так, что люди вокруг стали раздражать.
+
+Чтобы не сойти с ума от всего этого, часто нужна поддержка и возможность поговорить со специалистом.
+
+Екатерина Чернецова - психолог, 12+ лет практики, подход Family Systems (IFS). Специализируется именно на работе с вайб-кодерами и теми, кто посвящает свою жизнь работе с AI-инструментами.
+
+Мы запустили mentalstab.com - сайт, где можно узнать больше и написать Екатерине.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=telegram&utm_medium=social&utm_campaign=launch&utm_content=tim_channel</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('telegram')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('telegram')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('telegram')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 2: LinkedIn -->
+<div class="card" id="post-linkedin">
+  <span class="status-badge status-pending" id="status-linkedin">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#0A66C2">LinkedIn</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Современные LLM вышли на такой уровень, что целые отрасли вынуждены переквалифицироваться. Прямо сейчас огромное количество людей не спит ночами, строит новые проекты, сидит в Claude Code и Codex. Вайб-кодинг стал образом жизни для тысяч людей.
+
+Но у нашей психики есть ограниченный ресурс. Каждый промпт - микродоза дофамина. Каждый удачный ответ ИИ подкрепляет цикл. В какой-то момент перестаёшь замечать, что кофе больше не бодрит, что люди вокруг начали раздражать, что ты давно живёшь на автопилоте.
+
+Чтобы не сойти с ума от всего этого, иногда нужна поддержка и возможность поговорить со специалистом.
+
+Екатерина Чернецова - психолог, 12+ лет практики, подход Family Systems (IFS). Специализируется именно на работе с вайб-кодерами и теми, кто посвящает свою жизнь работе с AI.
+
+Мы запустили mentalstab.com - подробности и контакт Екатерины.
+
+#mentalhealth #vibecoding #ai #claudecode #psychology</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=linkedin&utm_medium=social&utm_campaign=launch&utm_content=tim_profile</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('linkedin')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('linkedin')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('linkedin')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 3: Threads -->
+<div class="card" id="post-threads">
+  <span class="status-badge status-pending" id="status-threads">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#555">Threads</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Запустил mentalstab.com
+
+LLM перевернули индустрию. Целые профессии переквалифицируются. Люди ночами сидят в Claude Code, строят проекты, вайб-кодят.
+
+Наша психика при этом имеет ограниченный ресурс. И чтобы не сойти с ума, иногда нужно просто поговорить со специалистом.
+
+Екатерина Чернецова - психолог, 12+ лет, подход Family Systems. Специализируется на работе с вайб-кодерами.
+
+Написать ей можно через mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=threads&utm_medium=social&utm_campaign=launch&utm_content=tim_threads</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('threads')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('threads')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('threads')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 4: Facebook -->
+<div class="card" id="post-facebook">
+  <span class="status-badge status-pending" id="status-facebook">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#1877F2">Facebook</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Сделал проект, которого мне самому не хватало.
+
+Современные LLM перевернули всё. Целые отрасли вынуждены переквалифицироваться. Куча людей прямо сейчас не спит ночами, вайб-кодит в Claude Code, строит проекты на AI.
+
+Но наша психика имеет ограниченный ресурс. Каждый промпт - микродоза дофамина, каждый удачный ответ подкрепляет цикл. В какой-то момент перестаёшь замечать, что тебя уже давно штормит.
+
+Чтобы не сойти с ума от всего этого, нужна поддержка.
+
+Екатерина Чернецова - психолог, 12+ лет практики, подход Family Systems (IFS). Специализируется на работе с вайб-кодерами и теми, кто живёт в мире AI.
+
+Подробности и контакт: mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=facebook&utm_medium=social&utm_campaign=launch&utm_content=tim_fb</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('facebook')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('facebook')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('facebook')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 5: VK -->
+<div class="card" id="post-vk">
+  <span class="status-badge status-pending" id="status-vk">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#4680C2">VK</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Запустил проект mentalstab.com - ментальная устойчивость для тех, кто живёт в мире AI.
+
+LLM вышли на такой уровень, что целые отрасли переквалифицируются. Огромное количество людей прямо сейчас ночами сидит в Claude Code и Codex, строит проекты, вайб-кодит.
+
+Наша психика при этом имеет ограниченный ресурс. Каждый промпт - дофамин. Каждый удачный ответ - подкрепление цикла. Кофе перестаёт бодрить. Люди начинают раздражать. Ты перестаёшь замечать, что давно живёшь на автопилоте.
+
+Чтобы не сойти с ума, нужна поддержка.
+
+Екатерина Чернецова - психолог, 12+ лет, подход Family Systems (IFS). Специализируется именно на работе с вайб-кодерами.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=vk&utm_medium=social&utm_campaign=launch&utm_content=tim_vk</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('vk')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('vk')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('vk')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 6: Bluesky -->
+<div class="card" id="post-bluesky">
+  <span class="status-badge status-pending" id="status-bluesky">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#0085FF">Bluesky</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body">Launched mentalstab.com - mental resilience for people living in the age of AI.
+
+LLMs have reached a level where entire industries are reskilling. People are grinding Claude Code and Codex all night, vibe coding their way through new projects. Our minds have a limited capacity for this.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems approach. Specializes in working with vibe coders.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=bluesky&utm_medium=social&utm_campaign=launch&utm_content=tim_bsky</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('bluesky')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('bluesky')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('bluesky')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 7: Dev.to / Hashnode -->
+<div class="card" id="post-devto">
+  <span class="status-badge status-pending" id="status-devto">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#333">Dev.to / Hashnode / Write.as</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body"><strong>Mental Resilience for Vibe Coders</strong>
+
+I launched mentalstab.com - a project about mental resilience for people who build with AI.
+
+Modern LLMs have reached a level where entire industries are forced to reskill. Right now, a massive number of people are staying up all night, grinding in Claude Code and Codex, vibe coding new projects into existence.
+
+But our minds have a limited capacity. Every prompt is a micro-dose of dopamine. Every successful AI response reinforces the loop. At some point you stop noticing that you haven't slept properly in weeks, that coffee just removes the headache, that you can't remember the last time you wanted something just because.
+
+To stay sane through all of this, sometimes you just need to talk to someone who gets it.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems (IFS). She specializes in working with vibe coders and people who dedicate their lives to building with AI.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=devto&utm_medium=social&utm_campaign=launch&utm_content=tim_devto</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('devto')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('devto')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('devto')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 8: Instagram -->
+<div class="card" id="post-instagram">
+  <span class="status-badge status-pending" id="status-instagram">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#E4405F">Instagram</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">LLM перевернули всё. Целые профессии переквалифицируются. Люди ночами вайб-кодят в Claude Code, строят проекты, живут в терминале.
+
+Наша психика при этом имеет ограниченный ресурс. Каждый промпт - дофамин. Кофе перестаёт бодрить. Люди начинают раздражать. Ты перестаёшь замечать, что давно на автопилоте.
+
+Чтобы не сойти с ума, нужна поддержка.
+
+Екатерина Чернецова - психолог, 12+ лет, Family Systems. Специализируется на работе с вайб-кодерами.
+
+Подробности - ссылка в шапке профиля.
+
+#mentalhealth #vibecoding #ai #claudecode #burnout #psychology #вайбкодинг #ментальноездоровье</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=instagram&utm_medium=social&utm_campaign=launch&utm_content=tim_ig</span></div>
+  <p style="color:#F59E0B; font-size:12px; margin-top:8px">* Instagram: ссылки в caption некликабельны. Нужно обновить ссылку в шапке профиля на UTM-ссылку выше.</p>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('instagram')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('instagram')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('instagram')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 9: Mastodon -->
+<div class="card" id="post-mastodon">
+  <span class="status-badge status-pending" id="status-mastodon">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#6364FF">Mastodon</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body">Launched mentalstab.com - mental resilience for vibe coders.
+
+LLMs changed everything. People are grinding Claude Code all night, building projects, living in the terminal. Our minds have a limited capacity for this.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems. Specializes in working with vibe coders.
+
+mentalstab.com
+
+#mentalhealth #vibecoding #ai #psychology</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=mastodon&utm_medium=social&utm_campaign=launch&utm_content=tim_mastodon</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('mastodon')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('mastodon')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('mastodon')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 10: Tumblr -->
+<div class="card" id="post-tumblr">
+  <span class="status-badge status-pending" id="status-tumblr">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#36465D">Tumblr</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body">mentalstab.com - mental resilience for vibe coders
+
+Modern LLMs changed everything. Entire industries reskilling. People grinding Claude Code and Codex all night. Vibe coding became a lifestyle.
+
+Our minds have a limited capacity. Every prompt is dopamine. At some point you stop noticing you're running on fumes.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems. Specializes in working with vibe coders and AI builders.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=tumblr&utm_medium=social&utm_campaign=launch&utm_content=tim_tumblr</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('tumblr')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('tumblr')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('tumblr')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 11: OK.ru -->
+<div class="card" id="post-okru">
+  <span class="status-badge status-pending" id="status-okru">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#EE8208">OK.ru</span>
+    <span class="lang-badge">RU</span>
+  </div>
+  <div class="card-body">Запустил проект mentalstab.com
+
+Современные нейросети вышли на такой уровень, что целые профессии переквалифицируются. Огромное количество людей прямо сейчас ночами сидит в AI-инструментах, строит проекты, осваивает вайб-кодинг.
+
+Но наша психика имеет ограниченный ресурс. Чтобы не сойти с ума от всего этого, иногда нужна поддержка.
+
+Екатерина Чернецова - психолог, 12+ лет практики, подход Family Systems. Специализируется на работе с теми, кто живёт в мире AI.
+
+Подробности: mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=okru&utm_medium=social&utm_campaign=launch&utm_content=tim_okru</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('okru')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('okru')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('okru')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 12: Minds -->
+<div class="card" id="post-minds">
+  <span class="status-badge status-pending" id="status-minds">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#FFC107; color:#000">Minds</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body">Launched mentalstab.com - mental resilience for vibe coders and AI builders.
+
+LLMs are forcing entire industries to reskill. People are grinding Claude Code all night building new projects. Our minds have a limited capacity for this kind of sustained intensity.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems approach. Specializes in working with vibe coders.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=minds&utm_medium=social&utm_campaign=launch&utm_content=tim_minds</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('minds')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('minds')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('minds')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 13: Nostr -->
+<div class="card" id="post-nostr">
+  <span class="status-badge status-pending" id="status-nostr">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#8B5CF6">Nostr</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body">mentalstab.com - mental resilience for vibe coders.
+
+LLMs changed the game. People grinding Claude Code all night. Our psyche has limits.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems. Works with vibe coders.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=nostr&utm_medium=social&utm_campaign=launch&utm_content=tim_nostr</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('nostr')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('nostr')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('nostr')">Пропустить</button>
+  </div>
+</div>
+
+<!-- POST 14: Hashnode -->
+<div class="card" id="post-hashnode">
+  <span class="status-badge status-pending" id="status-hashnode">Ожидает</span>
+  <div class="card-header">
+    <span class="platform-badge" style="background:#2962FF">Hashnode</span>
+    <span class="lang-badge">EN</span>
+  </div>
+  <div class="card-body"><strong>Mental Resilience for Vibe Coders</strong>
+
+I launched mentalstab.com - a project about mental resilience for people who build with AI.
+
+Modern LLMs have reached a level where entire industries are forced to reskill. Right now, a massive number of people are staying up all night, grinding in Claude Code and Codex, vibe coding new projects into existence.
+
+But our minds have a limited capacity. Every prompt is a micro-dose of dopamine. Every successful AI response reinforces the loop. At some point you stop noticing that you haven't slept properly in weeks, that coffee just removes the headache, that you can't remember the last time you wanted something just because.
+
+To stay sane through all of this, sometimes you just need to talk to someone who gets it.
+
+Ekaterina Chernetsova - psychologist, 12+ years, Family Systems (IFS). She specializes in working with vibe coders and people who dedicate their lives to building with AI.
+
+mentalstab.com</div>
+  <div class="utm">UTM: <span>https://mentalstab.com/?utm_source=hashnode&utm_medium=social&utm_campaign=launch&utm_content=tim_hashnode</span></div>
+  <div class="approve-row">
+    <button class="btn btn-approve" onclick="approve('hashnode')">Утвердить</button>
+    <button class="btn btn-edit" onclick="flag('hashnode')">Нужны правки</button>
+    <button class="btn btn-skip" onclick="skip('hashnode')">Пропустить</button>
+  </div>
+</div>
+
+<div class="section-divider">— UTM-ссылки —</div>
+
+<div class="card">
+  <h3 style="font-size:16px; margin-bottom:16px; color:#fff">Все UTM-ссылки</h3>
+  <table>
+    <tr><th>Платформа</th><th>UTM Link</th></tr>
+    <tr><td>Telegram</td><td><code>utm_source=telegram</code></td></tr>
+    <tr><td>LinkedIn</td><td><code>utm_source=linkedin</code></td></tr>
+    <tr><td>Threads</td><td><code>utm_source=threads</code></td></tr>
+    <tr><td>Facebook</td><td><code>utm_source=facebook</code></td></tr>
+    <tr><td>VK</td><td><code>utm_source=vk</code></td></tr>
+    <tr><td>Bluesky</td><td><code>utm_source=bluesky</code></td></tr>
+    <tr><td>Dev.to</td><td><code>utm_source=devto</code></td></tr>
+    <tr><td>Hashnode</td><td><code>utm_source=hashnode</code></td></tr>
+    <tr><td>Mastodon</td><td><code>utm_source=mastodon</code></td></tr>
+    <tr><td>Tumblr</td><td><code>utm_source=tumblr</code></td></tr>
+    <tr><td>OK.ru</td><td><code>utm_source=okru</code></td></tr>
+    <tr><td>Instagram</td><td><code>utm_source=instagram</code></td></tr>
+  </table>
+  <p style="color:#555; font-size:12px; margin-top:12px">Полный формат: <code>?utm_source={platform}&utm_medium=social&utm_campaign=launch&utm_content=tim_{id}</code></p>
+</div>
+
+<div class="counter" id="counter">Утверждено: 0 / 14</div>
+
+</div>
+
+<script>
+const states = {};
+function approve(id) {
+  states[id] = 'approved';
+  document.getElementById('status-' + id).className = 'status-badge status-approved';
+  document.getElementById('status-' + id).textContent = 'Утверждён';
+  updateCounter();
+}
+function flag(id) {
+  states[id] = 'edit';
+  document.getElementById('status-' + id).className = 'status-badge status-rejected';
+  document.getElementById('status-' + id).textContent = 'Нужны правки';
+  updateCounter();
+}
+function skip(id) {
+  states[id] = 'skipped';
+  document.getElementById('status-' + id).className = 'status-badge status-pending';
+  document.getElementById('status-' + id).textContent = 'Пропущен';
+  updateCounter();
+}
+function updateCounter() {
+  const approved = Object.values(states).filter(s => s === 'approved').length;
+  document.getElementById('counter').textContent = 'Утверждено: ' + approved + ' / 14';
+}
+</script>
+</body>
+</html>
