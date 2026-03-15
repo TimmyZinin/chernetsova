@@ -578,7 +578,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
       <li><a href="#approach"><span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span></a></li>
       <li><a href="#services"><span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span></a></li>
       <li><a href="#tracker"><span data-lang-inline="ru">Трекер</span><span data-lang-inline="en">Tracker</span></a></li>
-      <li><a href="#contact-form"><span data-lang-inline="ru">Заявка</span><span data-lang-inline="en">Contact</span></a></li>
+      <li><a href="#contact-form"><span data-lang-inline="ru">Записаться</span><span data-lang-inline="en">Sign up</span></a></li>
       <li><div class="lang-switch"><button class="lang-btn active" onclick="setLang('ru')">RU</button><button class="lang-btn" onclick="setLang('en')">EN</button></div></li>
     </ul>
     <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
@@ -628,7 +628,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
         </div>
 
         <div class="hero-cta-row">
-          <a href="https://t.me/juhbubi" class="btn-primary">
+          <a href="https://t.me/mental_stability_leads_bot" class="btn-primary">
             <span data-lang-inline="ru">&#128233; Написать Екатерине</span>
             <span data-lang-inline="en">&#128233; Message Ekaterina</span>
           </a>
@@ -1199,7 +1199,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">7 500 RUB (~$80)</div>
         </div>
-        <a href="https://t.me/juhbubi" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
+        <a href="https://t.me/mental_stability_leads_bot" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
       </div>
       <div class="product-card featured anim-reveal">
         <div class="product-badge"><span data-lang-inline="ru">-10%</span><span data-lang-inline="en">-10%</span></div>
@@ -1226,7 +1226,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">27 000 RUB (~$290) <span style="color:var(--text-muted);font-size:0.8em;text-decoration:line-through">30 000</span></div>
         </div>
-        <a href="https://t.me/juhbubi" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
+        <a href="https://t.me/mental_stability_leads_bot" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
       </div>
       <div class="product-card anim-reveal">
         <div class="product-badge" style="background:var(--success)"><span data-lang-inline="ru">-20%</span><span data-lang-inline="en">-20%</span></div>
@@ -1255,7 +1255,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
           </ul>
           <div class="product-price">72 000 RUB (~$780) <span style="color:var(--text-muted);font-size:0.8em;text-decoration:line-through">90 000</span></div>
         </div>
-        <a href="https://t.me/juhbubi" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
+        <a href="https://t.me/mental_stability_leads_bot" class="btn-primary" style="width:100%;justify-content:center;"><span data-lang-inline="ru">Написать Екатерине</span><span data-lang-inline="en">Message Ekaterina</span></a>
       </div>
     </div>
   </div>
@@ -1318,40 +1318,22 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
   <div class="container" style="display:flex;flex-direction:column;align-items:center;">
     <div data-lang="ru">
       <div class="section-label anim-reveal" style="text-align:center;">// связаться</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Оставить заявку</h2>
-      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto;">
-        Заполните форму, и мы свяжемся с вами в Telegram в течение 24 часов.
+      <h2 class="section-title anim-reveal" style="text-align:center;">Записаться</h2>
+      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto 32px;">
+        Напишите нашему боту в Telegram. Он задаст пару вопросов, и Екатерина свяжется с вами.
       </p>
     </div>
     <div data-lang="en">
       <div class="section-label anim-reveal" style="text-align:center;">// contact</div>
-      <h2 class="section-title anim-reveal" style="text-align:center;">Get in touch</h2>
-      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto;">
-        Fill out the form and we'll reach out via Telegram within 24 hours.
+      <h2 class="section-title anim-reveal" style="text-align:center;">Get started</h2>
+      <p class="section-subtitle anim-reveal" style="text-align:center;max-width:600px;margin:0 auto 32px;">
+        Message our Telegram bot. It will ask a couple of questions, and Ekaterina will reach out.
       </p>
     </div>
-    <form id="leadForm" class="lead-form anim-reveal" onsubmit="return submitLead(event)">
-      <div class="form-group">
-        <label data-lang-inline="ru" for="lead-name">Имя</label>
-        <label data-lang-inline="en" for="lead-name">Name</label>
-        <input type="text" id="lead-name" name="name" required placeholder="Как к вам обращаться?">
-      </div>
-      <div class="form-group">
-        <label data-lang-inline="ru" for="lead-contact">Telegram / телефон / email</label>
-        <label data-lang-inline="en" for="lead-contact">Telegram / phone / email</label>
-        <input type="text" id="lead-contact" name="contact" required placeholder="@username, +7..., или email">
-      </div>
-      <div class="form-group">
-        <label data-lang-inline="ru" for="lead-message">Что вас беспокоит? (необязательно)</label>
-        <label data-lang-inline="en" for="lead-message">What concerns you? (optional)</label>
-        <textarea id="lead-message" name="message" rows="3" placeholder="Кратко опишите запрос..."></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" id="leadSubmitBtn">
-        <span data-lang-inline="ru">Отправить заявку</span>
-        <span data-lang-inline="en">Send request</span>
-      </button>
-      <div id="leadFormStatus" style="margin-top:16px;text-align:center;display:none;"></div>
-    </form>
+    <a href="https://t.me/mental_stability_leads_bot" class="btn-primary anim-reveal" style="font-size:1.1rem;padding:22px 48px;">
+      <span data-lang-inline="ru">Написать в Telegram</span>
+      <span data-lang-inline="en">Message on Telegram</span>
+    </a>
   </div>
 </section>
 
@@ -1400,7 +1382,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
     </div>
 
     <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
-      <a href="https://t.me/juhbubi" class="btn-primary" style="font-size:1.05rem;">
+      <a href="https://t.me/mental_stability_leads_bot" class="btn-primary" style="font-size:1.05rem;">
         <span data-lang-inline="ru">&#128233; Написать в Telegram</span>
         <span data-lang-inline="en">&#128233; Message on Telegram</span>
       </a>
@@ -1419,7 +1401,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
       <a href="#problem"><span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span></a>
       <a href="#approach"><span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span></a>
       <a href="#services"><span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span></a>
-      <a href="https://t.me/juhbubi">Telegram</a>
+      <a href="https://t.me/mental_stability_leads_bot">Telegram</a>
     </div>
     <p><span data-lang-inline="ru">&copy; 2026 Ментальная устойчивость. Екатерина Чернецова.</span><span data-lang-inline="en">&copy; 2026 Mental Resilience. Ekaterina Chernetsova.</span></p>
     <p style="margin-top:8px;font-size:0.75rem;color:var(--text-muted);"><span data-lang-inline="ru">Информация на сайте не является медицинской рекомендацией. При наличии диагнозов обращайтесь к лечащему врачу.</span><span data-lang-inline="en">Information on this site is not medical advice. If you have a diagnosis, consult your physician.</span></p>
