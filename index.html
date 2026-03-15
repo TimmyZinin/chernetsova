@@ -577,7 +577,6 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
       <li><a href="#problem"><span data-lang-inline="ru">Проблема</span><span data-lang-inline="en">Problem</span></a></li>
       <li><a href="#approach"><span data-lang-inline="ru">Подход</span><span data-lang-inline="en">Approach</span></a></li>
       <li><a href="#services"><span data-lang-inline="ru">Услуги</span><span data-lang-inline="en">Services</span></a></li>
-      <li><a href="#tracker"><span data-lang-inline="ru">Трекер</span><span data-lang-inline="en">Tracker</span></a></li>
       <li><a href="#contact-form"><span data-lang-inline="ru">Записаться</span><span data-lang-inline="en">Sign up</span></a></li>
       <li><div class="lang-switch"><button class="lang-btn active" onclick="setLang('ru')">RU</button><button class="lang-btn" onclick="setLang('en')">EN</button></div></li>
     </ul>
@@ -1262,41 +1261,6 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
 </section>
 
 <!-- ===== BIOMETRIC TRACKER TEASER ===== -->
-<section class="section tracker-section" id="tracker">
-  <div class="container">
-    <div class="tracker-layout">
-      <div>
-        <div class="dev-badge">&#128302; <span data-lang-inline="ru">В разработке</span><span data-lang-inline="en">In development</span></div>
-        <div data-lang="ru">
-          <h2 class="section-title anim-reveal">Биометрический трекер</h2>
-          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">Мы разрабатываем инструмент, который анализирует твои поведенческие биомаркеры и в нужный момент говорит:</p>
-          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">&#9888; &laquo;Выключи Claude Code. Немедленно иди спать. Иначе ты выйдешь из строя на несколько месяцев.&raquo;</p>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">Трекер считывает паттерны сна, активности, скорости набора текста, частоты переключений между задачами — и предупреждает о приближении к точке невозврата.</p>
-        </div>
-        <div data-lang="en">
-          <h2 class="section-title anim-reveal">Biometric Tracker</h2>
-          <p style="color:var(--text-secondary);font-size:1.05rem;line-height:1.8;margin-bottom:24px;" class="anim-reveal">We're building a tool that analyzes your behavioral biomarkers and at the right moment tells you:</p>
-          <p style="font-family:var(--font-mono);color:var(--danger);font-size:1.1rem;margin-bottom:24px;padding:16px;background:var(--danger-soft);border-radius:var(--radius-sm);border:1px solid #ef444440;" class="anim-reveal">&#9888; "Close Claude Code. Go to sleep immediately. Otherwise you'll be out of commission for months."</p>
-          <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;" class="anim-reveal">The tracker reads sleep patterns, activity, typing speed, task-switching frequency — and warns you when you're approaching the point of no return.</p>
-        </div>
-      </div>
-      <div class="tracker-mockup anim-reveal">
-        <div class="tracker-mockup-header">
-          <div class="mock-dot red"></div><div class="mock-dot yellow"></div><div class="mock-dot green"></div>
-          <span style="margin-left:12px;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">mental_state_v0.3.py</span>
-        </div>
-        <div class="tracker-bar-group">
-          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#129504; Когнитивная нагрузка</span><span data-lang-inline="en">&#129504; Cognitive Load</span><span class="val-danger">94%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-danger" style="width:94%;"></div></div></div>
-          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#128564; Качество сна</span><span data-lang-inline="en">&#128564; Sleep Quality</span><span class="val-warn">38%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-warn" style="width:38%;"></div></div></div>
-          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#128172; Социальные контакты</span><span data-lang-inline="en">&#128172; Social Contact</span><span class="val-warn">22%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-warn" style="width:22%;"></div></div></div>
-          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#9889; Резерв ЦНС</span><span data-lang-inline="en">&#9889; CNS Reserve</span><span class="val-danger">12%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-danger" style="width:12%;"></div></div></div>
-          <div><div class="tracker-bar-label"><span data-lang-inline="ru">&#127919; Контакт с собой</span><span data-lang-inline="en">&#127919; Self-Connection</span><span class="val-ok">67%</span></div><div class="tracker-bar-track"><div class="tracker-bar-fill fill-ok" style="width:67%;"></div></div></div>
-        </div>
-        <div class="tracker-alert"><span>&#128680;</span><span data-lang-inline="ru">КРИТИЧНО: Выключи AI-инструменты. Иди спать.</span><span data-lang-inline="en">CRITICAL: Turn off AI tools. Go to sleep.</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- ===== FAQ ===== -->
@@ -1307,7 +1271,7 @@ body.lang-en [data-lang-flex="ru"] { display: none; }
     <div class="faq-list" style="margin-top:48px;">
       <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">У меня нет проблем, мне просто интересен AI. Это для меня?</span><span data-lang-inline="en">I don't have problems, I'm just into AI. Is this for me?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Именно для тебя. Профилактика — это не про &laquo;лечение больных&raquo;, а про поддержание формы. Спортсмены не ходят к физиотерапевту только когда сломали ногу. Ментальная гигиена работает так же.</span><span data-lang-inline="en">Especially for you. Prevention isn't about "treating the sick" — it's about staying in shape. Athletes don't see physiotherapists only when they break a leg. Mental hygiene works the same.</span></div></div></div>
       <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Чем это отличается от обычного коучинга?</span><span data-lang-inline="en">How is this different from regular coaching?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Коуч скажет: &laquo;Делай больше! Ты можешь!&raquo; Я скажу: &laquo;Подожди. Давай сначала разберёмся, какая часть тебя этого хочет, а какая — уже кричит о помощи&raquo;. Мой подход основан на Family Systems — это глубинная работа с внутренней структурой личности.</span><span data-lang-inline="en">A coach says: "Do more! You can do it!" I say: "Wait. Let's first understand which part of you wants this and which is already screaming for help." My approach is based on Family Systems — deep work with your internal structure.</span></div></div></div>
-      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Я предприниматель, у меня мало времени. Сколько нужно?</span><span data-lang-inline="en">I'm an entrepreneur, I have little time. How much do I need?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">50 минут в неделю. Одна сессия. Плюс 10 минут на еженедельный трекер. Это меньше, чем один бесполезный Zoom-созвон. Но эффект — как замена масла в двигателе, который ты эксплуатируешь 24/7.</span><span data-lang-inline="en">50 minutes a week. One session. Plus 10 minutes for the weekly tracker. That's less than one useless Zoom call. But the effect is like an oil change for an engine you're running 24/7.</span></div></div></div>
+      <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">Я предприниматель, у меня мало времени. Сколько нужно?</span><span data-lang-inline="en">I'm an entrepreneur, I have little time. How much do I need?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">50 минут в неделю. Одна сессия. Это меньше, чем один бесполезный Zoom-созвон. Но эффект - как замена масла в двигателе, который ты эксплуатируешь 24/7.</span><span data-lang-inline="en">50 minutes a week. One session. That's less than one useless Zoom call. But the effect is like an oil change for an engine you're running 24/7.</span></div></div></div>
       <div class="faq-item anim-reveal"><div class="faq-question" onclick="toggleFaq(this)"><span data-lang-inline="ru">А если мне нужна &laquo;серьёзная&raquo; терапия?</span><span data-lang-inline="en">What if I need "serious" therapy?</span><span class="faq-arrow">&#9662;</span></div><div class="faq-answer"><div class="faq-answer-inner"><span data-lang-inline="ru">Если в ходе работы мы увидим, что нужна более глубокая помощь — я честно об этом скажу и помогу найти правильного специалиста. Моя задача — профилактика и гигиена.</span><span data-lang-inline="en">If during our work we see that deeper help is needed — I'll honestly say so and help find the right specialist. My focus is prevention and hygiene.</span></div></div></div>
     </div>
   </div>
