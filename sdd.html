@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentalStab 2.0 — SDD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script defer src="https://sborka.work/stats/script.js" data-website-id="da69b03f-17f5-4061-8080-6277e6032b9d"></script><!-- placeholder public analytics -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a12;
+  --bg-2:#0e0e1a;
+  --bg-3:#121220;
+  --bg-card:#13131f;
+  --amber:#f59e0b;
+  --amber-dim:rgba(245,158,11,0.18);
+  --amber-glow:rgba(245,158,11,0.08);
+  --emerald:#10b981;
+  --emerald-dim:rgba(16,185,129,0.15);
+  --blue:#3b82f6;
+  --blue-dim:rgba(59,130,246,0.15);
+  --red:#ef4444;
+  --red-dim:rgba(239,68,68,0.15);
+  --purple:#8b5cf6;
+  --text:#eeeaf0;
+  --text-2:#9490a0;
+  --text-3:#5a5670;
+  --border:rgba(255,255,255,0.06);
+  --border-hover:rgba(255,255,255,0.12);
+  --font-d:'Unbounded',sans-serif;
+  --font-b:'Onest',sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-b);
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(245,158,11,0.3);border-radius:4px}
+
+/* ---- LAYOUT ---- */
+.page-wrap{
+  max-width:900px;
+  margin:0 auto;
+  padding:0 24px 80px;
+}
+
+/* ---- HEADER NAV ---- */
+.site-nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(10,10,18,0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:14px 24px;
+}
+.site-nav-inner{
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.back-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--text-2);
+  text-decoration:none;
+  font-family:var(--font-b);
+  font-size:14px;
+  font-weight:500;
+  transition:color 0.2s;
+}
+.back-link:hover{color:var(--amber)}
+.back-link svg{width:16px;height:16px;flex-shrink:0}
+.nav-badge{
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  color:var(--amber);
+  background:var(--amber-glow);
+  border:1px solid var(--amber-dim);
+  border-radius:6px;
+  padding:3px 10px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+/* ---- DOC HEADER ---- */
+.doc-header{
+  padding:56px 0 40px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:40px;
+}
+.doc-label{
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  color:var(--emerald);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.doc-label::before{
+  content:'';
+  display:inline-block;
+  width:20px;
+  height:2px;
+  background:var(--emerald);
+  border-radius:2px;
+}
+.doc-title{
+  font-family:var(--font-d);
+  font-size:clamp(24px,4vw,40px);
+  font-weight:800;
+  line-height:1.15;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.doc-title span{color:var(--amber)}
+.doc-subtitle{
+  font-size:17px;
+  color:var(--text-2);
+  max-width:600px;
+  font-weight:400;
+}
+.doc-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:28px;
+}
+.doc-meta-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-m);
+  font-size:12px;
+  color:var(--text-3);
+}
+.doc-meta-item .dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--emerald);
+  animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+
+/* ---- TABLE OF CONTENTS ---- */
+.toc-card{
+  background:rgba(19,19,31,0.7);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:28px 32px;
+  margin-bottom:40px;
+  backdrop-filter:blur(8px);
+}
+.toc-title{
+  font-family:var(--font-d);
+  font-size:12px;
+  font-weight:700;
+  color:var(--text-3);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:20px;
+}
+.toc-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:8px;
+  list-style:none;
+}
+.toc-list li a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--text-2);
+  font-size:14px;
+  font-weight:500;
+  padding:6px 10px;
+  border-radius:8px;
+  transition:all 0.2s;
+}
+.toc-list li a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,0.04);
+}
+.toc-num{
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-3);
+  min-width:22px;
+}
+
+/* ---- SECTION CARDS ---- */
+.section-card{
+  background:rgba(19,19,31,0.6);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:36px 40px;
+  margin-bottom:24px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
+  transition:border-color 0.3s;
+}
+.section-card:hover{
+  border-color:var(--border-hover);
+}
+.section-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+}
+
+/* color accent left border */
+.accent-amber{border-left:3px solid var(--amber)}
+.accent-emerald{border-left:3px solid var(--emerald)}
+.accent-blue{border-left:3px solid var(--blue)}
+.accent-red{border-left:3px solid var(--red)}
+.accent-purple{border-left:3px solid var(--purple)}
+
+/* ---- SECTION HEADER ---- */
+.section-header{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:28px;
+}
+.section-num{
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-3);
+  letter-spacing:0.1em;
+  padding-top:4px;
+  min-width:28px;
+}
+.section-info{}
+.section-tag{
+  font-family:var(--font-m);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  padding:3px 9px;
+  border-radius:5px;
+  display:inline-block;
+  margin-bottom:8px;
+}
+.tag-amber{color:var(--amber);background:var(--amber-dim);border:1px solid rgba(245,158,11,0.25)}
+.tag-emerald{color:var(--emerald);background:var(--emerald-dim);border:1px solid rgba(16,185,129,0.25)}
+.tag-blue{color:var(--blue);background:var(--blue-dim);border:1px solid rgba(59,130,246,0.25)}
+.tag-red{color:var(--red);background:var(--red-dim);border:1px solid rgba(239,68,68,0.25)}
+.tag-purple{color:var(--purple);background:rgba(139,92,246,0.12);border:1px solid rgba(139,92,246,0.25)}
+
+.section-title{
+  font-family:var(--font-d);
+  font-size:clamp(16px,2.5vw,22px);
+  font-weight:700;
+  line-height:1.25;
+  color:var(--text);
+  margin:0;
+}
+
+/* ---- CONTENT ELEMENTS ---- */
+.spec-group{
+  margin-bottom:24px;
+}
+.spec-group:last-child{margin-bottom:0}
+
+.spec-label{
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-3);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.spec-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:var(--border);
+}
+
+.spec-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.spec-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:14px;
+  color:var(--text-2);
+  line-height:1.5;
+  padding:8px 12px;
+  border-radius:8px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid transparent;
+  transition:all 0.2s;
+}
+.spec-list li:hover{
+  background:rgba(255,255,255,0.04);
+  border-color:var(--border);
+  color:var(--text);
+}
+.spec-list li::before{
+  content:'→';
+  color:var(--text-3);
+  font-family:var(--font-m);
+  font-size:12px;
+  margin-top:1px;
+  flex-shrink:0;
+}
+
+/* ---- CODE BLOCK ---- */
+.code-block{
+  background:rgba(10,10,18,0.9);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;
+  padding:20px 24px;
+  font-family:var(--font-m);
+  font-size:13px;
+  font-weight:400;
+  line-height:1.8;
+  color:#c9d1d9;
+  overflow-x:auto;
+  position:relative;
+}
+.code-block::before{
+  content:attr(data-lang);
+  position:absolute;
+  top:12px;
+  right:16px;
+  font-size:10px;
+  font-weight:600;
+  color:var(--text-3);
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+}
+.code-key{color:var(--amber)}
+.code-val{color:var(--emerald)}
+.code-comment{color:var(--text-3)}
+.code-str{color:var(--blue)}
+.code-num{color:#e9a84a}
+
+/* ---- FEATURE GRID ---- */
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:12px;
+}
+.feature-item{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 18px;
+  transition:all 0.2s;
+}
+.feature-item:hover{
+  background:rgba(255,255,255,0.04);
+  border-color:var(--border-hover);
+  transform:translateY(-2px);
+}
+.feature-icon{
+  font-size:22px;
+  margin-bottom:10px;
+  display:block;
+}
+.feature-name{
+  font-family:var(--font-d);
+  font-size:12px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:4px;
+}
+.feature-desc{
+  font-size:12px;
+  color:var(--text-2);
+  line-height:1.5;
+}
+
+/* ---- TIMELINE ---- */
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  position:relative;
+}
+.timeline::before{
+  content:'';
+  position:absolute;
+  left:20px;
+  top:28px;
+  bottom:28px;
+  width:2px;
+  background:linear-gradient(to bottom,var(--amber-dim),var(--blue-dim),var(--emerald-dim));
+}
+.timeline-item{
+  display:flex;
+  gap:20px;
+  padding:16px 0;
+  position:relative;
+}
+.timeline-dot{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:var(--bg-3);
+  border:2px solid var(--border-hover);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-m);
+  font-size:12px;
+  font-weight:700;
+  color:var(--text-2);
+  flex-shrink:0;
+  z-index:1;
+}
+.timeline-dot.amber{border-color:var(--amber);color:var(--amber)}
+.timeline-dot.emerald{border-color:var(--emerald);color:var(--emerald)}
+.timeline-dot.blue{border-color:var(--blue);color:var(--blue)}
+.timeline-dot.red{border-color:var(--red);color:var(--red)}
+.timeline-content{
+  padding-top:8px;
+  flex:1;
+}
+.timeline-step{
+  font-family:var(--font-d);
+  font-size:13px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:4px;
+}
+.timeline-desc{
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.6;
+}
+
+/* ---- PRICING PREVIEW ---- */
+.pricing-preview{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+@media(max-width:600px){
+  .pricing-preview{grid-template-columns:1fr}
+}
+.price-mini-card{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+  transition:all 0.2s;
+  position:relative;
+}
+.price-mini-card.recommended{
+  border-color:rgba(245,158,11,0.35);
+  background:rgba(245,158,11,0.04);
+}
+.price-mini-card:hover{transform:translateY(-3px)}
+.price-mini-badge{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-m);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  background:var(--amber);
+  color:#000;
+  padding:3px 10px;
+  border-radius:20px;
+  white-space:nowrap;
+}
+.price-mini-name{
+  font-family:var(--font-d);
+  font-size:12px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+}
+.price-mini-amount{
+  font-family:var(--font-m);
+  font-size:18px;
+  font-weight:700;
+  color:var(--amber);
+  margin-bottom:4px;
+}
+.price-mini-period{
+  font-size:11px;
+  color:var(--text-3);
+}
+
+/* ---- BREAKPOINTS TABLE ---- */
+.bp-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+.bp-table th{
+  font-family:var(--font-m);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-3);
+  text-align:left;
+  padding:8px 14px;
+  border-bottom:1px solid var(--border);
+}
+.bp-table td{
+  padding:10px 14px;
+  color:var(--text-2);
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  vertical-align:top;
+}
+.bp-table tr:last-child td{border-bottom:none}
+.bp-table tr:hover td{background:rgba(255,255,255,0.02);color:var(--text)}
+.bp-val{
+  font-family:var(--font-m);
+  font-size:12px;
+  color:var(--emerald);
+  font-weight:500;
+}
+
+/* ---- INLINE BADGE ---- */
+.inline-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  font-family:var(--font-m);
+  font-size:11px;
+  font-weight:600;
+  padding:2px 8px;
+  border-radius:5px;
+  vertical-align:middle;
+}
+.badge-amber{color:var(--amber);background:var(--amber-dim);border:1px solid rgba(245,158,11,0.2)}
+.badge-emerald{color:var(--emerald);background:var(--emerald-dim);border:1px solid rgba(16,185,129,0.2)}
+.badge-blue{color:var(--blue);background:var(--blue-dim);border:1px solid rgba(59,130,246,0.2)}
+.badge-red{color:var(--red);background:var(--red-dim);border:1px solid rgba(239,68,68,0.2)}
+
+/* ---- STAT ROW ---- */
+.stat-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.stat-chip{
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px 18px;
+  text-align:center;
+  min-width:100px;
+  flex:1;
+}
+.stat-chip-val{
+  font-family:var(--font-m);
+  font-size:18px;
+  font-weight:700;
+  color:var(--amber);
+  display:block;
+  margin-bottom:4px;
+}
+.stat-chip-label{
+  font-size:11px;
+  color:var(--text-3);
+  line-height:1.4;
+}
+
+/* ---- TRACKER ICONS ---- */
+.tracker-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.tracker-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 14px;
+  font-size:13px;
+  color:var(--text-2);
+  font-weight:500;
+  transition:all 0.2s;
+}
+.tracker-item:hover{border-color:var(--border-hover);color:var(--text)}
+.tracker-item svg{flex-shrink:0;opacity:0.7}
+
+/* ---- METRICS LIST ---- */
+.metrics-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.metric-chip{
+  font-family:var(--font-m);
+  font-size:12px;
+  font-weight:500;
+  color:var(--emerald);
+  background:var(--emerald-dim);
+  border:1px solid rgba(16,185,129,0.2);
+  border-radius:6px;
+  padding:4px 10px;
+}
+
+/* ---- FAQ ITEMS ---- */
+.faq-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+details.faq-item{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  transition:border-color 0.2s;
+}
+details.faq-item[open]{border-color:var(--border-hover)}
+details.faq-item summary{
+  padding:16px 20px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  user-select:none;
+}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{
+  content:'＋';
+  font-size:16px;
+  color:var(--text-3);
+  flex-shrink:0;
+  transition:transform 0.2s,color 0.2s;
+}
+details.faq-item[open] summary::after{
+  transform:rotate(45deg);
+  color:var(--amber);
+}
+.faq-body{
+  padding:0 20px 16px;
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.7;
+  border-top:1px solid var(--border);
+  padding-top:14px;
+}
+
+/* ---- DIVIDER ---- */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+  margin:32px 0;
+}
+
+/* ---- NOTE BOX ---- */
+.note-box{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  background:rgba(245,158,11,0.06);
+  border:1px solid rgba(245,158,11,0.2);
+  border-radius:12px;
+  padding:16px 20px;
+  margin-top:20px;
+}
+.note-box.blue{
+  background:rgba(59,130,246,0.06);
+  border-color:rgba(59,130,246,0.2);
+}
+.note-box.emerald{
+  background:rgba(16,185,129,0.06);
+  border-color:rgba(16,185,129,0.2);
+}
+.note-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.note-text{font-size:13px;color:var(--text-2);line-height:1.6}
+.note-text strong{color:var(--text);font-weight:600}
+
+/* ---- FOOTER ---- */
+.doc-footer{
+  text-align:center;
+  padding:48px 0 0;
+  border-top:1px solid var(--border);
+  margin-top:40px;
+}
+.footer-brand{
+  font-family:var(--font-d);
+  font-size:13px;
+  font-weight:700;
+  color:var(--text-2);
+  margin-bottom:8px;
+}
+.footer-brand span{color:var(--amber)}
+.footer-text{
+  font-size:12px;
+  color:var(--text-3);
+  margin-bottom:20px;
+}
+.footer-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:var(--amber);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  border:1px solid rgba(245,158,11,0.3);
+  border-radius:8px;
+  padding:8px 18px;
+  transition:all 0.2s;
+}
+.footer-link:hover{
+  background:rgba(245,158,11,0.08);
+  border-color:var(--amber);
+}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width:768px){
+  .page-wrap{padding:0 16px 60px}
+  .section-card{padding:24px 20px}
+  .toc-card{padding:20px}
+  .toc-list{grid-template-columns:1fr 1fr}
+  .feature-grid{grid-template-columns:1fr 1fr}
+  .stat-row{gap:8px}
+  .section-num{display:none}
+}
+@media(max-width:480px){
+  .toc-list{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .doc-meta{flex-direction:column;gap:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="https://mentalstab.com" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 12L6 8l4-4"/>
+      </svg>
+      mentalstab.com
+    </a>
+    <span class="nav-badge">SDD v2.0</span>
+  </div>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- DOC HEADER -->
+  <header class="doc-header">
+    <div class="doc-label">Specification-Driven Development</div>
+    <h1 class="doc-title">MentalStab <span>2.0</span> — SDD</h1>
+    <p class="doc-subtitle">Спецификация MVP лендинга. Технические требования, архитектура секций, дизайн-система.</p>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><span class="dot"></span>Версия 2.0</div>
+      <div class="doc-meta-item"><span class="dot" style="background:var(--blue)"></span>Single HTML File</div>
+      <div class="doc-meta-item"><span class="dot" style="background:var(--emerald)"></span>10 секций</div>
+      <div class="doc-meta-item"><span class="dot" style="background:var(--red)"></span>Target &lt; 150KB</div>
+    </div>
+  </header>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-card">
+    <div class="toc-title">Содержание</div>
+    <ul class="toc-list">
+      <li><a href="#tech"><span class="toc-num">00</span>Технология</a></li>
+      <li><a href="#fonts"><span class="toc-num">01</span>Шрифты</a></li>
+      <li><a href="#s1"><span class="toc-num">S1</span>Hero</a></li>
+      <li><a href="#s2"><span class="toc-num">S2</span>Problem</a></li>
+      <li><a href="#s3"><span class="toc-num">S3</span>How It Works</a></li>
+      <li><a href="#s4"><span class="toc-num">S4</span>Dashboard</a></li>
+      <li><a href="#s5"><span class="toc-num">S5</span>Pricing</a></li>
+      <li><a href="#s6"><span class="toc-num">S6</span>Session</a></li>
+      <li><a href="#s7"><span class="toc-num">S7</span>Trackers</a></li>
+      <li><a href="#s8"><span class="toc-num">S8</span>About</a></li>
+      <li><a href="#s9"><span class="toc-num">S9</span>FAQ</a></li>
+      <li><a href="#s10"><span class="toc-num">S10</span>CTA Footer</a></li>
+      <li><a href="#responsive"><span class="toc-num">RB</span>Breakpoints</a></li>
+      <li><a href="#perf"><span class="toc-num">PF</span>Performance</a></li>
+    </ul>
+  </div>
+
+  <!-- TECH STACK -->
+  <section class="section-card accent-emerald" id="tech">
+    <div class="section-header">
+      <span class="section-num">00</span>
+      <div class="section-info">
+        <span class="section-tag tag-emerald">Stack</span>
+        <h2 class="section-title">Технология</h2>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <span class="feature-icon">📄</span>
+        <div class="feature-name">Single HTML File</div>
+        <div class="feature-desc">Все стили и скрипты встроены inline</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🎨</span>
+        <div class="feature-name">Inline CSS</div>
+        <div class="feature-desc">Zero external stylesheets, кроме Google Fonts</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-name">Vanilla JS</div>
+        <div class="feature-desc">Только нативный JS, scroll-triggered effects</div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📱</span>
+        <div class="feature-name">Mobile-First</div>
+        <div class="feature-desc">Responsive с &lt;768px как базой</div>
+      </div>
+    </div>
+    <div class="note-box emerald" style="margin-top:20px">
+      <span class="note-icon">✅</span>
+      <div class="note-text">
+        <strong>Нет внешних JS-зависимостей</strong> — только Google Fonts (preconnect). CSS-only анимации где возможно, JS только для scroll-triggered effects и fake real-time counter.
+      </div>
+    </div>
+  </section>
+
+  <!-- FONTS -->
+  <section class="section-card accent-blue" id="fonts">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div class="section-info">
+        <span class="section-tag tag-blue">Typography</span>
+        <h2 class="section-title">Шрифты</h2>
+      </div>
+    </div>
+    <div class="code-block" data-lang="CSS">
+<span class="code-comment">/* Display — заголовки, бренд */</span>
+<span class="code-key">Unbounded</span>: <span class="code-val">300</span>–<span class="code-val">900</span>  <span class="code-comment">/* font-family: 'Unbounded', sans-serif */</span>
+
+<span class="code-comment">/* Body — основной текст */</span>
+<span class="code-key">Onest</span>: <span class="code-val">300</span>–<span class="code-val">700</span>     <span class="code-comment">/* font-family: 'Onest', sans-serif */</span>
+
+<span class="code-comment">/* Mono — данные, код, UI-элементы */</span>
+<span class="code-key">JetBrains Mono</span>: <span class="code-val">400</span>–<span class="code-val">600</span>  <span class="code-comment">/* font-family: 'JetBrains Mono', monospace */</span>
+    </div>
+    <div class="divider"></div>
+    <div class="spec-group">
+      <div class="spec-label">Google Fonts Import</div>
+      <div class="code-block" data-lang="HTML">
+&lt;<span class="code-key">link</span> <span class="code-str">rel</span>=<span class="code-val">"preconnect"</span> <span class="code-str">href</span>=<span class="code-val">"https://fonts.googleapis.com"</span>&gt;
+&lt;<span class="code-key">link</span> <span class="code-str">rel</span>=<span class="code-val">"preconnect"</span> <span class="code-str">href</span>=<span class="code-val">"https://fonts.gstatic.com"</span> <span class="code-str">crossorigin</span>&gt;
+&lt;<span class="code-key">link</span> <span class="code-str">href</span>=<span class="code-val">"https://fonts.googleapis.com/css2?
+  family=Unbounded:wght@300;400;500;600;700;800;900
+  &amp;family=Onest:wght@300;400;500;600;700
+  &amp;family=JetBrains+Mono:wght@400;500;600
+  &amp;display=swap"</span>&gt;
+      </div>
+    </div>
+  </section>
+
+  <!-- S1 HERO -->
+  <section class="section-card accent-amber" id="s1">
+    <div class="section-header">
+      <span class="section-num">S1</span>
+      <div class="section-info">
+        <span class="section-tag tag-amber">Hero Section</span>
+        <h2 class="section-title">Hero</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Заголовок и подзаголовок</div>
+      <ul class="spec-list">
+        <li><strong>"Mission Control для вайб-кодеров"</strong> — Unbounded 700, главный H1</li>
+        <li><strong>"Мы следим за твоим состоянием. Мы не дадим тебе сгореть."</strong> — Onest 400, подзаголовок</li>
+      </ul>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Визуал и анимации</div>
+      <ul class="spec-list">
+        <li>Полноэкранная секция (100vh), particle background: CSS radial-gradient + animated dots</li>
+        <li>Animated SVG: пульсирующая линия сердечного ритма (heartbeat)</li>
+        <li>Aurora blobs: 4 анимированных размытых пятна (amber, blue, emerald, purple)</li>
+        <li>CSS grid background с pulse-анимацией</li>
+      </ul>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">CTA и статистика</div>
+      <ul class="spec-list">
+        <li>CTA кнопка: <span class="inline-badge badge-amber">Подключиться</span> → якорь <code style="font-family:var(--font-m);font-size:12px;color:var(--blue)">#pricing</code></li>
+        <li>Статистика-полоса внизу секции (ticker scroll)</li>
+      </ul>
+    </div>
+    <div class="stat-row" style="margin-top:16px">
+      <div class="stat-chip">
+        <span class="stat-chip-val">68%</span>
+        <span class="stat-chip-label">выгорают</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-val" style="color:var(--emerald)">0</span>
+        <span class="stat-chip-label">конкурентов</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-val" style="color:var(--blue)">24/7</span>
+        <span class="stat-chip-label">мониторинг</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2 PROBLEM -->
+  <section class="section-card accent-red" id="s2">
+    <div class="section-header">
+      <span class="section-num">S2</span>
+      <div class="section-info">
+        <span class="section-tag tag-red">Problem</span>
+        <h2 class="section-title">Problem</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Заголовок секции</div>
+      <ul class="spec-list">
+        <li><strong>"Ты оптимизируешь код. Кто оптимизирует тебя?"</strong> — Unbounded 700</li>
+      </ul>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">4 карточки-проблемы (CSS glow)</div>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <span class="feature-icon">💤</span>
+          <div class="feature-name">Ночной кодинг</div>
+          <div class="feature-desc">"3 часа ночи. Ты ещё кодишь."</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔥</span>
+          <div class="feature-name">Выгорание</div>
+          <div class="feature-desc">"Ты не замечаешь, пока не поздно."</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📉</span>
+          <div class="feature-name">HRV падает</div>
+          <div class="feature-desc">"Продуктивность — за ним."</div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💔</span>
+          <div class="feature-name">Отношения</div>
+          <div class="feature-desc">"Ты 'просто занят'."</div>
+        </div>
+      </div>
+    </div>
+    <div class="note-box">
+      <span class="note-icon">🎬</span>
+      <div class="note-text"><strong>Fade-in on scroll</strong> — карточки появляются с анимацией при скролле (IntersectionObserver + CSS transition)</div>
+    </div>
+  </section>
+
+  <!-- S3 HOW IT WORKS -->
+  <section class="section-card accent-emerald" id="s3">
+    <div class="section-header">
+      <span class="section-num">S3</span>
+      <div class="section-info">
+        <span class="section-tag tag-emerald">Flow</span>
+        <h2 class="section-title">How It Works</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Заголовок</div>
+      <ul class="spec-list">
+        <li><strong>"Как работает Mission Control"</strong> — Unbounded 700</li>
+      </ul>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">4 шага — timeline (desktop: горизонтальный, mobile: вертикальный)</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot amber">1</div>
+          <div class="timeline-content">
+            <div class="timeline-step">📊 Чекин</div>
+            <div class="timeline-desc">Ежедневный опрос в Telegram-боте. Как ты? Что болит? Сколько спал?</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot emerald">2</div>
+          <div class="timeline-content">
+            <div class="timeline-step">📡 Анализ</div>
+            <div class="timeline-desc">AI + данные трекеров (HRV, сон, активность). Паттерны, тренды, аномалии.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot blue">3</div>
+          <div class="timeline-content">
+            <div class="timeline-step">🚨 Алерт</div>
+            <div class="timeline-desc">Обнаружили аномалию → уведомление тебе и Екатерине.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot red">4</div>
+          <div class="timeline-content">
+            <div class="timeline-step">📞 Интервенция</div>
+            <div class="timeline-desc">Бот → IVR → звонок психолога. Мы не ждём, пока станет хуже.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="note-box blue">
+      <span class="note-icon">📐</span>
+      <div class="note-text"><strong>Layout:</strong> горизонтальный timeline с CSS flexbox на desktop (&gt;768px), вертикальный с ::before линией на mobile</div>
+    </div>
+  </section>
+
+  <!-- S4 DASHBOARD -->
+  <section class="section-card accent-blue" id="s4">
+    <div class="section-header">
+      <span class="section-num">S4</span>
+      <div class="section-info">
+        <span class="section-tag tag-blue">Dashboard</span>
+        <h2 class="section-title">Dashboard Preview</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Mockup компоненты (CSS/SVG only)</div>
+      <ul class="spec-list">
+        <li>Animated heartbeat line — SVG path с stroke-dashoffset анимацией</li>
+        <li>HRV gauge — цифровой счётчик + color-coded status (зелёный/жёлтый/красный)</li>
+        <li>Sleep score ring — CSS conic-gradient кольцевой прогресс-бар</li>
+        <li>Status indicator — <span class="inline-badge badge-emerald">NOMINAL</span> / <span class="inline-badge badge-amber">WARNING</span> / <span class="inline-badge badge-red">CRITICAL</span></li>
+        <li>Fake real-time updates — JS setInterval, имитация live-данных</li>
+      </ul>
+    </div>
+    <div class="code-block" data-lang="JS">
+<span class="code-comment">// Fake real-time counter pattern</span>
+<span class="code-key">setInterval</span>(() => {
+  <span class="code-str">hrvValue</span> += (<span class="code-val">Math.random</span>() - <span class="code-val">0.5</span>) * <span class="code-val">2</span>;
+  <span class="code-str">hrvValue</span> = <span class="code-val">Math.max</span>(<span class="code-val">38</span>, <span class="code-val">Math.min</span>(<span class="code-val">78</span>, hrvValue));
+  <span class="code-str">el.textContent</span> = <span class="code-val">Math.round</span>(hrvValue);
+}, <span class="code-num">1800</span>);
+    </div>
+    <div class="note-box">
+      <span class="note-icon">💬</span>
+      <div class="note-text">Caption под дашбордом: <strong>"Вот что мы видим. Вот почему мы звоним."</strong></div>
+    </div>
+  </section>
+
+  <!-- S5 PRICING -->
+  <section class="section-card accent-amber" id="s5">
+    <div class="section-header">
+      <span class="section-num">S5</span>
+      <div class="section-info">
+        <span class="section-tag tag-amber">Pricing</span>
+        <h2 class="section-title">Pricing</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">3 тарифных карточки (glassmorphism + glow border)</div>
+      <div class="pricing-preview">
+        <div class="price-mini-card">
+          <div class="price-mini-name">Autopilot</div>
+          <div class="price-mini-amount">4 900 ₽</div>
+          <div class="price-mini-period">/ месяц</div>
+        </div>
+        <div class="price-mini-card recommended">
+          <div class="price-mini-badge">RECOMMENDED</div>
+          <div class="price-mini-name">Co-Pilot</div>
+          <div class="price-mini-amount">14 900 ₽</div>
+          <div class="price-mini-period">/ месяц</div>
+        </div>
+        <div class="price-mini-card" style="border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.04)">
+          <div class="price-mini-name">Mission Control</div>
+          <div class="price-mini-amount" style="color:var(--purple)">39 900 ₽</div>
+          <div class="price-mini-period">/ месяц</div>
+        </div>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Дополнительно</div>
+      <ul class="spec-list">
+        <li>Под карточками: <strong>"Первый месяц −50%"</strong> — scarcity badge с pulse анимацией</li>
+        <li>CTA кнопки ведут на бота <span class="inline-badge badge-blue">@mental_stability_leads_bot</span></li>
+        <li>Recommended карточка: glow-border amber анимация + scale-up эффект</li>
+        <li>Mission Control: rainbow-border анимация, premium ощущение</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- S6 ONE-OFF SESSION -->
+  <section class="section-card accent-emerald" id="s6">
+    <div class="section-header">
+      <span class="section-num">S6</span>
+      <div class="section-info">
+        <span class="section-tag tag-emerald">Session</span>
+        <h2 class="section-title">One-off Session</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Карточка разовой консультации</div>
+      <ul class="spec-list">
+        <li>Фото Екатерины — <code style="font-family:var(--font-m);font-size:12px;color:var(--blue)">katya.jpg</code> (круглый аватар, border amber-glow)</li>
+        <li><strong>"Разовая консультация с Екатериной"</strong> — заголовок карточки</li>
+        <li>"60 минут. IFS-подход. 7 500 ₽" — ключевые данные (JetBrains Mono)</li>
+        <li>"Не готов к подписке? Начни с одной сессии." — supporting copy</li>
+        <li>CTA → Tribute ссылка (оплата консультации)</li>
+      </ul>
+    </div>
+    <div class="note-box emerald">
+      <span class="note-icon">🎯</span>
+      <div class="note-text"><strong>Цель секции:</strong> конвертировать cold lead, который не готов к подписке. Low-commitment точка входа.</div>
+    </div>
+  </section>
+
+  <!-- S7 TRACKERS -->
+  <section class="section-card accent-blue" id="s7">
+    <div class="section-header">
+      <span class="section-num">S7</span>
+      <div class="section-info">
+        <span class="section-tag tag-blue">Integrations</span>
+        <h2 class="section-title">Trackers</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Заголовок</div>
+      <ul class="spec-list">
+        <li><strong>"Мы подключаемся к твоим данным"</strong> — Unbounded 700</li>
+      </ul>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Поддерживаемые устройства (CSS-drawn иконки)</div>
+      <div class="tracker-list">
+        <div class="tracker-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M9 7h6M9 12h6M9 17h4"/></svg>
+          Apple Watch
+        </div>
+        <div class="tracker-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>
+          Oura Ring
+        </div>
+        <div class="tracker-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L8 6h8l-4-4z"/><rect x="7" y="6" width="10" height="16" rx="2"/></svg>
+          WHOOP
+        </div>
+        <div class="tracker-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Garmin
+        </div>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Метрики</div>
+      <div class="metrics-list">
+        <span class="metric-chip">HRV</span>
+        <span class="metric-chip">Сон</span>
+        <span class="metric-chip">ЧСС</span>
+        <span class="metric-chip">Стресс</span>
+        <span class="metric-chip">Активность</span>
+      </div>
+    </div>
+    <div class="note-box blue">
+      <span class="note-icon">🔜</span>
+      <div class="note-text"><strong>Скоро:</strong> Telegram-мониторинг, Screen Time — roadmap badge</div>
+    </div>
+  </section>
+
+  <!-- S8 ABOUT -->
+  <section class="section-card accent-purple" id="s8">
+    <div class="section-header">
+      <span class="section-num">S8</span>
+      <div class="section-info">
+        <span class="section-tag tag-purple">About</span>
+        <h2 class="section-title">About Ekaterina</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Контент карточки</div>
+      <ul class="spec-list">
+        <li>Фото — <code style="font-family:var(--font-m);font-size:12px;color:var(--blue)">katya.jpg</code>, круглый аватар с amber glow border</li>
+        <li><strong>"Екатерина Чернецова"</strong> — имя (Unbounded 700)</li>
+        <li>"Психолог, IFS-терапевт, 5+ лет опыта" — должность (Onest, text-2)</li>
+        <li>"4000+ консультаций." — social proof (JetBrains Mono, amber)</li>
+        <li>"Специализация: выгорание, тревожность, вайб-кодеры." — описание</li>
+        <li>Calendly link — CTA для записи</li>
+      </ul>
+    </div>
+    <div class="note-box">
+      <span class="note-icon">📐</span>
+      <div class="note-text"><strong>Layout:</strong> flex row на desktop (фото слева + текст справа), flex column на mobile (фото сверху)</div>
+    </div>
+  </section>
+
+  <!-- S9 FAQ -->
+  <section class="section-card accent-amber" id="s9">
+    <div class="section-header">
+      <span class="section-num">S9</span>
+      <div class="section-info">
+        <span class="section-tag tag-amber">FAQ</span>
+        <h2 class="section-title">FAQ — Accordion</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Реализация — native &lt;details&gt;/&lt;summary&gt; (CSS-only)</div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Что такое Mission Control?</summary>
+          <div class="faq-body">Система проактивного мониторинга твоего психического состояния. Мы следим за HRV, сном, стрессом и ежедневными чекинами — и вмешиваемся до того, как станет плохо.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Зачем нужен трекер?</summary>
+          <div class="faq-body">Объективные данные от трекера убирают слепое пятно: ты можешь не замечать накопленный стресс субъективно, но HRV не врёт.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Что если я не отвечу боту?</summary>
+          <div class="faq-body">После 2 пропущенных чекинов система автоматически поднимает алерт и Екатерина видит пропуск. Мы напишем сами.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Это терапия?</summary>
+          <div class="faq-body">Mission Control — это мониторинг и поддержка, не терапия. При необходимости мы рекомендуем или организуем полноценные терапевтические сессии.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Мои данные в безопасности?</summary>
+          <div class="faq-body">Данные хранятся на серверах в России, зашифрованы, не передаются третьим лицам. Работаем по договору с NDA-клаузулой.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Могу ли я отменить подписку?</summary>
+          <div class="faq-body">Да, в любой момент — без объяснений и штрафов. Один клик в боте или сообщение Екатерине.</div>
+        </details>
+      </div>
+    </div>
+    <div class="note-box emerald" style="margin-top:20px">
+      <span class="note-icon">⚙️</span>
+      <div class="note-text"><strong>Техника:</strong> <code style="font-family:var(--font-m);font-size:12px">&lt;details&gt;/&lt;summary&gt;</code> — нативный HTML, без JS. CSS transition на max-height для плавного открытия.</div>
+    </div>
+  </section>
+
+  <!-- S10 CTA FOOTER -->
+  <section class="section-card accent-red" id="s10">
+    <div class="section-header">
+      <span class="section-num">S10</span>
+      <div class="section-info">
+        <span class="section-tag tag-red">CTA Footer</span>
+        <h2 class="section-title">CTA Footer</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Контент</div>
+      <ul class="spec-list">
+        <li><strong>"Не жди, пока сгоришь"</strong> — большой заголовок (Unbounded 900, clamp)</li>
+        <li>CTA кнопка: <strong>"Подключить Mission Control"</strong> → <span class="inline-badge badge-blue">@mental_stability_leads_bot</span></li>
+        <li>Мелкий текст: copyright, ссылки (политика, контакты)</li>
+        <li>Umami аналитика подключена</li>
+      </ul>
+    </div>
+    <div class="code-block" data-lang="HTML">
+<span class="code-comment">&lt;!-- Umami analytics example placeholder --&gt;</span>
+&lt;<span class="code-key">script</span>
+  <span class="code-str">defer</span>
+  <span class="code-str">src</span>=<span class="code-val">"https://sborka.work/stats/script.js"</span>
+  <span class="code-str">data-website-id</span>=<span class="code-val">"da69b03f-17f5-4061-8080-6277e6032b9d"</span> <!-- example placeholder -->
+&gt;&lt;/<span class="code-key">script</span>&gt;
+    </div>
+  </section>
+
+  <!-- RESPONSIVE BREAKPOINTS -->
+  <section class="section-card accent-blue" id="responsive">
+    <div class="section-header">
+      <span class="section-num">RB</span>
+      <div class="section-info">
+        <span class="section-tag tag-blue">Responsive</span>
+        <h2 class="section-title">Breakpoints</h2>
+      </div>
+    </div>
+    <table class="bp-table">
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Диапазон</th>
+          <th>Поведение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="inline-badge badge-red">Mobile</span></td>
+          <td class="bp-val">&lt; 768px</td>
+          <td>Stack everything — все grid → 1 col, timeline вертикальный, nav упрощён</td>
+        </tr>
+        <tr>
+          <td><span class="inline-badge badge-amber">Tablet</span></td>
+          <td class="bp-val">768px – 1024px</td>
+          <td>2-col grid для карточек, горизонтальный timeline, pricing в ряд</td>
+        </tr>
+        <tr>
+          <td><span class="inline-badge badge-emerald">Desktop</span></td>
+          <td class="bp-val">&gt; 1024px</td>
+          <td>Full layout, горизонтальный timeline, 3-col pricing, about flex row</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="code-block" data-lang="CSS" style="margin-top:20px">
+<span class="code-comment">/* Mobile first */</span>
+<span class="code-key">@media</span> (<span class="code-str">min-width</span>: <span class="code-val">768px</span>)  { <span class="code-comment">/* Tablet+  */</span> }
+<span class="code-key">@media</span> (<span class="code-str">min-width</span>: <span class="code-val">1024px</span>) { <span class="code-comment">/* Desktop+ */</span> }
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="section-card accent-emerald" id="perf">
+    <div class="section-header">
+      <span class="section-num">PF</span>
+      <div class="section-info">
+        <span class="section-tag tag-emerald">Performance</span>
+        <h2 class="section-title">Performance</h2>
+      </div>
+    </div>
+    <div class="spec-group">
+      <div class="spec-label">Цели и ограничения</div>
+      <ul class="spec-list">
+        <li>Total HTML file size: <span class="inline-badge badge-amber">&lt; 150KB</span> target</li>
+        <li>Нет внешних JS-библиотек — zero bundle overhead</li>
+        <li>Lazy load below-fold content (IntersectionObserver)</li>
+        <li>Preconnect Google Fonts — устраняет latency при загрузке шрифтов</li>
+        <li>CSS-only анимации где возможно (GPU-accelerated transform/opacity)</li>
+        <li>will-change: transform — только для активно анимируемых элементов</li>
+        <li>prefers-reduced-motion — отключение анимаций по user preference</li>
+      </ul>
+    </div>
+    <div class="code-block" data-lang="CSS">
+<span class="code-comment">/* Respect reduced motion */</span>
+<span class="code-key">@media</span> (<span class="code-str">prefers-reduced-motion</span>: <span class="code-val">reduce</span>) {
+  *, *::before, *::after {
+    <span class="code-str">animation-duration</span>: <span class="code-val">0.01ms</span> <span class="code-comment">!important</span>;
+    <span class="code-str">transition-duration</span>: <span class="code-val">0.01ms</span> <span class="code-comment">!important</span>;
+  }
+}
+    </div>
+    <div class="stat-row" style="margin-top:20px">
+      <div class="stat-chip">
+        <span class="stat-chip-val" style="color:var(--emerald)">&lt;150KB</span>
+        <span class="stat-chip-label">target size</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-val" style="color:var(--blue)">0</span>
+        <span class="stat-chip-label">JS deps</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-val">10</span>
+        <span class="stat-chip-label">секций</span>
+      </div>
+      <div class="stat-chip">
+        <span class="stat-chip-val" style="color:var(--amber)">3</span>
+        <span class="stat-chip-label">шрифта</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <div class="footer-brand">Mental<span>Stab</span> 2.0</div>
+    <div class="footer-text">SDD — Specification-Driven Development. Revision 2.0</div>
+    <a href="https://mentalstab.com" class="footer-link">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M6 12L10 8 6 4"/>
+      </svg>
+      Открыть сайт
+    </a>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MentalStab 2.0 — PRD</title>
+<meta name="description" content="Product Requirements Document — MentalStab 2.0. Mission Control для вайб-кодеров.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script defer src="https://sborka.work/stats/script.js" data-website-id="da69b03f-17f5-4061-8080-6277e6032b9d"></script><!-- placeholder public analytics -->
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a12;
+  --bg-2:#0e0e1a;
+  --bg-3:#121220;
+  --bg-card:#13131f;
+  --bg-card-2:#181828;
+  --amber:#f59e0b;
+  --amber-dim:rgba(245,158,11,0.18);
+  --amber-glow:rgba(245,158,11,0.10);
+  --orange:#f97316;
+  --emerald:#10b981;
+  --emerald-dim:rgba(16,185,129,0.13);
+  --blue:#3b82f6;
+  --blue-dim:rgba(59,130,246,0.13);
+  --red:#ef4444;
+  --red-dim:rgba(239,68,68,0.15);
+  --purple:#8b5cf6;
+  --text:#eeeaf0;
+  --text-2:#9490a0;
+  --text-3:#5a5670;
+  --border:rgba(255,255,255,0.06);
+  --border-2:rgba(255,255,255,0.10);
+  --r:12px;
+  --r-lg:18px;
+  --font-d:'Unbounded',sans-serif;
+  --font-b:'Onest',sans-serif;
+  --font-m:'JetBrains Mono',monospace;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-b);
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(245,158,11,0.25);border-radius:4px}
+
+/* ===== KEYFRAMES ===== */
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+@keyframes fade-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes aurora-1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(6%,-8%) scale(1.08)}66%{transform:translate(-4%,6%) scale(0.94)}}
+@keyframes aurora-2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-8%,5%) scale(1.06)}}
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 20px rgba(245,158,11,0.15)}50%{box-shadow:0 0 40px rgba(245,158,11,0.30)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* ===== STARS ===== */
+.stars-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.stars-bg::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(1px 1px at 8% 12%,rgba(255,255,255,0.55) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 7%,rgba(255,255,255,0.35) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 38% 20%,rgba(255,255,255,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 54% 4%,rgba(255,255,255,0.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 68% 17%,rgba(255,255,255,0.55) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 83% 9%,rgba(255,255,255,0.38) 0%,transparent 100%),
+    radial-gradient(1px 1px at 91% 26%,rgba(255,255,255,0.45) 0%,transparent 100%),
+    radial-gradient(1px 1px at 15% 38%,rgba(255,255,255,0.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 33% 53%,rgba(255,255,255,0.42) 0%,transparent 100%),
+    radial-gradient(1px 1px at 77% 45%,rgba(255,255,255,0.32) 0%,transparent 100%),
+    radial-gradient(2px 2px at 3% 3%,rgba(245,158,11,0.35) 0%,transparent 100%),
+    radial-gradient(2px 2px at 96% 94%,rgba(59,130,246,0.28) 0%,transparent 100%),
+    radial-gradient(1px 1px at 45% 72%,rgba(255,255,255,0.22) 0%,transparent 100%),
+    radial-gradient(1px 1px at 60% 88%,rgba(255,255,255,0.30) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 12% 80%,rgba(16,185,129,0.22) 0%,transparent 100%);
+}
+.aurora-bg{position:fixed;inset:0;pointer-events:none;z-index:0}
+.aurora-a{
+  position:absolute;width:700px;height:700px;top:-200px;left:-200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,158,11,0.10),transparent 65%);
+  animation:aurora-1 24s ease-in-out infinite;
+}
+.aurora-b{
+  position:absolute;width:600px;height:600px;bottom:-100px;right:-150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(59,130,246,0.09),transparent 65%);
+  animation:aurora-2 30s ease-in-out infinite;
+}
+.aurora-c{
+  position:absolute;width:500px;height:500px;top:40%;left:30%;border-radius:50%;
+  background:radial-gradient(circle,rgba(16,185,129,0.07),transparent 65%);
+  animation:aurora-1 36s ease-in-out infinite 4s;
+}
+
+/* ===== LAYOUT ===== */
+.page-wrap{
+  position:relative;z-index:1;
+  max-width:900px;
+  margin:0 auto;
+  padding:0 24px 120px;
+}
+
+/* ===== TOP NAV ===== */
+.top-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0 0;
+  margin-bottom:60px;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-m);font-size:12px;font-weight:500;
+  color:var(--text-2);text-decoration:none;letter-spacing:0.06em;
+  padding:9px 16px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:rgba(255,255,255,0.03);
+  transition:color 0.2s,border-color 0.2s,background 0.2s;
+}
+.back-link:hover{color:var(--amber);border-color:rgba(245,158,11,0.35);background:rgba(245,158,11,0.06)}
+.back-link svg{width:14px;height:14px;transition:transform 0.2s}
+.back-link:hover svg{transform:translateX(-2px)}
+.doc-meta{
+  font-family:var(--font-m);font-size:11px;color:var(--text-3);letter-spacing:0.06em;
+  display:flex;align-items:center;gap:10px;
+}
+.doc-meta-dot{width:5px;height:5px;background:var(--emerald);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;box-shadow:0 0 6px var(--emerald)}
+
+/* ===== DOC HEADER ===== */
+.doc-header{
+  margin-bottom:64px;
+  padding-bottom:48px;
+  border-bottom:1px solid var(--border);
+  animation:fade-in 0.8s ease both;
+}
+.doc-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-m);font-size:11px;font-weight:600;
+  color:var(--amber);letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.doc-eyebrow::before{content:'';width:20px;height:1px;background:var(--amber);display:block}
+.doc-title{
+  font-family:var(--font-d);font-size:clamp(28px,5vw,48px);font-weight:800;
+  line-height:1.1;letter-spacing:-0.02em;color:var(--text);
+  margin-bottom:16px;
+}
+.doc-title span{
+  background:linear-gradient(90deg,var(--amber),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.doc-subtitle{
+  font-family:var(--font-b);font-size:17px;color:var(--text-2);line-height:1.6;
+  max-width:680px;margin-bottom:28px;
+}
+.doc-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-family:var(--font-m);font-size:11px;letter-spacing:0.08em;
+  padding:5px 12px;border-radius:6px;border:1px solid var(--border);
+  color:var(--text-2);background:rgba(255,255,255,0.03);
+}
+.tag-amber{color:var(--amber);border-color:rgba(245,158,11,0.28);background:rgba(245,158,11,0.06)}
+.tag-emerald{color:var(--emerald);border-color:rgba(16,185,129,0.28);background:rgba(16,185,129,0.06)}
+.tag-blue{color:var(--blue);border-color:rgba(59,130,246,0.28);background:rgba(59,130,246,0.06)}
+
+/* ===== TABLE OF CONTENTS ===== */
+.toc-card{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:28px 32px;
+  margin-bottom:64px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  animation:fade-in 0.8s ease 0.1s both;
+}
+.toc-title{
+  font-family:var(--font-m);font-size:11px;font-weight:600;color:var(--text-3);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;
+}
+.toc-list{
+  list-style:none;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px;
+}
+.toc-list li a{
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);text-decoration:none;
+  display:flex;align-items:center;gap:10px;padding:6px 0;
+  transition:color 0.2s;
+  border-bottom:1px solid transparent;
+}
+.toc-list li a:hover{color:var(--amber)}
+.toc-num{
+  font-family:var(--font-m);font-size:11px;color:var(--text-3);
+  min-width:20px;
+}
+
+/* ===== SECTION ===== */
+.doc-section{
+  margin-bottom:72px;
+  animation:fade-in 0.8s ease both;
+}
+.section-anchor{display:block;position:relative;top:-80px;visibility:hidden}
+.section-header{margin-bottom:28px}
+.section-num{
+  font-family:var(--font-m);font-size:11px;font-weight:600;color:var(--amber);
+  letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-num::before{content:'';width:20px;height:1px;background:var(--amber);display:block}
+.section-title{
+  font-family:var(--font-d);font-size:clamp(20px,3vw,28px);font-weight:700;
+  line-height:1.2;color:var(--text);letter-spacing:-0.01em;
+}
+
+/* ===== SUBSECTION ===== */
+.subsection{margin-bottom:36px}
+.subsection-title{
+  font-family:var(--font-d);font-size:15px;font-weight:600;
+  color:var(--text);margin-bottom:14px;letter-spacing:-0.005em;
+  display:flex;align-items:center;gap:10px;
+}
+.subsection-title::before{
+  content:'';width:3px;height:16px;background:var(--amber);border-radius:2px;display:block;flex-shrink:0;
+}
+
+/* ===== GLASS CARD ===== */
+.glass-card{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:28px 32px;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:relative;overflow:hidden;
+}
+.glass-card::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,0.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+/* ===== POSITIONING BLOCK ===== */
+.positioning-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;
+}
+@media(max-width:600px){.positioning-grid{grid-template-columns:1fr}}
+.pos-item{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:20px 22px;
+}
+.pos-label{
+  font-family:var(--font-m);font-size:11px;color:var(--text-3);
+  letter-spacing:0.10em;text-transform:uppercase;margin-bottom:8px;
+}
+.pos-value{
+  font-family:var(--font-b);font-size:15px;font-weight:600;color:var(--text);line-height:1.5;
+}
+.pos-value em{font-style:normal;color:var(--amber)}
+.metaphor-card{
+  background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(59,130,246,0.06));
+  border:1px solid rgba(245,158,11,0.18);
+  border-radius:var(--r);
+  padding:20px 24px;
+  display:flex;align-items:flex-start;gap:16px;
+}
+.metaphor-icon{font-size:28px;line-height:1;flex-shrink:0;margin-top:2px}
+.metaphor-text{font-family:var(--font-b);font-size:15px;color:var(--text-2);line-height:1.6}
+.metaphor-text strong{color:var(--text);font-weight:600}
+
+/* ===== AUDIENCE ===== */
+.audience-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+@media(max-width:600px){.audience-grid{grid-template-columns:1fr}}
+.audience-card{
+  background:rgba(255,255,255,0.025);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px 22px;
+}
+.audience-card-title{
+  font-family:var(--font-m);font-size:11px;font-weight:600;
+  letter-spacing:0.10em;text-transform:uppercase;margin-bottom:12px;
+}
+.audience-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.audience-list li{
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);
+  display:flex;align-items:flex-start;gap:10px;line-height:1.5;
+}
+.audience-list li::before{
+  content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px;
+}
+.list-amber li::before{background:var(--amber)}
+.list-emerald li::before{background:var(--emerald)}
+.list-blue li::before{background:var(--blue)}
+.list-red li::before{background:var(--red)}
+
+/* ===== BODY LIST ===== */
+.body-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:0}
+.body-list li{
+  font-family:var(--font-b);font-size:15px;color:var(--text-2);
+  display:flex;align-items:flex-start;gap:12px;line-height:1.6;
+  padding:10px 14px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);border-radius:8px;
+}
+.body-list li::before{
+  content:'';width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:8px;
+  background:var(--amber);
+}
+.body-list li strong{color:var(--text);font-weight:600}
+
+/* ===== TABLES ===== */
+.table-wrap{
+  overflow-x:auto;
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  position:relative;
+}
+.table-wrap::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,0.035) 0%,transparent 55%);
+  pointer-events:none;z-index:0;
+}
+table{
+  width:100%;border-collapse:collapse;position:relative;z-index:1;
+}
+thead th{
+  font-family:var(--font-m);font-size:11px;font-weight:600;letter-spacing:0.10em;
+  text-transform:uppercase;color:var(--text-3);
+  padding:14px 20px;text-align:left;
+  border-bottom:1px solid var(--border);
+  white-space:nowrap;
+}
+thead th:first-child{border-radius:var(--r-lg) 0 0 0}
+thead th:last-child{border-radius:0 var(--r-lg) 0 0}
+tbody td{
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);
+  padding:14px 20px;vertical-align:top;line-height:1.55;
+  border-bottom:1px solid rgba(255,255,255,0.04);
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover td{background:rgba(255,255,255,0.025)}
+tbody td:first-child{color:var(--text);font-weight:500}
+tbody td strong{color:var(--text);font-weight:600}
+.mono{font-family:var(--font-m) !important;font-size:13px !important}
+.highlight-amber{color:var(--amber) !important;font-weight:600 !important}
+.highlight-emerald{color:var(--emerald) !important;font-weight:600 !important}
+.highlight-blue{color:var(--blue) !important;font-weight:600 !important}
+.highlight-red{color:var(--red) !important;font-weight:600 !important}
+.first-mover-row td{
+  background:rgba(16,185,129,0.06) !important;
+}
+.first-mover-row td:first-child{color:var(--emerald) !important}
+
+/* ===== BADGE ===== */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-m);font-size:11px;font-weight:600;letter-spacing:0.06em;
+  padding:3px 9px;border-radius:5px;
+}
+.badge-green{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.30);color:var(--emerald)}
+.badge-yellow{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.30);color:var(--amber)}
+.badge-red{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.30);color:var(--red)}
+.badge-blue{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.30);color:var(--blue)}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;display:block}
+
+/* ===== ESCALATION STEPS ===== */
+.escalation-steps{display:flex;flex-direction:column;gap:0}
+.esc-step{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:20px 24px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.02);
+  position:relative;
+}
+.esc-step:first-child{border-radius:var(--r) var(--r) 0 0}
+.esc-step:last-child{border-radius:0 0 var(--r) var(--r)}
+.esc-step:not(:last-child){border-bottom-color:transparent}
+.esc-step::after{
+  content:'';position:absolute;left:43px;bottom:-1px;width:1px;height:1px;
+  border-left:1px dashed rgba(255,255,255,0.12);height:calc(100% + 2px);top:56px;
+}
+.esc-step:last-child::after{display:none}
+.esc-num{
+  width:36px;height:36px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;
+  font-family:var(--font-m);font-size:13px;font-weight:700;
+  position:relative;z-index:1;
+}
+.esc-num-1{background:var(--blue-dim);border:1px solid rgba(59,130,246,0.35);color:var(--blue)}
+.esc-num-2{background:rgba(245,158,11,0.10);border:1px solid rgba(245,158,11,0.35);color:var(--amber)}
+.esc-num-3{background:var(--red-dim);border:1px solid rgba(239,68,68,0.35);color:var(--red)}
+.esc-content{}
+.esc-title{font-family:var(--font-d);font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.esc-desc{font-family:var(--font-b);font-size:14px;color:var(--text-2);line-height:1.55}
+.esc-detail{
+  font-family:var(--font-m);font-size:12px;color:var(--text-3);margin-top:6px;
+}
+
+/* ===== PRICING CARDS ===== */
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;
+  margin-bottom:20px;
+}
+@media(max-width:520px){.pricing-grid{grid-template-columns:1fr}}
+.pricing-card{
+  background:rgba(255,255,255,0.025);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:24px;
+  position:relative;overflow:hidden;
+  transition:border-color 0.3s,box-shadow 0.3s;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+}
+.pricing-card:hover{
+  border-color:rgba(245,158,11,0.30);
+  box-shadow:0 0 40px rgba(245,158,11,0.08);
+}
+.pricing-card.featured{
+  border-color:rgba(245,158,11,0.30);
+  background:linear-gradient(135deg,rgba(245,158,11,0.07),rgba(255,255,255,0.025));
+  box-shadow:0 0 30px rgba(245,158,11,0.08);
+}
+.pricing-tier{
+  font-family:var(--font-m);font-size:10px;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:10px;
+}
+.pricing-name{
+  font-family:var(--font-d);font-size:16px;font-weight:700;
+  color:var(--text);margin-bottom:14px;letter-spacing:-0.01em;
+}
+.pricing-price{
+  display:flex;align-items:baseline;gap:4px;margin-bottom:6px;
+}
+.price-amount{
+  font-family:var(--font-m);font-size:26px;font-weight:700;color:var(--amber);
+}
+.price-period{font-family:var(--font-b);font-size:13px;color:var(--text-3)}
+.price-annual{
+  font-family:var(--font-m);font-size:12px;color:var(--text-3);margin-bottom:16px;
+}
+.pricing-divider{height:1px;background:var(--border);margin:16px 0}
+.pricing-includes{
+  font-family:var(--font-b);font-size:13px;color:var(--text-2);line-height:1.6;
+}
+.pricing-card-single{
+  background:rgba(255,255,255,0.02);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;
+}
+.single-label{font-family:var(--font-b);font-size:14px;color:var(--text-2)}
+.single-price{font-family:var(--font-m);font-size:16px;font-weight:700;color:var(--amber)}
+.promo-note{
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);
+  padding:14px 18px;
+  background:rgba(245,158,11,0.06);
+  border:1px solid rgba(245,158,11,0.18);
+  border-radius:var(--r);
+  line-height:1.6;margin-top:16px;
+}
+.promo-note strong{color:var(--amber)}
+
+/* ===== ECONOMICS ===== */
+.bottleneck-note{
+  margin-top:20px;padding:16px 20px;
+  background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.20);
+  border-radius:var(--r);
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);line-height:1.6;
+}
+.bottleneck-note strong{color:var(--red)}
+.scenario-card{
+  margin-top:16px;padding:20px 24px;
+  background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.22);
+  border-radius:var(--r);
+  font-family:var(--font-b);font-size:14px;color:var(--text-2);line-height:1.65;
+}
+.scenario-card .big-number{
+  font-family:var(--font-m);font-size:24px;font-weight:700;color:var(--emerald);
+  display:block;margin-top:10px;
+}
+
+/* ===== COLOR PALETTE ===== */
+.palette-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;
+}
+@media(max-width:520px){.palette-grid{grid-template-columns:repeat(2,1fr)}}
+.swatch{
+  border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;
+}
+.swatch-color{height:64px;position:relative}
+.swatch-color::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);
+}
+.swatch-info{padding:12px;background:rgba(255,255,255,0.02)}
+.swatch-name{
+  font-family:var(--font-d);font-size:12px;font-weight:600;
+  color:var(--text);margin-bottom:4px;letter-spacing:-0.01em;
+}
+.swatch-hex{
+  font-family:var(--font-m);font-size:11px;color:var(--text-3);letter-spacing:0.04em;
+}
+.swatch-desc{
+  font-family:var(--font-b);font-size:12px;color:var(--text-3);
+  margin-top:4px;line-height:1.4;
+}
+
+/* ===== TYPOGRAPHY SHOWCASE ===== */
+.type-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;
+}
+@media(max-width:640px){.type-row{grid-template-columns:1fr}}
+.type-card{
+  background:rgba(255,255,255,0.025);border:1px solid var(--border);
+  border-radius:var(--r);padding:20px 22px;
+}
+.type-label{
+  font-family:var(--font-m);font-size:10px;color:var(--text-3);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;
+}
+.type-sample-d{font-family:var(--font-d);font-size:22px;font-weight:700;color:var(--text);line-height:1.2}
+.type-sample-b{font-family:var(--font-b);font-size:16px;color:var(--text-2);line-height:1.55}
+.type-sample-m{font-family:var(--font-m);font-size:15px;color:var(--emerald);line-height:1.5}
+.type-desc{font-family:var(--font-b);font-size:12px;color:var(--text-3);margin-top:8px;line-height:1.5}
+
+/* ===== COMPONENT SHOWCASE ===== */
+.components-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;
+}
+.comp-card{
+  background:rgba(255,255,255,0.025);border:1px solid var(--border);
+  border-radius:var(--r);padding:18px 20px;
+}
+.comp-label{
+  font-family:var(--font-m);font-size:10px;color:var(--text-3);
+  letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;
+}
+.comp-demo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+/* Demo components */
+.demo-badge-g,.demo-badge-y,.demo-badge-r{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-m);font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:5px;
+}
+.demo-badge-g{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.30);color:var(--emerald)}
+.demo-badge-y{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.30);color:var(--amber)}
+.demo-badge-r{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.30);color:var(--red)}
+.demo-badge-g::before,.demo-badge-y::before,.demo-badge-r::before{
+  content:'';width:5px;height:5px;border-radius:50%;background:currentColor;display:block;animation:pulse-dot 2s ease-in-out infinite;
+}
+.demo-metric{
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;
+  padding:12px 16px;min-width:120px;
+}
+.demo-metric-val{font-family:var(--font-m);font-size:22px;font-weight:700;color:var(--blue)}
+.demo-metric-label{font-family:var(--font-b);font-size:12px;color:var(--text-3);margin-top:2px}
+.demo-metric-trend{font-family:var(--font-m);font-size:11px;color:var(--emerald);margin-top:4px}
+.demo-alert{
+  background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.22);
+  border-radius:8px;padding:10px 14px;
+  display:flex;align-items:flex-start;gap:10px;font-size:13px;
+  font-family:var(--font-b);color:var(--text-2);line-height:1.45;width:100%;
+}
+.demo-alert-icon{font-size:16px;flex-shrink:0}
+.demo-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-d);font-size:11px;font-weight:700;letter-spacing:0.06em;
+  padding:11px 20px;border-radius:8px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--amber),var(--orange));
+  color:#000;animation:glow-pulse 3s ease-in-out infinite;
+  text-decoration:none;
+}
+.demo-timeline{display:flex;flex-direction:column;gap:0;width:100%}
+.demo-tl-item{
+  display:flex;align-items:flex-start;gap:12px;padding:8px 0;position:relative;
+}
+.demo-tl-item:not(:last-child)::after{
+  content:'';position:absolute;left:6px;top:22px;bottom:-8px;width:1px;
+  border-left:1px dashed rgba(255,255,255,0.12);
+}
+.demo-tl-dot{width:13px;height:13px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.dot-g{background:var(--emerald);box-shadow:0 0 8px var(--emerald)}
+.dot-y{background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.dot-r{background:var(--red);box-shadow:0 0 8px var(--red)}
+.demo-tl-text{font-family:var(--font-b);font-size:13px;color:var(--text-2);line-height:1.4}
+
+/* ===== VISUAL LANGUAGE ===== */
+.visual-lang-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;
+}
+.vl-card{
+  background:rgba(255,255,255,0.02);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px 18px;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.vl-icon{font-size:20px;flex-shrink:0}
+.vl-text{font-family:var(--font-b);font-size:14px;color:var(--text-2);line-height:1.5}
+
+/* ===== ANIMATIONS LIST ===== */
+.anim-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;
+}
+.anim-item{
+  background:rgba(255,255,255,0.02);border:1px solid var(--border);
+  border-radius:8px;padding:14px 16px;
+  display:flex;align-items:center;gap:10px;
+}
+.anim-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.anim-text{font-family:var(--font-b);font-size:14px;color:var(--text-2)}
+
+/* ===== RISK TABLE CUSTOM ===== */
+.risk-high td:nth-child(2){color:var(--amber) !important}
+.risk-crit td:nth-child(2){color:var(--red) !important}
+.risk-med td:nth-child(2){color:var(--blue) !important}
+
+/* ===== INLINE CODE ===== */
+code{
+  font-family:var(--font-m);font-size:13px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:4px;padding:1px 7px;color:var(--emerald);
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider{
+  height:1px;background:linear-gradient(90deg,transparent,var(--border) 30%,var(--border) 70%,transparent);
+  margin:0 0 72px;
+}
+
+/* ===== FOOTER ===== */
+.doc-footer{
+  padding-top:40px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+}
+.footer-brand{
+  font-family:var(--font-d);font-size:14px;font-weight:700;color:var(--text-2);
+  display:flex;align-items:center;gap:8px;text-decoration:none;
+}
+.footer-brand-dot{width:7px;height:7px;background:var(--emerald);border-radius:50%;animation:pulse-dot 2s ease-in-out infinite;box-shadow:0 0 6px var(--emerald)}
+.footer-meta{font-family:var(--font-m);font-size:11px;color:var(--text-3);letter-spacing:0.06em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:680px){
+  .page-wrap{padding:0 16px 80px}
+  .glass-card{padding:20px}
+  .toc-card{padding:20px}
+  .top-nav{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:40px}
+}
+</style>
+</head>
+<body>
+
+<div class="stars-bg"></div>
+<div class="aurora-bg">
+  <div class="aurora-a"></div>
+  <div class="aurora-b"></div>
+  <div class="aurora-c"></div>
+</div>
+
+<div class="page-wrap">
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <a href="https://mentalstab.com" class="back-link">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1L3 7L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      mentalstab.com
+    </a>
+    <div class="doc-meta">
+      <div class="doc-meta-dot"></div>
+      PRD v2.0 · 2026
+    </div>
+  </nav>
+
+  <!-- DOCUMENT HEADER -->
+  <header class="doc-header">
+    <div class="doc-eyebrow">Product Requirements Document</div>
+    <h1 class="doc-title">MentalStab <span>2.0</span></h1>
+    <p class="doc-subtitle">Mission Control для вайб-кодеров. Проактивный мониторинг ментального и физического состояния разработчиков, работающих с AI.</p>
+    <div class="doc-tags">
+      <span class="tag tag-amber">MVP Ready</span>
+      <span class="tag tag-emerald">First Mover</span>
+      <span class="tag tag-blue">v2 Roadmap</span>
+      <span class="tag">B2C · SaaS</span>
+      <span class="tag">Mental Health Tech</span>
+    </div>
+  </header>
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc-card">
+    <div class="toc-title">Содержание</div>
+    <ol class="toc-list">
+      <li><a href="#s1"><span class="toc-num">01</span> Позиционирование</a></li>
+      <li><a href="#s2"><span class="toc-num">02</span> Целевая аудитория</a></li>
+      <li><a href="#s3"><span class="toc-num">03</span> Конкурентный ландшафт</a></li>
+      <li><a href="#s4"><span class="toc-num">04</span> Функциональные требования</a></li>
+      <li><a href="#s5"><span class="toc-num">05</span> Тарифная сетка</a></li>
+      <li><a href="#s6"><span class="toc-num">06</span> Unit Economics</a></li>
+      <li><a href="#s7"><span class="toc-num">07</span> Фирменный стиль</a></li>
+      <li><a href="#s8"><span class="toc-num">08</span> Дизайн-система</a></li>
+      <li><a href="#s9"><span class="toc-num">09</span> Риски</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1: POSITIONING -->
+  <section class="doc-section" id="s1">
+    <span class="section-anchor" id="anchor-s1"></span>
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <h2 class="section-title">Позиционирование</h2>
+    </div>
+
+    <div class="positioning-grid">
+      <div class="pos-item">
+        <div class="pos-label">Tagline</div>
+        <div class="pos-value"><em>Mission Control</em> для вайб-кодеров</div>
+      </div>
+      <div class="pos-item">
+        <div class="pos-label">Миссия</div>
+        <div class="pos-value">Мы не дадим тебе сгореть</div>
+      </div>
+    </div>
+
+    <div class="metaphor-card">
+      <div class="metaphor-icon">🛰️</div>
+      <div class="metaphor-text">
+        <strong>Метафора:</strong> Как врачи в ЦУПе следят за космонавтами — так MentalStab следит за вайб-кодерами. Проактивный мониторинг ментального и физического состояния разработчиков, работающих с AI.
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 2: AUDIENCE -->
+  <section class="doc-section" id="s2">
+    <span class="section-anchor" id="anchor-s2"></span>
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title">Целевая аудитория</h2>
+    </div>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <div class="audience-card-title" style="color:var(--blue)">Кто это</div>
+        <ul class="audience-list list-blue">
+          <li>Вайб-кодеры (Claude Code, Cursor, Copilot)</li>
+          <li>IT-предприниматели, фаундеры, CTO</li>
+          <li>Возраст: 25–40 лет</li>
+          <li>Доход: 150K–450K ₽/мес</li>
+        </ul>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-title" style="color:var(--amber)">Боль</div>
+        <ul class="audience-list list-amber">
+          <li>Выгорание</li>
+          <li>Потеря сна</li>
+          <li>Тревожность и FOMO</li>
+          <li>Разрушение отношений</li>
+        </ul>
+      </div>
+      <div class="audience-card" style="grid-column:span 2">
+        <div class="audience-card-title" style="color:var(--emerald)">Мотивация</div>
+        <ul class="audience-list list-emerald" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:8px">
+          <li style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:6px;padding:6px 12px">Оставаться продуктивным</li>
+          <li style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:6px;padding:6px 12px">Не "сломаться" на дистанции</li>
+          <li style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:6px;padding:6px 12px">Понимать своё состояние</li>
+          <li style="background:rgba(16,185,129,0.06);border:1px solid rgba(16,185,129,0.18);border-radius:6px;padding:6px 12px">Сохранить отношения и здоровье</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 3: COMPETITIVE -->
+  <section class="doc-section" id="s3">
+    <span class="section-anchor" id="anchor-s3"></span>
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Конкурентный ландшафт</h2>
+    </div>
+
+    <div class="glass-card" style="margin-bottom:20px">
+      <p style="font-family:var(--font-b);font-size:15px;color:var(--text-2);line-height:1.65">
+        <strong style="color:var(--emerald);font-family:var(--font-m)">Прямых конкурентов: 0.</strong>&nbsp; MentalStab — first mover в нише "проактивный мониторинг ментального здоровья IT-специалистов". Никто не занимает квадрант High-touch + Tech-specific.
+      </p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Квадрант</th>
+            <th>Продукты</th>
+            <th>Слабость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="first-mover-row">
+            <td>High-touch + Tech-specific</td>
+            <td><span class="badge badge-green">ПУСТО — мы здесь</span></td>
+            <td style="color:var(--text-3)">—</td>
+          </tr>
+          <tr>
+            <td>High-touch + General</td>
+            <td>Yasno, BetterHelp</td>
+            <td>Реактивная модель</td>
+          </tr>
+          <tr>
+            <td>Low-touch + General</td>
+            <td>Calm, Headspace, Wysa</td>
+            <td>Нет человека, нет мониторинга</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 4: FUNCTIONAL REQUIREMENTS -->
+  <section class="doc-section" id="s4">
+    <span class="section-anchor" id="anchor-s4"></span>
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Функциональные требования</h2>
+    </div>
+
+    <!-- 4.1 -->
+    <div class="subsection">
+      <div class="subsection-title">
+        4.1 Ежедневные чекины
+        <span class="badge badge-green" style="margin-left:4px">MVP</span>
+      </div>
+      <ul class="body-list">
+        <li>Telegram-бот спрашивает: настроение, сон, энергия, стресс <code>1–5</code></li>
+        <li>Свободное поле: <em style="color:var(--text-2)">"что произошло?"</em></li>
+        <li>AI-анализ паттернов — скользящее среднее <code>7 дней</code></li>
+      </ul>
+    </div>
+
+    <!-- 4.2 -->
+    <div class="subsection">
+      <div class="subsection-title">
+        4.2 Интеграция трекеров
+        <span class="badge badge-blue" style="margin-left:4px">v2</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Трекер</th>
+              <th>Интеграция</th>
+              <th>Стоимость</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oura Ring</td>
+              <td>REST API v2, OAuth, webhooks</td>
+              <td class="highlight-emerald mono">$0</td>
+            </tr>
+            <tr>
+              <td>Apple Watch</td>
+              <td>Health Auto Export</td>
+              <td class="highlight-emerald mono">$0</td>
+            </tr>
+            <tr>
+              <td>Terra API</td>
+              <td>При 50+ юзерах</td>
+              <td class="mono" style="color:var(--amber)">$399/мес</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:14px;font-family:var(--font-m);font-size:12px;color:var(--text-3);letter-spacing:0.04em">
+        Метрики: HRV, сон (стадии), ЧСС покоя, активность
+      </div>
+    </div>
+
+    <!-- 4.3 -->
+    <div class="subsection">
+      <div class="subsection-title">
+        4.3 Мониторинг Telegram-активности
+        <span class="badge badge-blue" style="margin-left:4px">v2</span>
+      </div>
+      <ul class="body-list">
+        <li>Telethon: online-статус пользователя</li>
+        <li>Детекция ночной активности (после <code>01:00</code>)</li>
+        <li>Корреляция с данными трекера</li>
+      </ul>
+    </div>
+
+    <!-- 4.4 -->
+    <div class="subsection">
+      <div class="subsection-title">
+        4.4 Эскалация интервенций
+        <span class="badge badge-yellow" style="margin-left:4px">Ключевая фича</span>
+      </div>
+      <div class="escalation-steps">
+        <div class="esc-step">
+          <div class="esc-num esc-num-1">1</div>
+          <div class="esc-content">
+            <div class="esc-title">Бот</div>
+            <div class="esc-desc">Мягкое уведомление в Telegram</div>
+            <div class="esc-detail">Триггер: 3+ дня ухудшения метрик</div>
+          </div>
+        </div>
+        <div class="esc-step">
+          <div class="esc-num esc-num-2">2</div>
+          <div class="esc-content">
+            <div class="esc-title">IVR</div>
+            <div class="esc-desc">Автоматический голосовой звонок</div>
+            <div class="esc-detail">Voximplant · ~$0.02/звонок · red flag порог</div>
+          </div>
+        </div>
+        <div class="esc-step">
+          <div class="esc-num esc-num-3">3</div>
+          <div class="esc-content">
+            <div class="esc-title">Живой звонок</div>
+            <div class="esc-desc">Екатерина или ассистент</div>
+            <div class="esc-detail">Co-Pilot и Mission Control тарифы</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4.5 -->
+    <div class="subsection">
+      <div class="subsection-title">4.5 Консультации с психологом</div>
+      <ul class="body-list">
+        <li>Разовые сессии через Tribute — <strong>7 500 ₽</strong></li>
+        <li>Включённые в подписку: Co-Pilot <strong>2/мес</strong>, Mission Control <strong>до 4/мес</strong></li>
+        <li>IFS-подход, <strong>60 минут</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 5: PRICING -->
+  <section class="doc-section" id="s5">
+    <span class="section-anchor" id="anchor-s5"></span>
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Тарифная сетка</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-tier">Тир 1</div>
+        <div class="pricing-name">Autopilot</div>
+        <div class="pricing-price">
+          <span class="price-amount">4 900</span>
+          <span class="price-period">₽/мес</span>
+        </div>
+        <div class="price-annual">49 000 ₽/год (10 мес)</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-includes">Чекины, трекер, AI-анализ, алерты в боте</div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-tier">Тир 2</div>
+        <div class="pricing-name">Co-Pilot</div>
+        <div class="pricing-price">
+          <span class="price-amount">14 900</span>
+          <span class="price-period">₽/мес</span>
+        </div>
+        <div class="price-annual">149 000 ₽/год</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-includes">+ 2 сессии с Екатериной, IVR при red flags</div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Тир 3</div>
+        <div class="pricing-name">Mission Control</div>
+        <div class="pricing-price">
+          <span class="price-amount">39 900</span>
+          <span class="price-period">₽/мес</span>
+        </div>
+        <div class="price-annual">399 000 ₽/год</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-includes">+ до 4 сессий, полный мониторинг, ретриты</div>
+      </div>
+    </div>
+
+    <div class="pricing-card-single">
+      <div>
+        <div class="single-label">Разовая сессия с Екатериной</div>
+        <div style="font-family:var(--font-m);font-size:11px;color:var(--text-3);margin-top:3px">60 минут · IFS-подход · через Tribute</div>
+      </div>
+      <div class="single-price">7 500 ₽</div>
+    </div>
+
+    <div class="promo-note">
+      <strong>Промо:</strong> первый месяц <strong>-50%</strong> на любом тире. Первые 50 клиентов = founding member (<strong>-20% навсегда</strong>).
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 6: UNIT ECONOMICS -->
+  <section class="doc-section" id="s6">
+    <span class="section-anchor" id="anchor-s6"></span>
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title">Unit Economics</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Метрика</th>
+            <th>Autopilot</th>
+            <th>Co-Pilot</th>
+            <th>Mission Control</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Выручка/мес</td>
+            <td class="mono">4 900 ₽</td>
+            <td class="mono">14 900 ₽</td>
+            <td class="mono">39 900 ₽</td>
+          </tr>
+          <tr>
+            <td>COGS психолог</td>
+            <td class="mono highlight-emerald">0</td>
+            <td class="mono">10 000 ₽</td>
+            <td class="mono">20 000 ₽</td>
+          </tr>
+          <tr>
+            <td>COGS инфра</td>
+            <td class="mono">700 ₽</td>
+            <td class="mono">1 000 ₽</td>
+            <td class="mono">2 000 ₽</td>
+          </tr>
+          <tr>
+            <td>Gross Profit</td>
+            <td class="mono highlight-emerald">4 200 ₽</td>
+            <td class="mono highlight-amber">3 900 ₽</td>
+            <td class="mono highlight-emerald">17 900 ₽</td>
+          </tr>
+          <tr>
+            <td>Gross Margin</td>
+            <td class="mono highlight-emerald">86%</td>
+            <td class="mono highlight-amber">26%</td>
+            <td class="mono highlight-emerald">45%</td>
+          </tr>
+          <tr>
+            <td>LTV (8 мес)</td>
+            <td class="mono">33 600 ₽</td>
+            <td class="mono">31 200 ₽</td>
+            <td class="mono highlight-emerald">143 200 ₽</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="bottleneck-note">
+      <strong>Bottleneck:</strong> пропускная способность Екатерины — 25 клиентских часов/нед. Масштабирование: ассоциированные психологи.
+    </div>
+
+    <div class="scenario-card">
+      Реалистичный сценарий (год 1): 30 Autopilot + 15 Co-Pilot + 5 Mission Control
+      <span class="big-number">569 500 ₽ MRR = 6.8 млн ₽ ARR</span>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 7: BRAND -->
+  <section class="doc-section" id="s7">
+    <span class="section-anchor" id="anchor-s7"></span>
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2 class="section-title">Фирменный стиль</h2>
+    </div>
+
+    <!-- Palette -->
+    <div class="subsection-title">Палитра</div>
+    <div class="palette-grid" style="margin-bottom:32px">
+      <div class="swatch">
+        <div class="swatch-color" style="background:linear-gradient(135deg,#0a0a12,#0f0f1a)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Deep Space</div>
+          <div class="swatch-hex">#0a0a12 · #0f0f1a</div>
+          <div class="swatch-desc">Фон</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:linear-gradient(135deg,#f59e0b,#f97316)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Amber / Fire</div>
+          <div class="swatch-hex">#f59e0b · #f97316</div>
+          <div class="swatch-desc">Энергия, предупреждения</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#10b981"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Emerald</div>
+          <div class="swatch-hex">#10b981</div>
+          <div class="swatch-desc">Здоровье, норма</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3b82f6"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Electric Blue</div>
+          <div class="swatch-hex">#3b82f6</div>
+          <div class="swatch-desc">Данные, мониторинг</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ef4444"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Danger Red</div>
+          <div class="swatch-hex">#ef4444</div>
+          <div class="swatch-desc">Критические алерты</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:linear-gradient(135deg,#eeeaf0,#9a978f)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Off-white</div>
+          <div class="swatch-hex">#f0ede6 · #9a978f</div>
+          <div class="swatch-desc">Текст основной / muted</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="subsection-title" style="margin-top:8px">Типографика</div>
+    <div class="type-row" style="margin-bottom:32px">
+      <div class="type-card">
+        <div class="type-label">Display</div>
+        <div class="type-sample-d">Unbounded</div>
+        <div class="type-desc">Заголовки, hero-секции, числа</div>
+      </div>
+      <div class="type-card">
+        <div class="type-label">Body</div>
+        <div class="type-sample-b">Onest — читаемый и современный. Для всего текста и UI-элементов.</div>
+        <div class="type-desc">Основной шрифт контента</div>
+      </div>
+      <div class="type-card">
+        <div class="type-label">Mono</div>
+        <div class="type-sample-m">JetBrains<br>Mono 4.2.1</div>
+        <div class="type-desc">Метрики, данные, код, лейблы</div>
+      </div>
+    </div>
+
+    <!-- Visual language -->
+    <div class="subsection-title">Визуальный язык</div>
+    <div class="visual-lang-grid">
+      <div class="vl-card">
+        <div class="vl-icon">🌌</div>
+        <div class="vl-text">Космические градиенты, звёзды, частицы</div>
+      </div>
+      <div class="vl-card">
+        <div class="vl-icon">📡</div>
+        <div class="vl-text">Dashboard-стиль как в ЦУП: графики, метрики, статусы</div>
+      </div>
+      <div class="vl-card">
+        <div class="vl-icon">✨</div>
+        <div class="vl-text">Glow-эффекты на интерактивных элементах</div>
+      </div>
+      <div class="vl-card">
+        <div class="vl-icon">🔥</div>
+        <div class="vl-text">Огонь контролируемый, не хаотичный — "мы не дадим тебе сгореть"</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 8: DESIGN SYSTEM -->
+  <section class="doc-section" id="s8">
+    <span class="section-anchor" id="anchor-s8"></span>
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <h2 class="section-title">Дизайн-система</h2>
+    </div>
+
+    <!-- Components -->
+    <div class="subsection-title">Компоненты</div>
+    <div class="components-grid" style="margin-bottom:32px">
+
+      <div class="comp-card">
+        <div class="comp-label">Status Badge</div>
+        <div class="comp-demo">
+          <span class="demo-badge-g">NORMAL</span>
+          <span class="demo-badge-y">WARNING</span>
+          <span class="demo-badge-r">CRITICAL</span>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-label">Metric Card</div>
+        <div class="comp-demo">
+          <div class="demo-metric">
+            <div class="demo-metric-val">4.2</div>
+            <div class="demo-metric-label">HRV Score</div>
+            <div class="demo-metric-trend">+0.3 vs вчера</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-label">Alert Card</div>
+        <div class="comp-demo">
+          <div class="demo-alert">
+            <span class="demo-alert-icon">⚠️</span>
+            Ночная активность после 01:00 — 3-я ночь подряд
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-label">CTA Button</div>
+        <div class="comp-demo">
+          <a class="demo-cta" href="#">НАЧАТЬ</a>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-label">Timeline</div>
+        <div class="comp-demo">
+          <div class="demo-timeline">
+            <div class="demo-tl-item">
+              <div class="demo-tl-dot dot-g"></div>
+              <div class="demo-tl-text">Чекин выполнен · 09:14</div>
+            </div>
+            <div class="demo-tl-item">
+              <div class="demo-tl-dot dot-y"></div>
+              <div class="demo-tl-text">Алерт: сон &lt; 6ч · 10:00</div>
+            </div>
+            <div class="demo-tl-item">
+              <div class="demo-tl-dot dot-r"></div>
+              <div class="demo-tl-text">IVR звонок инициирован</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <div class="comp-label">Pricing Card</div>
+        <div class="comp-demo">
+          <div style="background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.25);border-radius:10px;padding:14px 16px;width:100%">
+            <div style="font-family:var(--font-m);font-size:10px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">Co-Pilot</div>
+            <div style="font-family:var(--font-m);font-size:20px;font-weight:700;color:var(--amber)">14 900 ₽</div>
+            <div style="font-family:var(--font-b);font-size:12px;color:var(--text-3);margin-top:2px">в месяц</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Animations -->
+    <div class="subsection-title">Анимации</div>
+    <div class="anim-grid">
+      <div class="anim-item"><div class="anim-dot" style="animation:pulse-dot 2s ease-in-out infinite"></div><div class="anim-text">Scroll-driven fade-in + translate</div></div>
+      <div class="anim-item"><div class="anim-dot" style="background:var(--blue);animation:pulse-dot 2.5s ease-in-out infinite 0.3s"></div><div class="anim-text">Particle background (CSS-only)</div></div>
+      <div class="anim-item"><div class="anim-dot" style="animation:glow-pulse 3s ease-in-out infinite"></div><div class="anim-text">Pulse glow на CTA</div></div>
+      <div class="anim-item"><div class="anim-dot" style="background:var(--emerald);animation:pulse-dot 1.5s ease-in-out infinite 0.6s"></div><div class="anim-text">Count-up для цифр статистики</div></div>
+      <div class="anim-item"><div class="anim-dot" style="background:var(--orange);animation:pulse-dot 2s ease-in-out infinite 0.9s"></div><div class="anim-text">Typing effect для hero tagline</div></div>
+      <div class="anim-item"><div class="anim-dot" style="background:var(--red);animation:pulse-dot 1s ease-in-out infinite"></div><div class="anim-text">Heartbeat line animation (SVG)</div></div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SECTION 9: RISKS -->
+  <section class="doc-section" id="s9">
+    <span class="section-anchor" id="anchor-s9"></span>
+    <div class="section-header">
+      <div class="section-num">09</div>
+      <h2 class="section-title">Риски</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Риск</th>
+            <th>Уровень</th>
+            <th>Митигация</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="risk-high">
+            <td>152-ФЗ health data</td>
+            <td><span class="badge badge-yellow">Высокий</span></td>
+            <td>Хранить в РФ (Selectel)</td>
+          </tr>
+          <tr class="risk-high">
+            <td>Retention</td>
+            <td><span class="badge badge-yellow">Высокий</span></td>
+            <td>Human touch + эскалация = не app</td>
+          </tr>
+          <tr class="risk-crit">
+            <td>Масштаб Кати</td>
+            <td><span class="badge badge-red">Критический</span></td>
+            <td>План: ассоциированные психологи</td>
+          </tr>
+          <tr class="risk-med">
+            <td>Стигма "за мной следят"</td>
+            <td><span class="badge badge-blue">Средний</span></td>
+            <td>Opt-in, прозрачность, контроль пользователя</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <a href="https://mentalstab.com" class="footer-brand">
+      <div class="footer-brand-dot"></div>
+      MentalStab
+    </a>
+    <div class="footer-meta">PRD v2.0 · 2026 · Confidential</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
